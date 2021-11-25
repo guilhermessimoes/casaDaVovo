@@ -10,6 +10,10 @@ var loginRouter = require('./routes/login');
 var adminRouter = require('./routes/admin');
 var pagamentoRouter = require('./routes/pagamento');
 var carrinhoCompraRouter = require('./routes/carrinhoCompra');
+var hotelRouter = require('./routes/hotel');
+var passeioRouter = require('./routes/passeio');
+var restauranteRouter = require('./routes/restaurante');
+var transladoRouter = require('./routes/translado');
 
 var app = express();
 
@@ -29,6 +33,10 @@ app.use('/login', loginRouter);
 app.use('/admin', adminRouter);
 app.use('/pagamento', pagamentoRouter);
 app.use('/carrinhoCompra', carrinhoCompraRouter);
+app.use('/hotel', hotelRouter);
+app.use('/passeio', passeioRouter);
+app.use('/restaurante', restauranteRouter);
+app.use('/translado', transladoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

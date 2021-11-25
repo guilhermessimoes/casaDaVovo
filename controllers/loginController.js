@@ -4,7 +4,7 @@ const db = require('../models')
 
 const loginController = {
     viewCadastrarUsuario: async(req,res)=>{
-        res.render('registrar', {formAction:"/login/registrar", usuario:{}})
+        res.render('registrarUsuario', {formAction:"/login/registrarUsuario", usuario:{}})
     },
 
     acaoCadastrarUsuario: async(req,res) =>{
