@@ -9,6 +9,7 @@
 </section>
 <!-- End section -->
 
+
 <main>
     <div id="position">
         <div class="container">
@@ -27,6 +28,7 @@
 
         <div class="row">
             <aside class="col-lg-3">
+                
 
                 <div id="filters_col">
                     <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>Filters</a>
@@ -120,18 +122,18 @@
                         <div class="col-md-3 col-sm-4 col-6">
                             <div class="styled-select-filters">
                                 <select name="sort_price" id="sort_price">
-                                    <option value="" selected>Sort by price</option>
-                                    <option value="lower">Lowest price</option>
-                                    <option value="higher">Highest price</option>
+                                    <option value="" selected>Ordernar por</option>
+                                    <option value="lower">Menor preço</option>
+                                    <option value="higher">Maior preço</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4 col-6">
                             <div class="styled-select-filters">
                                 <select name="sort_rating" id="sort_rating">
-                                    <option value="" selected>Sort by ranking</option>
-                                    <option value="lower">Lowest ranking</option>
-                                    <option value="higher">Highest ranking</option>
+                                    <option value="" selected>Ordernar por</option>
+                                    <option value="lower">menor avaliação</option>
+                                    <option value="higher">maior avaliação</option>
                                 </select>
                             </div>
                         </div>
@@ -142,6 +144,7 @@
                     </div>
                 </div>
                 <!--/tools -->
+                <a type="button" class="btn btn-primary btn-sm right" href="cadastrarTranslado" >Cadastrar</a>
                 <% for(let i=0; i < translados.length; i++){ %>
                     <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                         <div class="row">
@@ -152,7 +155,7 @@
                                     <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                                 </div>
                                 <div class="img_list">
-                                    <a href="single_transfer.html"><img src="../images/img/transfer_2.jpg" alt="Image">
+                                    <a href="single_transfer.html"><img src="/data/uploads/<%= translados[i].imagem %>" alt="Image">
                                         <div class="short_info"></div>
                                     </a>
                                 </div>
@@ -161,7 +164,7 @@
                                 <div class="tour_list_desc">
                                     <div class="rating"><i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>
                                     </div>
-                                    <h3><strong><%= translados[i].titulo %></strong> Compartilhado</h3>
+                                    <h3><strong><%= translados[i].titulo %></strong></h3>
                                     <p><%= translados[i].descricao %></p>
                                     <ul class="add_info">
                                         <li>
@@ -210,13 +213,17 @@
                             </div>
                             <div class="col-lg-2 col-md-2">
                                 <div class="price_list">
-                                    <div><sup>R$</sup><%= translados[i].precoPromocionalTranslado %><span class="normal_price_list">R$ <%= translados[i].precoOriginalTranslado %></span><small>*From/Per person</small>
-                                        <p><a href="single_transfer.html" class="btn_1">Detalhes</a>
+                                    <div><sup>R$</sup><%= translados[i].preco_promocional %><span class="normal_price_list">R$ <%= translados[i].preco_original %></span><small>*Por Pessoa</small>
+                                        <p><a href="single_transfer.html" class="btn_1">Detalhes</a>                                           
                                         </p>
-                                    </div>
-
+                                        <span>
+                                            <a href="alterar/<%= translados[i].id %>" class="btn"><i class="the-icons icon-edit-1"></i></a>
+                                            <a href="excluir/<%= translados[i].id %>" class="btn"><i class="the-icons icon-trash-2"></i></a>                                     
+                                        </span>
+                                    </div>                                                           
                                 </div>
-                            </div>
+                                
+                            </div>                            
                         </div>
                     </div>
                 <% } %>
@@ -232,7 +239,7 @@
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Anterior</span>
                             </a>
                         </li>
                         <li class="page-item active"><span class="page-link">1<span class="sr-only">(current)</span></span>
@@ -242,7 +249,7 @@
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Próximo</span>
                             </a>
                         </li>
                     </ul>

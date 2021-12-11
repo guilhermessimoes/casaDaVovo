@@ -5,7 +5,7 @@ const path = require('path')
 const multer  = require('multer')
 const storage = multer.diskStorage({
     destination: (req, res, cb) =>{
-        cb(null, "./public/data/uploads")
+        cb(null, "public/data/uploads")
     },
     filename:  (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname))
@@ -15,9 +15,16 @@ const upload = multer({ storage: storage })
 
 
 
+router.get('/listagemTranslado', transladoController.listagemTranslado)
+
 router.get('/cadastrarTranslado', transladoController.viewCadastrarTranslado)
 router.post('/cadastrarTranslado', upload.single('imagemTranslado'), transladoController.acaoCadastrarTranslado)
-router.get('/listagemTranslado', transladoController.listagemTranslado)
+
+router.get('/alterar/:id', transladoController.editar)
+router.post('/alterar/:id', upload.single('imagemTranslado'), transladoController.acaoEditar)
+
+router.get('/excluir/:id', transladoController.excluir)
+
 
 
 module.exports = router;

@@ -9,19 +9,19 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      transportaPet:{
+      transporta_pet:{
         type: Sequelize.STRING,
         allowNull: false
       },
-      acessivelDeficiente:{
+      acessivel_deficiente:{
        type: Sequelize.STRING,
        allowNull: false
       },
-      levarBagagens:{
+      levar_bagagens:{
        type: Sequelize.STRING,
        allowNull: false
       },
-      recolheHotel:{
+      recolhe_hotel:{
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -29,19 +29,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      imagemTranslado:{
+      preco_promocional:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      preco_original:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      titulo:{
         type: Sequelize.STRING,
         allowNull: false
       },
-      precoPromocionalTranslado:{
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      precoOriginalTranslado:{
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      tituloTranslado:{
+      imagem:{
         type: Sequelize.STRING,
         allowNull: false
       },

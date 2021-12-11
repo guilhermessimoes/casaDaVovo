@@ -24,20 +24,35 @@ const transladoController = {
         const transladoTitulo = req.body.tituloTranslado
 
         await db.Translado.create({
-            transportaPet: transladoPet,
-            acessivelDeficiente: transladoDeficiente,
-            levarBagagens: transladoBagagens,
-            recolheHotel: transladoRecolhe,
+            transporta_pet: transladoPet,
+            acessivel_deficiente: transladoDeficiente,
+            levar_bagagens: transladoBagagens,
+            recolhe_hotel: transladoRecolhe,
             descricao: transladoDescricao,
-            imagemTranslado: transladoImagem,
-            precoOriginalTranslado: transladoPrecoOriginal,
-            precoPromocionalTranslado: transladoPrecoPromocional,
-            tituloTranslado: transladoTitulo
+            imagem: transladoImagem,
+            preco_original: transladoPrecoOriginal,
+            preco_promocional: transladoPrecoPromocional,
+            titulo: transladoTitulo
         })
 
         //await req.flash('success', "Registro criado com sucesso")
 
         res.redirect("/translado/listagemTranslado")   
+    },
+
+    
+    editar: async (req, res)=> {
+        const transladoEncontrato = await db.Translado.findByPk(req.params.id);
+
+       // transladoEncontrato.dataFormatada = `${transladoEncontrato.data_nascimento.getFullYear()}-${('0' + transladoEncontrato.data_nascimento.getMonth() + 1).slice(-2)}-${('0' + (transladoEncontrato.data_nascimento.getDate())).slice(-2)}`;
+        console.log(transladoEncontrato);
+
+        res.render("cadastrarTranslado", {
+            formAction:`/alterar/${req.params.id}`,
+            buttonMessage: "Salvar",
+            translado: transladoEncontrato
+        });
+
     },
 
     acaoEditar: async (req,res) =>{
@@ -51,14 +66,17 @@ const transladoController = {
             buttonMessage: "Salvar", translado: transladoEncontrado})
             return            
         }
+        
 
         const transladoObj = { 
-            transportaPet: transladoPet,
-            acessivelDeficiente: transladoDeficiente,
-            levarBagagens: transladoBagagens,
-            recolheHotel: transladoRecolhe,
-            descricao: transladoDescricao,
-            filename: transladoImagem
+            transladoPet: req.body.transportaPet,
+            transladoDeficiente: req.body.acessivelDeficiente,
+            transladoBagagens: req.body.levarBagagens,
+            transladoRecolhe: req.body.recolheHotel,
+            transladoDescricao: req.body.descricao,
+            transladoPrecoOriginal: req.body.precoOriginalTranslado,
+            transladoPrecoPromocional: req.body.precoPromocionalTranslado,
+            transladoTitulo: req.body.tituloTranslado
         }
 
         await db.Translado.update(transladoObj, {where: {id: req.params.id}})
@@ -71,9 +89,9 @@ const transladoController = {
     excluir: async (req, res)=> {
         const idTranslado = req.params.id;
         
-        await req.flash('success', "Registro excluido com sucesso")
+        //await req.flash('success', "Registro excluido com sucesso")
         await db.Translado.destroy({where: {id: idTranslado}})
-        res.redirect("/")
+        res.redirect("/translado/listagemTranslado")
     }
 }
 

@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
     const Translado = sequelize.define("Translado", {
-        transportaPet: DataTypes.STRING(10),
-        acessivelDeficiente: DataTypes.STRING(10),
-        levarBagagens: DataTypes.STRING(10),
-        recolheHotel: DataTypes.STRING(10),
-        precoOriginalTranslado: DataTypes.INTEGER,
-        precoPromocionalTranslado: DataTypes.INTEGER,
-        tituloTranslado: DataTypes.STRING(200),
+        transporta_pet: DataTypes.STRING(10),
+        acessivel_deficiente: DataTypes.STRING(10),
+        levar_bagagens: DataTypes.STRING(10),
+        recolhe_hotel: DataTypes.STRING(10),
+        preco_original: DataTypes.INTEGER,
+        preco_promocional: DataTypes.INTEGER,
+        titulo: DataTypes.STRING(200),
         descricao: DataTypes.STRING(10),
-        imagemTranslado: DataTypes.STRING(10)
+        imagem: DataTypes.STRING(10)
     }, {
         tableName: "translados",
         timestamps: true,

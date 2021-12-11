@@ -54,7 +54,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label>Titulo</label>
-									<input id="tituloTranslado" type="text" class="form-control" name="tituloTranslado">
+									<input id="tituloTranslado" type="text" class="form-control" name="tituloTranslado" value="<%= translado.titulo %>">
 								</div>
 							</div>
 						</div>
@@ -65,8 +65,8 @@
 									<label>Pode transporta pets?</label>
 									<select id="transportaPet" class="form-control" name="transportaPet">
 										<option value="">Selecione...</option>
-                                        <option value="sim">Sim</option>
-                                        <option value="nao">Não</option>
+                                        <option <%= (translado.transporta_pet == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
+                                        <option <%= (translado.transporta_pet == "nao")?'selected="selected"':'' %> value="nao">Não</option>
 									</select>
 								</div>
 							</div>
@@ -75,8 +75,8 @@
 									<label>É acessivel para deficientes?</label>
 									<select id="acessivelDeficiente" class="form-control" name="acessivelDeficiente">
 										<option value="">Selecione...</option>
-                                        <option value="sim">Sim</option>
-                                        <option value="nao">Não</option>
+                                        <option <%= (translado.acessivel_deficiente == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
+                                        <option <%= (translado.acessivel_deficiente == "nao")?'selected="selected"':'' %> value="nao">Não</option>
 									</select>
 								</div>
 							</div>
@@ -88,10 +88,10 @@
 									<label>Pode levar bagagens?</label>
 									<select id="levarBagagens" class="form-control" name="levarBagagens">
 										<option value="">Selecione...</option>
-                                        <option value="Pequena">Pequena</option>
-                                        <option value="Média">Média</option>
-                                        <option value="Grande">Grande</option>
-                                        <option value="Nenhuma">Nenhuma</option>
+                                        <option <%= (translado.levar_bagagens == "pequena")?'selected="selected"':'' %> value="pequena">Pequena</option>
+                                        <option <%= (translado.levar_bagagens == "media")?'selected="selected"':'' %> value="media">Média</option>
+                                        <option <%= (translado.levar_bagagens == "grande")?'selected="selected"':'' %> value="grande">Grande</option>
+                                        <option <%= (translado.levar_bagagens == "nenhuma")?'selected="selected"':'' %> value="nenhuma">Nenhuma</option>
 									</select>
 								</div>
 							</div>  
@@ -100,8 +100,8 @@
 									<label>Recolhe no hotel?</label>
 									<select id="recolheHotel" class="form-control" name="recolheHotel">
 										<option value="">Selecione...</option>
-                                        <option value="Sim">Sim</option>
-                                        <option value="Não">Não</option>
+                                        <option <%= (translado.recolhe_hotel == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
+                                        <option <%= (translado.recolhe_hotel == "nao")?'selected="selected"':'' %> value="nao">Não</option>
 									</select>
 								</div>
 							</div>
@@ -111,13 +111,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Preço Original</label>
-									<input id="precoOriginalTranslado" type="text" class="form-control" name="precoOriginalTranslado">
+									<input value="<%= translado.preco_original %>" id="precoOriginalTranslado" type="text" class="form-control" name="precoOriginalTranslado">
 								</div>
 							</div>  
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Preço Promocional</label>
-									<input id="precoPromocionalTranslado" type="text" class="form-control" name="precoPromocionalTranslado">
+									<input value="<%= translado.preco_promocional %>" id="precoPromocionalTranslado" type="text" class="form-control" name="precoPromocionalTranslado">
 								</div>
 							</div>
 						</div>
@@ -129,7 +129,7 @@
 							</div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea rows="5" id="descricao" name="descricao" class="form-control" placeholder="Faça aqui a descrição" style="height:200px;"></textarea>
+                                    <textarea rows="5" id="descricao" name="descricao" class="form-control" placeholder="Faça aqui a descrição" style="height:200px;"><%= translado.descricao %></textarea>
                                 </div>
                             </div>				
 						</div>
@@ -143,8 +143,8 @@
 						</div>						
 							<!-- End Hidden on mobiles -->
                         <hr>
-                        <a href="/translado/listagemTranslado" class="btn_1 green"> Voltar</a>
-                        <button type="submit" class="btn_1 blue">Cadastrar</button>
+                        <a href="../listagemTranslado" class="btn_1 green"> Voltar</a>
+                        <button type="submit" class="btn_1 blue">Salvar</button>
                     </form>
 				</section>
 				<!-- End section 4 -->
