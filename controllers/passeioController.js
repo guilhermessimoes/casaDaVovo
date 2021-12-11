@@ -3,22 +3,90 @@ const db = require('../models')
 
 const passeioController = {
     listagemPasseio: async(req,res)=>{
-        res.render('listagemPasseio', {formAction:"/listagemPasseio", usuario:{}})
+        const cadastroPasseioRows = await db.Passeio.findAll();   
+       // const messages = await req.consumeFlash('success')
+        res.render('listagemPasseio', {passeios: cadastroPasseioRows})
     },
 
     viewCadastrarPasseio: async(req,res)=>{
-        res.render('cadastrarPasseio', {formAction:"/cadastrarPasseio", usuario:{}})
+        res.render('cadastrarPasseio', {formAction:"cadastrarPasseio", passeio:{}})
     },
 
     acaoCadastrarPasseio: async(req,res) =>{
-        const nomeUsuario = req.body.nome;
-        const emailUsuario = req.body.email;
-    
-        await db.Usuario.create({
-            nome: nomeUsuario,
-            email: emailUsuario
+        const passeioTitulo = req.body.passeio_titulo
+        const passeioDescricao = req.body.passeio_descricao
+        const passeioLugar = req.body.passeio_lugar
+        const passeioRua = req.body.passeio_rua
+        const passeioCidade = req.body.passeio_cidade
+        const passeioEstado = req.body.passeio_estado
+        const passeioCep = req.body.passeio_cep
+        const passeioData = req.body.passeio_data
+        const passeioHorario = req.body.passeio_horario
+        const passeioValor = req.body.passeio_valor
+        const passeioImagem = req.file.filename
+        const passeioPrecoPromocional = req.body.passeio_preco_promocional
+        
+        await db.Passeio.create({
+            passeio_titulo: passeioTitulo,
+            passeio_descricao: passeioDescricao,
+            passeio_lugar: passeioLugar,
+            passeio_rua: passeioRua,
+            passeio_cidade: passeioCidade,
+            passeio_estado: passeioEstado,
+            passeio_cep: passeioCep,
+            passeio_data: passeioData,
+            passeio_horario: passeioHorario,
+            passeio_valor: passeioValor,
+            passeio_imagem: passeioImagem,
+            passeio_preco_promocional: passeioPrecoPromocional,
+            
         })
-        res.redirect("/listagemPasseio")     
+
+        //await req.flash('success', "Registro criado com sucesso")
+
+        res.redirect("/passeio/listagemPasseio")   
+    },
+
+    acaoEditar: async (req,res) =>{
+        let listaDeErros = validationResult(req)
+        if(!listaDeErros.isEmpty()){
+            const passeioEncontrado = await db.Passeio.findByPk(req.params.id);          
+            const alert = listaDeErros.array()
+            console.log(alert)
+
+            res.render("cadastrarPasseio", {alert: alert, formAction:`/alterar/${req.params.id}`,
+            buttonMessage: "Salvar", passeio: passeioEncontrado})
+            return            
+        }
+
+        const passeioObj = { 
+            passeio_titulo: passeioTitulo,
+            passeio_descricao: passeioDescricao,
+            passeio_lugar: passeioLugar,
+            passeio_rua: passeioRua,
+            passeio_cidade: passeioCidade,
+            passeio_estado: passeioEstado,
+            passeio_cep: passeioCep,
+            passeio_data: passeioData,
+            passeio_horario: passeioHorario,
+            passeio_valor: passeioValor,
+            passeio_imagem: passeioImagem,
+            passeio_preco_promocional: passeioPrecoPromocional,
+        }
+
+        await db.Passeio.update(passeioObj, {where: {id: req.params.id}})
+
+        //await req.flash('success', "Registro editado com sucesso")
+
+        res.redirect("/")
+    },
+
+    excluir: async (req, res)=> {
+        const idPasseio = req.params.id;
+        
+        await req.flash('success', "Registro excluido com sucesso")
+        await db.Passeio.destroy({where: {id: idPasseio}})
+        res.redirect("/")
     }
 }
 

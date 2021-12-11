@@ -1,0 +1,169 @@
+<%- include("./partials/header") %> 
+<link href="stylesheets/css/admin.css" rel="stylesheet">
+<div id="preloader">
+	<div class="sk-spinner sk-spinner-wave">
+		<div class="sk-rect1"></div>
+		<div class="sk-rect2"></div>
+		<div class="sk-rect3"></div>
+		<div class="sk-rect4"></div>
+		<div class="sk-rect5"></div>
+	</div>
+</div>
+<!-- End Preload -->
+
+<div class="layer"></div>
+<!-- Mobile menu overlay mask -->
+
+<section class="parallax-window" data-parallax="scroll" data-image-src="images/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
+	<div class="parallax-content-1">
+		<div class="animated fadeInDown">
+			<h1>Cadastro de Passeios</h1>
+			<p>Cadastre aqui o seu Passeio.</p>
+		</div>
+	</div>
+</section>
+<!-- End section -->
+
+<main style="margin-bottom: 355px; ">
+	<div id="position" class="">
+		<div class="container">
+			<ul>
+				<li><a href="#">Home</a>
+				</li>
+				<li><a href="#">Categoria</a>
+				</li>
+				<li>Page active</li>
+			</ul>
+		</div>
+	</div>
+	<!-- End Position -->
+
+	<div class="margin_60 container ">
+		<div id="" class="card" style="padding: 50px;"> 	
+			<div class="content">		
+				<section id="section-4" class="content-current">
+					<div class="row">
+						<h3>Cadastrar Passeio</h3>
+					</div>
+					<!-- End row -->
+
+					<div class="divider"></div>
+
+					<form action="<%= formAction %>" method="post" enctype="multipart/form-data">
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Informações sobre o Passeio</h4>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Passeio</label>
+									<input class="form-control" name="passeio_titulo" id="passeio_titulo" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Lugar</label>
+									<input class="form-control" name="passeio_lugar" id="passeio_lugar" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Data</label>
+									<input class="form-control" name="passeio_data" id="passeio_data" type="date">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Horário</label>
+									<input class="form-control" name="passeio_horario" id="passeio_horario" type="time">
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Valor</label>
+									<input class="form-control" name="passeio_valor" id="passeio_valor" type="text">
+								</div>
+							</div>							
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Descrição</h4>
+							</div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea rows="5" id="descricao" name="passeio_descricao" class="form-control" placeholder="Faça aqui a descrição" style="height:200px;"></textarea>
+                                </div>
+                            </div>				
+						</div>
+						<!-- End row -->
+
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Endereço</h4>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Rua</label>
+									<input class="form-control" name="passeio_rua" id="passeio_rua" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Cidade</label>
+									<input class="form-control" name="passeio_cidade" id="passeio_cidade" type="text">
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>CEP</label>
+									<input class="form-control" name="passeio_cep" id="passeio_cep" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Estado</label>
+									<select id="passeio_estado" class="form-control" name="passeio_estado">
+										<option value="">Select...</option>
+										<option value="RJ">Rio de Janeiro</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<hr>
+						<h4>Upload da foto do passeio</h4>
+						<div class="form-inline upload_1">
+							<div class="form-group">
+								<input type="file" name="passeio_imagem" id="js-upload-files" multiple="">
+							</div>
+						</div>
+							
+							
+							<!-- End Hidden on mobiles -->
+
+							<hr>
+							<a href="/passeio/listagemPasseio" class="btn_1"> Voltar</a>
+							<button type="submit" class="btn_1 green">Cadastrar	</button>
+						</form>
+				</section>
+				<!-- End section 4 -->
+
+				</div>
+				<!-- End content -->
+			</div>
+			<!-- End tabs -->
+		</div>
+		<!-- end container -->
+</main>
+
+<%- include("./partials/footer") %> 
