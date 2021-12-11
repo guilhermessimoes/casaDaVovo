@@ -1,0 +1,190 @@
+<%- include("./partials/header") %> 
+<link href="stylesheets/css/admin.css" rel="stylesheet">
+<div id="preloader">
+	<div class="sk-spinner sk-spinner-wave">
+		<div class="sk-rect1"></div>
+		<div class="sk-rect2"></div>
+		<div class="sk-rect3"></div>
+		<div class="sk-rect4"></div>
+		<div class="sk-rect5"></div>
+	</div>
+</div>
+<!-- End Preload -->
+
+<div class="layer"></div>
+<!-- Mobile menu overlay mask -->
+
+<section class="parallax-window" data-parallax="scroll" data-image-src="images/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
+	<div class="parallax-content-1">
+		<div class="animated fadeInDown">
+			<h1>Cadastro de Restaurantes</h1>
+			<p>Cadastre aqui o seu Restaurante.</p>
+		</div>
+	</div>
+</section>
+<!-- End section -->
+
+<main style="margin-bottom: 355px; ">
+	<div id="position" class="">
+		<div class="container">
+			<ul>
+				<li><a href="#">Home</a>
+				</li>
+				<li><a href="#">Categoria</a>
+				</li>
+				<li>Page active</li>
+			</ul>
+		</div>
+	</div>
+	<!-- End Position -->
+
+	<div class="margin_60 container ">
+		<div id="" class="card" style="padding: 50px;"> 	
+			<div class="content">		
+				<section id="section-4" class="content-current">
+					<div class="row">
+						<h3>Cadastrar Restaurante</h3>
+					</div>
+					<!-- End row -->
+
+					<div class="divider"></div>
+
+					<form action="<%= formAction %>" method="post" enctype="multipart/form-data">
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Informações sobre o Restaurante</h4>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Nome do restaurante</label>
+									<input class="form-control" name="restaurante_nome" id="restaurante_nome" type="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Tipo de culinária</label>
+									<input class="form-control" name="restaurante_tipo" id="restaurante_tipo" type="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Telefone</label>
+									<input class="form-control" name="restaurante_telefone" id="restaurante_telefone" type="text">
+								</div>
+							</div>							
+						</div>
+						<!-- End row -->
+
+						
+						<div class="row">
+							<div class="col-md-12">								
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Horário de funcionamento</label>
+									<input class="form-control" name="restaurante_horario_funcionamento" id="restaurante_horario_funcionamento" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>E-mail</label>
+									<input class="form-control" name="restaurante_email" id="restaurante_email" type="text">
+								</div>
+							</div>
+							<div class="row">
+                                <div class="col-md-12">
+                                    <h4>Cardápio</h4>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <textarea rows="5" id="restaurante_cardapio" name="restaurante_cardapio" class="form-control" placeholder="Escreva aqui o seu cardápio" style="height:100px;"></textarea>
+                                    </div>
+                                </div>				
+                            </div>							
+						</div>
+						<!-- End row -->
+
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Endereço</h4>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Logradouro</label>
+									<input class="form-control" name="restaurante_endereco" id="restaurante_endereco" type="text">
+								</div>
+							</div>
+                            <div class="col-md-4">
+								<div class="form-group">
+									<label>Número</label>
+									<input class="form-control" name="restaurante_endereco_numero" id="restaurante_endereco_numero" type="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Complemento</label>
+									<input class="form-control" name="restaurante_endereco_numero_complemento" id="restaurante_endereco_numero_complemento" type="text">
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>CEP</label>
+									<input class="form-control" name="restaurante_endereco_cep" id="restaurante_endereco_cep" type="text">
+								</div>
+							</div>
+                            <div class="col-md-3">
+								<div class="form-group">
+									<label>Cidade</label>
+									<input class="form-control" name="restaurante_endereco_cidade" id="restaurante_endereco_cidade" type="text">
+								</div>
+							</div>
+                            <div class="col-md-3">
+								<div class="form-group">
+									<label>Bairro</label>
+									<input class="form-control" name="restaurante_endereco_bairro" id="restaurante_endereco_bairro" type="text">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>Estado</label>
+									<select id="restaurante_endereco_estado" class="form-control" name="restaurante_endereco_estado">
+										<option value="">Select...</option>
+										<option value="RJ">Rio de Janeiro</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<hr>
+						<h4>Upload da foto do Restaurante</h4>
+						<div class="form-inline upload_1">
+							<div class="form-group">
+								<input type="file" name="restaurante_imagem" id="js-upload-files" multiple="">
+							</div>
+						</div>
+							
+							
+							<!-- End Hidden on mobiles -->
+
+							<hr>
+							<a href="/restaurante/listagemRestaurante" class="btn_1"> Voltar</a>
+							<button type="submit" class="btn_1 green">Cadastrar	</button>
+						</form>
+				</section>
+				<!-- End section 4 -->
+
+				</div>
+				<!-- End content -->
+			</div>
+			<!-- End tabs -->
+		</div>
+		<!-- end container -->
+</main>
+
+<%- include("./partials/footer") %> 
