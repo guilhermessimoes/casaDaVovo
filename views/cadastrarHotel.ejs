@@ -57,19 +57,19 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Nome do hotel</label>
-									<input class="form-control" name="hotel_nome" id="hotel_nome" type="text">
+									<input class="form-control" name="hotel_nome" id="hotel_nome" type="text" value="<%= hotel.hotel_nome %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Tipo de hospedagem</label>
-									<input class="form-control" name="hotel_tipo" id="hotel_tipo" type="text">
+									<input class="form-control" name="hotel_tipo" id="hotel_tipo" type="text" value="<%= hotel.hotel_titulo %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Telefone</label>
-									<input class="form-control" name="hotel_telefone" id="hotel_telefone" type="text">
+									<input class="form-control" name="hotel_telefone" id="hotel_telefone" type="text" value="<%= hotel.hotel_telefone %>">
 								</div>
 							</div>
 						</div>
@@ -79,22 +79,25 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Quantidade de unidades</label>
-									<input class="form-control" name="hotel_quantidade_unidades" id="hotel_quantidade_unidades" type="text">
+									<input class="form-control" name="hotel_quantidade_unidades" id="hotel_quantidade_unidades" type="text" value="<%= hotel.hotel_quandidade_unidades %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Categoria</label><input class="form-control" name="hotel_categoria_unidades" id="hotel_categoria_unidades" type="text">
+									<label>Categoria</label>
+									<input class="form-control" name="hotel_categoria_unidades" id="hotel_categoria_unidades" type="text" value="<%= hotel.hotel_categoria_unidades %>">
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="form-group">
-									<label>Check-in</label><input class="form-control" name="hotel_horario_check_in" id="hotel_horario_check_in" type="time">
+									<label>Check-in</label>
+									<input class="form-control" name="hotel_horario_check_in" id="hotel_horario_check_in" type="time" value="<%= hotel.hotel_horario_check_in %>">
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="form-group">
-									<label>Check-out</label><input class="form-control" name="hotel_horario_check_out" id="hotel_horario_check_out" type="time">
+									<label>Check-out</label>
+									<input class="form-control" name="hotel_horario_check_out" id="hotel_horario_check_out" type="time" value="<%= hotel.hotel_horario_check_out %>">
 								</div>
 							</div>
 						</div>
@@ -103,19 +106,19 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Facilidades</label>
-									<input class="form-control" name="hotel_facilidades" id="hotel_facilidades" type="text">
+									<input class="form-control" name="hotel_facilidades" id="hotel_facilidades" type="text" value="<%= hotel.hotel_facilidades %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>E-mail</label>
-									<input class="form-control" name="hotel_email" id="hotel_email" type="text">
+									<input class="form-control" name="hotel_email" id="hotel_email" type="text" value="<%= hotel.hotel_email %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Preço</label>
-									<input class="form-control" name="hotel_preco" id="hotel_preco" type="text">
+									<input class="form-control" name="hotel_preco" id="hotel_preco" type="text" value="<%= hotel.hotel_preco %>">
 								</div>
 							</div>						
 						</div>
@@ -130,19 +133,19 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Logradouro</label>
-									<input class="form-control" name="hotel_endereco" id="hotel_endereco" type="text">
+									<input class="form-control" name="hotel_endereco" id="hotel_endereco" type="text" value="<%= hotel.hotel_endereco %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Número</label>
-									<input class="form-control" name="hotel_endereco_numero" id="hotel_endereco_numero" type="text">
+									<input class="form-control" name="hotel_endereco_numero" id="hotel_endereco_numero" type="text" value="<%= hotel.hotel_endereco_numero %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Bairro</label>
-									<input class="form-control" name="hotel_endereco_bairro" id="hotel_endereco_bairro" type="text">
+									<input class="form-control" name="hotel_endereco_bairro" id="hotel_endereco_bairro" type="text" value="<%= hotel.hotel_endereco_bairro %>">
 								</div>
 							</div>
 						</div>
@@ -152,7 +155,7 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Cep</label>
-									<input class="form-control" name="hotel_endereco_cep" id="hotel_endereco_cep" type="text">
+									<input class="form-control" name="hotel_endereco_cep" id="hotel_endereco_cep" type="text" value="<%= hotel.hotel_endereco_cep %>">
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -160,10 +163,10 @@
 									<label>Cidade</label>
 									<select id="hotel_endereco_cidade" class="form-control" name="hotel_endereco_cidade">
 										<option value="c0">Select...</option>
-										<option value="c1">Cidade 1</option>
-										<option value="c2">Cidade 2</option>
-										<option value="c3">Cidade 3</option>
-										<option value="c4">Cidade 4</option>
+										<option <%= (hotel.hotel_endereco_cidade == "c1")?'selected="selected"':'' %>value="c1">Cidade 1</option>
+										<option <%= (hotel.hotel_endereco_cidade == "c2")?'selected="selected"':'' %>value="c2">Cidade 2</option>
+										<option <%= (hotel.hotel_endereco_cidade == "c3")?'selected="selected"':'' %>value="c3">Cidade 3</option>
+										<option <%= (hotel.hotel_endereco_cidade == "c4")?'selected="selected"':'' %>value="c4">Cidade 4</option>
 									</select>
 								</div>
 							</div>
@@ -172,10 +175,10 @@
 									<label>Estado</label>
 									<select id="hotel_endereco_estado" class="form-control" name="hotel_endereco_estado">
 										<option value="e0">Select...</option>
-										<option value="e1">Estado 1</option>
-										<option value="e2">Estado 2</option>
-										<option value="e3">Estado 3</option>
-										<option value="e4">Estado 4</option>
+										<option <%= (hotel.hotel_endereco_estado == "e1")?'selected="selected"':'' %>value="e1">Estado 1</option>
+										<option <%= (hotel.hotel_endereco_estado == "e2")?'selected="selected"':'' %>value="e2">Estado 2</option>
+										<option <%= (hotel.hotel_endereco_estado == "e3")?'selected="selected"':'' %>value="e3">Estado 3</option>
+										<option <%= (hotel.hotel_endereco_estado == "e4")?'selected="selected"':'' %>value="e4">Estado 4</option>
 									</select>
 								</div>
 							</div>

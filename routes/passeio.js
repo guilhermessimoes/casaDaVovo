@@ -14,10 +14,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 
+router.get('/listagemPasseio', passeioController.listagemPasseio)
 
 router.get('/cadastrarPasseio', passeioController.viewCadastrarPasseio)
 router.post('/cadastrarPasseio', upload.single('passeio_imagem'), passeioController.acaoCadastrarPasseio)
-router.get('/listagemPasseio', passeioController.listagemPasseio)
+
+router.get('/alterar/:id', passeioController.editar)
+router.post('/alterar/:id', upload.single('passeio_imagem'), passeioController.acaoEditar)
+
+router.get('/excluir/:id', passeioController.excluir)
 
 
 module.exports = router;

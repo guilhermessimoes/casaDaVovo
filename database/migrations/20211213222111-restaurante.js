@@ -72,7 +72,12 @@ module.exports = {
       restaurante_imagem:{
         type: Sequelize.STRING,
         allowNull: false
+      },
+      restaurante_descricao:{
+        type: Sequelize.STRING,
+        allowNull: false
       },   
+   
       
       createdAt:{
         type: Sequelize.DATE,         

@@ -56,6 +56,20 @@ const hotelController = {
         res.redirect("/hotel/listagemHotel")   
     },
 
+    editar: async (req, res)=> {
+        const hotelEncontrato = await db.Hotel.findByPk(req.params.id);
+
+       // transladoEncontrato.dataFormatada = `${transladoEncontrato.data_nascimento.getFullYear()}-${('0' + transladoEncontrato.data_nascimento.getMonth() + 1).slice(-2)}-${('0' + (transladoEncontrato.data_nascimento.getDate())).slice(-2)}`;
+        console.log(hotelEncontrato);
+
+        res.render("cadastrarHotel", {
+            formAction:`/alterar/${req.params.id}`,
+            buttonMessage: "Salvar",
+            hotel: hotelEncontrato
+        });
+
+    },
+
     acaoEditar: async (req,res) =>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
@@ -85,7 +99,7 @@ const hotelController = {
             hotel_endereco_cidade: hotelEnderecoCidade,
             hotel_endereco_bairro: hotelEnderecoBairro,
             hotel_endereco_estado: hotelEnderecoEstado,
-            hotel_endereco_cep: hotelEnderecoCep,
+            hotel_endereco_cep: hotelEnderecoCep
         }
 
         await db.Hotel.update(hotelObj, {where: {id: req.params.id}})
@@ -98,9 +112,9 @@ const hotelController = {
     excluir: async (req, res)=> {
         const idHotel = req.params.id;
         
-        await req.flash('success', "Registro excluido com sucesso")
+        //await req.flash('success', "Registro excluido com sucesso")
         await db.Hotel.destroy({where: {id: idHotel}})
-        res.redirect("/")
+        res.redirect("/hotel/listagemHotel")
     }
 }
 

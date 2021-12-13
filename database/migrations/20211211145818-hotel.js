@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('hoteis', { 
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
@@ -42,11 +42,11 @@ module.exports = {
         allowNull: false
       },
       hotel_facilidades:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       hotel_endereco:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       hotel_endereco_numero:{
@@ -54,19 +54,19 @@ module.exports = {
         allowNull: false
       },
       hotel_endereco_cidade:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       hotel_endereco_bairro:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       hotel_endereco_estado:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       hotel_endereco_cep:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       

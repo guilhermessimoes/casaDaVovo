@@ -57,25 +57,25 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Passeio</label>
-									<input class="form-control" name="passeio_titulo" id="passeio_titulo" type="text">
+									<input class="form-control" name="passeio_titulo" id="passeio_titulo" type="text" value="<%= passeio.passeio_titulo %>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Lugar</label>
-									<input class="form-control" name="passeio_lugar" id="passeio_lugar" type="text">
+									<input class="form-control" name="passeio_lugar" id="passeio_lugar" type="text" value="<%= passeio.passeio_lugar %>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Data</label>
-									<input class="form-control" name="passeio_data" id="passeio_data" type="date">
+									<input class="form-control" name="passeio_data" id="passeio_data" type="date" value="<%= passeio.passeio_data %>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Horário</label>
-									<input class="form-control" name="passeio_horario" id="passeio_horario" type="time">
+									<input class="form-control" name="passeio_horario" id="passeio_horario" type="time" value="<%= passeio.passeio_horario %>">
 								</div>
 							</div>
 						</div>
@@ -85,7 +85,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Valor</label>
-									<input class="form-control" name="passeio_valor" id="passeio_valor" type="text">
+									<input class="form-control" name="passeio_valor" id="passeio_valor" type="text" value="<%= passeio.passeio_valor %>">
 								</div>
 							</div>							
 						</div>
@@ -95,7 +95,7 @@
 							</div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea rows="5" id="descricao" name="passeio_descricao" class="form-control" placeholder="Faça aqui a descrição" style="height:200px;"></textarea>
+                                    <textarea rows="5" id="descricao" name="passeio_descricao" class="form-control" placeholder="Faça aqui a descrição" style="height:200px;"><%= passeio.passeio_descricao %></textarea>
                                 </div>
                             </div>				
 						</div>
@@ -109,13 +109,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Rua</label>
-									<input class="form-control" name="passeio_rua" id="passeio_rua" type="text">
+									<input class="form-control" name="passeio_rua" id="passeio_rua" type="text" value="<%= passeio.passeio_rua %>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Cidade</label>
-									<input class="form-control" name="passeio_cidade" id="passeio_cidade" type="text">
+									<input class="form-control" name="passeio_cidade" id="passeio_cidade" type="text" value="<%= passeio.passeio_cidade %>">
 								</div>
 							</div>
 						</div>
@@ -125,7 +125,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>CEP</label>
-									<input class="form-control" name="passeio_cep" id="passeio_cep" type="text">
+									<input class="form-control" name="passeio_cep" id="passeio_cep" type="text" value="<%= passeio.passeio_cep %>">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -133,7 +133,7 @@
 									<label>Estado</label>
 									<select id="passeio_estado" class="form-control" name="passeio_estado">
 										<option value="">Select...</option>
-										<option value="RJ">Rio de Janeiro</option>
+										<option <%= (passeio.passeio_estado == "nao")?'selected="selected"':'' %> value="RJ">Rio de Janeiro</option>
 									</select>
 								</div>
 							</div>

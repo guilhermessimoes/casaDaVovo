@@ -27,6 +27,7 @@ const restauranteController = {
         const restauranteEnderecoEstado = req.body.restaurante_endereco_estado
         const restauranteEndereCep= req.body.restaurante_endereco_cep
         const restauranteImagem = req.file.filename
+        const restauranteDescricao = req.body.restaurante_descricao
         
         await db.Restaurante.create({
             restaurante_nome: restauranteNome,
@@ -43,12 +44,27 @@ const restauranteController = {
             restaurante_endereco_estado:restauranteEnderecoEstado,
             restaurante_endereco_cep: restauranteEndereCep,
             restaurante_imagem: restauranteImagem,
+            restaurante_descricao: restauranteDescricao,
             
         })
 
         //await req.flash('success', "Registro criado com sucesso")
 
         res.redirect("/restaurante/listagemRestaurante")   
+    },
+
+    editar: async (req, res)=> {
+        const restauranteEncontrato = await db.Restaurante.findByPk(req.params.id);
+
+       // restauranteEncontrato.dataFormatada = `${restauranteEncontrato.data_nascimento.getFullYear()}-${('0' + restauranteEncontrato.data_nascimento.getMonth() + 1).slice(-2)}-${('0' + (restauranteEncontrato.data_nascimento.getDate())).slice(-2)}`;
+        console.log(restauranteEncontrato);
+
+        res.render("cadastrarRestaurante", {
+            formAction:`/alterar/${req.params.id}`,
+            buttonMessage: "Salvar",
+            restaurante: restauranteEncontrato
+        });
+
     },
 
     acaoEditar: async (req,res) =>{
@@ -78,6 +94,7 @@ const restauranteController = {
             restaurante_endereco_estado:restauranteEnderecoEstado,
             restaurante_endereco_cep: restauranteEndereCep,
             restaurante_imagem: restauranteImagem,
+            restaurante_descricao: restauranteDescricao
         }
 
         await db.Restaurante.update(restauranteObj, {where: {id: req.params.id}})
@@ -92,7 +109,7 @@ const restauranteController = {
         
         await req.flash('success', "Registro excluido com sucesso")
         await db.Restaurante.destroy({where: {id: idRestaurante}})
-        res.redirect("/")
+        res.redirect("/restaurante/listagemRestaurante")
     }
 }
 

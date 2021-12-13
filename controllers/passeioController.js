@@ -47,6 +47,20 @@ const passeioController = {
         res.redirect("/passeio/listagemPasseio")   
     },
 
+    editar: async (req, res)=> {
+        const passeioEncontrato = await db.Passeio.findByPk(req.params.id);
+
+       // passeioEncontrato.dataFormatada = `${passeioEncontrato.data_nascimento.getFullYear()}-${('0' + passeioEncontrato.data_nascimento.getMonth() + 1).slice(-2)}-${('0' + (passeioEncontrato.data_nascimento.getDate())).slice(-2)}`;
+        console.log(passeioEncontrato);
+
+        res.render("cadastrarPasseio", {
+            formAction:`/alterar/${req.params.id}`,
+            buttonMessage: "Salvar",
+            passeio: passeioEncontrato
+        });
+
+    },
+
     acaoEditar: async (req,res) =>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
@@ -84,9 +98,9 @@ const passeioController = {
     excluir: async (req, res)=> {
         const idPasseio = req.params.id;
         
-        await req.flash('success', "Registro excluido com sucesso")
+        //await req.flash('success', "Registro excluido com sucesso")
         await db.Passeio.destroy({where: {id: idPasseio}})
-        res.redirect("/")
+        res.redirect("/passeio/listagemPasseio")
     }
 }
 
