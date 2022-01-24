@@ -3,10 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config()
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
+//var usersRouter = require('./routes/users');
+var authRoutes = require('./routes/authRoutes');
 var adminRouter = require('./routes/admin');
 var pagamentoRouter = require('./routes/pagamento');
 var carrinhoCompraRouter = require('./routes/carrinhoCompra');
@@ -28,8 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
+//app.use('/users', usersRouter);
+app.use('/login', authRoutes);
 app.use('/admin', adminRouter);
 app.use('/pagamento', pagamentoRouter);
 app.use('/carrinhoCompra', carrinhoCompraRouter);
@@ -37,6 +38,7 @@ app.use('/hotel', hotelRouter);
 app.use('/passeio', passeioRouter);
 app.use('/restaurante', restauranteRouter);
 app.use('/translado', transladoRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

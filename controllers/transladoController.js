@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
-const db = require('../models') 
+const db = require('../models'); 
+const Usuario = require("../models/Usuario");
 
 const transladoController = {
     listagemTranslado: async(req,res)=>{
@@ -8,11 +9,19 @@ const transladoController = {
         res.render('listagemTranslado', {translados: cadastroTransladoRows})
     },
 
-    viewCadastrarTranslado: async(req,res)=>{
+    viewCadastrarTranslado: async(req,res)=>{        
         res.render('cadastrarTranslado', {formAction:"cadastrarTranslado", translado:{}})
     },
 
     acaoCadastrarTranslado: async(req,res) =>{
+        let listaDeErros = validationResult(req)
+        if(!listaDeErros.isEmpty()){
+            const alert = listaDeErros.array()
+            console.log(alert)
+            res.render("cadastrarTranslado", {alert: alert, buttonMessage: "Cadastrar", formAction:"/cadastrarTranslado", translado:{}})
+            return
+            
+        }
         const transladoPet = req.body.transportaPet
         const transladoDeficiente = req.body.acessivelDeficiente
         const transladoBagagens = req.body.levarBagagens
@@ -59,9 +68,7 @@ const transladoController = {
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const transladoEncontrado = await db.Translado.findByPk(req.params.id);          
-            const alert = listaDeErros.array()
-            console.log(alert)
-
+            const alert = listaDeErros.array()          
             res.render("cadastrarTranslado", {alert: alert, formAction:`/alterar/${req.params.id}`,
             buttonMessage: "Salvar", translado: transladoEncontrado})
             return            
@@ -76,7 +83,8 @@ const transladoController = {
             transladoDescricao: req.body.descricao,
             transladoPrecoOriginal: req.body.precoOriginalTranslado,
             transladoPrecoPromocional: req.body.precoPromocionalTranslado,
-            transladoTitulo: req.body.tituloTranslado
+            transladoTitulo: req.body.tituloTranslado,
+            transladoImagem: req.file.filename
         }
 
         await db.Translado.update(transladoObj, {where: {id: req.params.id}})

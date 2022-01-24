@@ -46,7 +46,14 @@
 						<h3>Cadastrar Translado</h3>
 					</div>
 					<!-- End row -->
-
+					<% if(typeof alert != 'undefined'){ %>
+                        <% alert.forEach(function(error){ %>
+                          <div class="materialert error">
+                            <div class="material-icons"></div>
+                            <%= error.msg %>
+                          </div>
+                        <% }) %>
+                    <% } %>
 					<div class="divider"></div>
 
 					<form method="POST" action="<%= formAction %>" enctype="multipart/form-data">
@@ -138,7 +145,7 @@
 						<h4>Carregue a imagem do translado</h4>
 						<div class="form-inline upload_1">
 							<div class="form-group">
-								<input type="file" name="imagemTranslado" id="js-upload-files" multiple="">
+								<input type="file" name="imagemTranslado" id="js-upload-files" multiple="" value="<%= translado.imagem %>">
 							</div>
 						</div>						
 							<!-- End Hidden on mobiles -->

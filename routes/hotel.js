@@ -12,15 +12,16 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage })
+const {cadastrarHotelValidator} = require('../middlewares/cadastrarHotelValidator')
 
 
 router.get('/listagemHotel', hotelController.listagemHotel)
 
 router.get('/cadastrarHotel', hotelController.viewCadastrarHotel)
-router.post('/cadastrarHotel', upload.single('hotel_imagem'), hotelController.acaoCadastrarHotel)
+router.post('/cadastrarHotel', upload.single('hotel_imagem'),cadastrarHotelValidator, hotelController.acaoCadastrarHotel)
 
 router.get('/alterar/:id', hotelController.editar)
-router.post('/alterar/:id', upload.single('hotel_imagem'), hotelController.acaoEditar)
+router.post('/alterar/:id', upload.single('hotel_imagem'),cadastrarHotelValidator, hotelController.acaoEditar)
 
 router.get('/excluir/:id', hotelController.excluir)
 

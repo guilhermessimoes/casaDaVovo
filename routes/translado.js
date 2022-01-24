@@ -12,16 +12,18 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage })
-
+const {cadastrarTransladoValidator} = require('../middlewares/cadastrarTransladoValidator')
+const {authMidllewareToken} = require('../middlewares/auth')
 
 
 router.get('/listagemTranslado', transladoController.listagemTranslado)
+router.use(authMidllewareToken)
 
-router.get('/cadastrarTranslado', transladoController.viewCadastrarTranslado)
-router.post('/cadastrarTranslado', upload.single('imagemTranslado'), transladoController.acaoCadastrarTranslado)
+router.get('/cadastrarTranslado', authMidllewareToken, transladoController.viewCadastrarTranslado)
+router.post('/cadastrarTranslado', upload.single('imagemTranslado'), cadastrarTransladoValidator, transladoController.acaoCadastrarTranslado)
 
 router.get('/alterar/:id', transladoController.editar)
-router.post('/alterar/:id', upload.single('imagemTranslado'), transladoController.acaoEditar)
+router.post('/alterar/:id', upload.single('imagemTranslado'),cadastrarTransladoValidator, transladoController.acaoEditar)
 
 router.get('/excluir/:id', transladoController.excluir)
 

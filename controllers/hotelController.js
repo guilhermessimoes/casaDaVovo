@@ -13,6 +13,14 @@ const hotelController = {
     },
 
     acaoCadastrarHotel: async(req,res) =>{
+        let listaDeErros = validationResult(req)
+        if(!listaDeErros.isEmpty()){
+            const alert = listaDeErros.array()
+            console.log(alert)
+            res.render("cadastrarHotel", {alert: alert, buttonMessage: "Cadastrar", formAction:"/cadastrarHotel", hotel:{}})
+            return
+        }
+        
         const hotelTipo = req.body.hotel_tipo
         const hotelNome = req.body.hotel_nome
         const hotelTelefone = req.body.hotel_telefone
@@ -58,8 +66,7 @@ const hotelController = {
 
     editar: async (req, res)=> {
         const hotelEncontrato = await db.Hotel.findByPk(req.params.id);
-
-       // transladoEncontrato.dataFormatada = `${transladoEncontrato.data_nascimento.getFullYear()}-${('0' + transladoEncontrato.data_nascimento.getMonth() + 1).slice(-2)}-${('0' + (transladoEncontrato.data_nascimento.getDate())).slice(-2)}`;
+        
         console.log(hotelEncontrato);
 
         res.render("cadastrarHotel", {
@@ -67,7 +74,6 @@ const hotelController = {
             buttonMessage: "Salvar",
             hotel: hotelEncontrato
         });
-
     },
 
     acaoEditar: async (req,res) =>{

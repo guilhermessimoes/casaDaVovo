@@ -46,7 +46,14 @@
 						<h3>Cadastrar Hotel</h3>
 					</div>
 					<!-- End row -->
-
+					<% if(typeof alert != 'undefined'){ %>
+                        <% alert.forEach(function(error){ %>
+                          <div class="materialert error">
+                            <div class="material-icons"></div>
+                            <%= error.msg %>
+                          </div>
+                        <% }) %>
+                    <% } %>
 					<div class="divider"></div>
 
 					<form action="<%= formAction %>" method="post" enctype="multipart/form-data">
