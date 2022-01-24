@@ -65,19 +65,19 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Nome do restaurante</label>
-									<input class="form-control" name="restaurante_nome" id="restaurante_nome" type="text">
+									<input class="form-control" name="restaurante_nome" id="restaurante_nome" type="text" value="<%= restaurante.restaurante_nome %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Tipo de culinária</label>
-									<input class="form-control" name="restaurante_tipo" id="restaurante_tipo" type="text">
+									<input class="form-control" name="restaurante_tipo" id="restaurante_tipo" type="text" value="<%= restaurante.restaurante_tipo %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Telefone</label>
-									<input class="form-control" name="restaurante_telefone" id="restaurante_telefone" type="text">
+									<input class="form-control" name="restaurante_telefone" id="restaurante_telefone" type="text" value="<%= restaurante.restaurante_telefone %>">
 								</div>
 							</div>							
 						</div>
@@ -90,13 +90,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Horário de funcionamento</label>
-									<input class="form-control" name="restaurante_horario_funcionamento" id="restaurante_horario_funcionamento" type="text">
+									<input class="form-control" name="restaurante_horario_funcionamento" id="restaurante_horario_funcionamento" type="text" value="<%= restaurante.restaurante_horario_funcionamento %>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>E-mail</label>
-									<input class="form-control" name="restaurante_email" id="restaurante_email" type="text">
+									<input class="form-control" name="restaurante_email" id="restaurante_email" type="text" value="<%= restaurante.restaurante_email %>">
 								</div>
 							</div>
 							<div class="row">
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <textarea rows="5" id="restaurante_cardapio" name="restaurante_cardapio" class="form-control" placeholder="Escreva aqui o seu cardápio" style="height:100px;"></textarea>
+                                        <textarea rows="5" id="restaurante_cardapio" name="restaurante_cardapio" class="form-control" placeholder="Escreva aqui o seu cardápio" style="height:100px;"> <%= restaurante.restaurante_cardapio %></textarea>
                                     </div>
                                 </div>				
                             </div>							
@@ -120,19 +120,19 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Logradouro</label>
-									<input class="form-control" name="restaurante_endereco" id="restaurante_endereco" type="text">
+									<input class="form-control" name="restaurante_endereco" id="restaurante_endereco" type="text" value="<%= restaurante.restaurante_endereco %>">
 								</div>
 							</div>
                             <div class="col-md-4">
 								<div class="form-group">
 									<label>Número</label>
-									<input class="form-control" name="restaurante_endereco_numero" id="restaurante_endereco_numero" type="text">
+									<input class="form-control" name="restaurante_endereco_numero" id="restaurante_endereco_numero" type="text" value="<%= restaurante.restaurante_endereco_numero %>">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Complemento</label>
-									<input class="form-control" name="restaurante_endereco_numero_complemento" id="restaurante_endereco_numero_complemento" type="text">
+									<input class="form-control" name="restaurante_endereco_numero_complemento" id="restaurante_endereco_numero_complemento" type="text" value="<%= restaurante.restaurante_endereco_numero_complemento %>">
 								</div>
 							</div>
 						</div>
@@ -142,19 +142,19 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label>CEP</label>
-									<input class="form-control" name="restaurante_endereco_cep" id="restaurante_endereco_cep" type="text">
+									<input class="form-control" name="restaurante_endereco_cep" id="restaurante_endereco_cep" type="text" value="<%= restaurante.restaurante_endereco_cep %>">
 								</div>
 							</div>
                             <div class="col-md-3">
 								<div class="form-group">
 									<label>Cidade</label>
-									<input class="form-control" name="restaurante_endereco_cidade" id="restaurante_endereco_cidade" type="text">
+									<input class="form-control" name="restaurante_endereco_cidade" id="restaurante_endereco_cidade" type="text" value="<%= restaurante.restaurante_endereco_cidade %>">
 								</div>
 							</div>
                             <div class="col-md-3">
 								<div class="form-group">
 									<label>Bairro</label>
-									<input class="form-control" name="restaurante_endereco_bairro" id="restaurante_endereco_bairro" type="text">
+									<input class="form-control" name="restaurante_endereco_bairro" id="restaurante_endereco_bairro" type="text" value="<%= restaurante.restaurante_endereco_bairro %>">
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -162,7 +162,7 @@
 									<label>Estado</label>
 									<select id="restaurante_endereco_estado" class="form-control" name="restaurante_endereco_estado">
 										<option value="">Select...</option>
-										<option value="RJ">Rio de Janeiro</option>
+										<option <%= (restaurante.restaurante_estado == "RJ")?'selected="selected"':'' %> value="RJ">Rio de Janeiro</option>
 									</select>
 								</div>
 							</div>
