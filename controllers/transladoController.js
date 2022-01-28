@@ -3,13 +3,13 @@ const db = require('../models');
 const Usuario = require("../models/Usuario");
 
 const transladoController = {
-    listagemTranslado: async(req,res)=>{
+    listagemTranslado: async(_req,res)=>{
         const cadastroTransladoRows = await db.Translado.findAll();   
        // const messages = await req.consumeFlash('success')
         res.render('listagemTranslado', {translados: cadastroTransladoRows})
     },
 
-    viewCadastrarTranslado: async(req,res)=>{        
+    viewCadastrarTranslado: async(_req,res)=>{        
         res.render('cadastrarTranslado', {formAction:"cadastrarTranslado", translado:{}})
     },
 
