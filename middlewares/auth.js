@@ -4,11 +4,11 @@ const db = require('../models');
 
 const authMidllewareToken = async (req, res, next) =>{ 
     const id = req.params.id              
-    /*const user = await db.Usuario.findByPk(id)
+    const user = await db.Usuario.findByPk(id)
     console.log(user)
     if (!user) {
         return res.status(401).json({msg:'Usuario nao encontrado'})        
-    }*/
+    }
   
      const authHeader = req.headers.authorization
      
