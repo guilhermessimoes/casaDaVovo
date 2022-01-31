@@ -1,117 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
-    <meta name="author" content="Ansonika">
-    <title>CITY TOURS - City tours and travel site template by Ansonika</title>
-
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="../../images/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="../../images/img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="../../images/img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="../../images/img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="../../images/img/apple-touch-icon-144x144-precomposed.png">
-
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
-
-    <!-- COMMON CSS -->
-	<link href="../../stylesheets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../stylesheets/css/style.css" rel="stylesheet">
-    <link href="../../stylesheets/style.css" rel="stylesheet">
-	<link href="../../stylesheets/css/vendors.css" rel="stylesheet">
-	
-	<!-- CUSTOM CSS -->
-	<link href="../../stylesheets/css/custom.css" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>TravelBrazil</title>
+    <!-- Compiled and minified CSS -->   
+    <link type="text/css" rel="stylesheet" href="/stylesheets/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
 </head>
-<body>
-    <!-- Header================================================== -->
-    <header>
-        <div id="top_line">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6"><i class="icon-phone"></i><strong>(11)2155-9500)</strong></div>
-                    <div class="col-6">
-                        <ul id="top_links">
-                            <li><a href="#sign-in-dialog" id="access_link">Entrar</a></li>
-                            <li><a href="wishlist.html" id="wishlist_link">Favoritos</a></li>
-                        </ul>
-                    </div>
-                </div><!-- End row -->
-            </div><!-- End container-->
-        </div><!-- End top line-->
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <div id="logo_home">
-                    	<h1><a href="/" title="City tours travel template">Faça sua viaje, escolha a sua cidade</a></h1>
-                    </div>
+<body class="scrollspy">
+    <main>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="/login" class="blue-text text-darken-2"><i class="small material-icons">login</i>Entrar</a></li>
+            <li><a href="#!" class="blue-text text-darken-2"><i class="small material-icons"><span class="material-icons">account_circle</span></i>Perfil</a></li>
+            <li class="divider"></li>
+            <li><a href="#!" class="blue-text text-darken-2"><i class="small material-icons">logout</i>Sair</a></li>
+        </ul>
+        <div class="navbar-fixed">
+            <nav class="blue">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="/" class="brand-logo left"><img src="/images/logo_branco_travel_brazil.png" alt=""></a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="hotel/listagemHotel">Hoteis</a></li>
+                            <li><a href="passeio/listagemPasseio">Passeio</a></li>
+                            <li><a href="translado/listagemTranslado">Translado</a></li>
+                            <li><a href="restaurante/listagemRestaurante">Restaurante</a></li>
+                            <ul class="right hide-on-med-and-down">
+                                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Configurações<i class="material-icons right">arrow_drop_down</i></a></li>
+                            </ul>
+                        </ul>                       
+                    </div>                  
                 </div>
-                <nav class="col-9">
-                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
-                    <div class="main-menu">
-                        <div id="header_menu">
-                            <img src="../images/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
-                        </div>
-                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
-                         <ul>
-                            <li class="submenu">
-                                <a href="../" class="show-submenu">Inicio </a>                               
-                            </li>
-                            <li class="submenu">
-                                <a href="../passeio/listagemPasseio" class="show-submenu">Passeios </a>                               
-                            </li>
-                             <li class="submenu">
-                                <a href="../hotel/listagemHotel" class="show-submenu">Hoteis </a>                               
-                            </li>
-                            <li class="submenu">
-                                <a href="../translado/listagemTranslado" class="show-submenu">Translados </a>                             
-                            </li>
-                              <li class="submenu">
-                                <a href="../restaurante/listagemRestaurante" class="show-submenu">Restaurantes </a>                              
-                            </li>
-                        </ul>
-                    </div><!-- End main-menu -->
-                    <ul id="top_tools">
-                        <li>
-                            <a href="javascript:void(0);" class="search-overlay-menu-btn"><i class="icon_search"></i></a>
-                        </li>
-                        <li>
-                            <div class="dropdown dropdown-cart">
-                                <a href="#" data-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
-                                <ul class="dropdown-menu" id="cart_items">
-                                    <li>
-                                        <div class="image"><img src="images/img/thumb_cart_1.jpg" alt="image"></div>
-                                        <strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="images/img/thumb_cart_2.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="images/img/thumb_cart_3.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div>Total: <span>$120.00</span></div>
-                                        <a href="cart.html" class="button_drop">Go to cart</a>
-                                        <a href="payment.html" class="button_drop outline">Check out</a>
-                                    </li>
-                                </ul>
-                            </div><!-- End dropdown-cart-->
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div><!-- container -->
-    </header>
-    <!-- End Header -->
+            </nav>
+         </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="hotel/listagemHotel">Hoteis</a></li>
+            <li><a href="passeio/listagemPasseio">Passeio</a></li>
+            <li><a href="translado/listagemTranslado">Translado</a></li>
+            <li><a href="restaurante/listagemRestaurante">Restaurante</a></li>
+            <li><a href="mobile.html">Entrar</a></li>
+            <li><a href="mobile.html">Sair</a></li>
+        </ul>

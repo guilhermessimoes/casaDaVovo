@@ -1,27 +1,24 @@
 const { validationResult } = require("express-validator");
 const db = require('../models'); 
-const Usuario = require("../models/Usuario");
 
 const transladoController = {
-    listagemTranslado: async(req,res)=>{
-        const cadastroTransladoRows = await db.Translado.findAll();   
-       // const messages = await req.consumeFlash('success')
-        res.render('listagemTranslado', {translados: cadastroTransladoRows})
+    detalheTranslado: async(req,res)=>{
+        const cadastroEncontrado = await db.Translado.findByPk(req.params.id);
+        res.render('detalheTranslado', {translados: cadastroEncontrado})
     },
 
-    viewCadastrarTranslado: async(req,res)=>{        
-        res.render('cadastrarTranslado', {formAction:"cadastrarTranslado", translado:{}})
+    viewCadastrarTranslado: async(req,res)=>{      
+        res.render('cadastrarTranslado', {formAction:"cadastrarTranslado", translado:{}, })
     },
-
+   
     acaoCadastrarTranslado: async(req,res) =>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const alert = listaDeErros.array()
-            console.log(alert)
-            res.render("cadastrarTranslado", {alert: alert, buttonMessage: "Cadastrar", formAction:"/cadastrarTranslado", translado:{}})
-            return
-            
+            res.render("cadastrarTranslado", {alert: alert, buttonMessage: "Cadastrar", formAction:"/translado/cadastrarTranslado", translado:{}})
+            return            
         }
+
         const transladoPet = req.body.transportaPet
         const transladoDeficiente = req.body.acessivelDeficiente
         const transladoBagagens = req.body.levarBagagens
@@ -32,7 +29,7 @@ const transladoController = {
         const transladoPrecoPromocional = req.body.precoPromocionalTranslado
         const transladoTitulo = req.body.tituloTranslado
 
-        await db.Translado.create({
+        const cadastrarTranslado = await db.Translado.create({
             transporta_pet: transladoPet,
             acessivel_deficiente: transladoDeficiente,
             levar_bagagens: transladoBagagens,
@@ -44,20 +41,17 @@ const transladoController = {
             titulo: transladoTitulo
         })
 
-        //await req.flash('success', "Registro criado com sucesso")
+        console.log(cadastrarTranslado)
 
+        await req.flash('success', "Registro criado com sucesso")
         res.redirect("/translado/listagemTranslado")   
-    },
-
+    },    
     
     editar: async (req, res)=> {
         const transladoEncontrato = await db.Translado.findByPk(req.params.id);
 
-       // transladoEncontrato.dataFormatada = `${transladoEncontrato.data_nascimento.getFullYear()}-${('0' + transladoEncontrato.data_nascimento.getMonth() + 1).slice(-2)}-${('0' + (transladoEncontrato.data_nascimento.getDate())).slice(-2)}`;
-        console.log(transladoEncontrato);
-
         res.render("cadastrarTranslado", {
-            formAction:`/alterar/${req.params.id}`,
+            formAction:`/translado/alterar/${req.params.id}`,
             buttonMessage: "Salvar",
             translado: transladoEncontrato
         });
@@ -66,41 +60,49 @@ const transladoController = {
 
     acaoEditar: async (req,res) =>{
         let listaDeErros = validationResult(req)
+        console.log(listaDeErros)
         if(!listaDeErros.isEmpty()){
             const transladoEncontrado = await db.Translado.findByPk(req.params.id);          
             const alert = listaDeErros.array()          
-            res.render("cadastrarTranslado", {alert: alert, formAction:`/alterar/${req.params.id}`,
-            buttonMessage: "Salvar", translado: transladoEncontrado})
+            res.render("cadastrarTranslado", {alert: alert, formAction:`/translado/alterar/${req.params.id}`, translado: transladoEncontrado})
             return            
         }
         
 
         const transladoObj = { 
-            transladoPet: req.body.transportaPet,
-            transladoDeficiente: req.body.acessivelDeficiente,
-            transladoBagagens: req.body.levarBagagens,
-            transladoRecolhe: req.body.recolheHotel,
-            transladoDescricao: req.body.descricao,
-            transladoPrecoOriginal: req.body.precoOriginalTranslado,
-            transladoPrecoPromocional: req.body.precoPromocionalTranslado,
-            transladoTitulo: req.body.tituloTranslado,
-            transladoImagem: req.file.filename
+            transporta_pet: req.body.transportaPet,
+            acessivel_deficiente: req.body.acessivelDeficiente,
+            levar_bagagens: req.body.levarBagagens,
+            recolhe_hotel: req.body.recolheHotel,
+            descricao: req.body.descricao,
+            preco_original: req.body.precoOriginalTranslado,
+            preco_promocional: req.body.precoPromocionalTranslado,
+            titulo: req.body.tituloTranslado,
+            imagem: req.file.filename
         }
 
-        await db.Translado.update(transladoObj, {where: {id: req.params.id}})
+        const updateTranslado= await db.Translado.update(transladoObj, {where: {id: req.params.id}})
+        console.log(updateTranslado)
 
-        //await req.flash('success', "Registro editado com sucesso")
+        await req.flash('success', "Registro editado com sucesso")
 
-        res.redirect("/")
+        res.redirect("/translado/listagemTranslado")
     },
 
     excluir: async (req, res)=> {
         const idTranslado = req.params.id;
         
-        //await req.flash('success', "Registro excluido com sucesso")
+        await req.flash('success', "Registro excluido com sucesso")
         await db.Translado.destroy({where: {id: idTranslado}})
         res.redirect("/translado/listagemTranslado")
-    }
+    },
+
+    listagemTranslado: async(req,res)=>{
+        const cadastroTransladoRows = await db.Translado.findAll();   
+        const messages = await req.consumeFlash('success')
+        res.render('listagemTranslado',  {translados: cadastroTransladoRows, messages})
+    },
+
 }
 
 module.exports = transladoController

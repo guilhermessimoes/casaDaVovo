@@ -1,7 +1,8 @@
 var express = require('express');
-const app = require('../app');
 var router = express.Router();
-const authController = require('../controllers/authController')
+const authController = require('../controllers/authController');
+const { loginValidator } = require('../middlewares/loginValidator');
+
 
 
 
@@ -10,10 +11,13 @@ const authController = require('../controllers/authController')
 router.get('/signup', authController.signupGet)
 router.post('/signup', authController.signupPost)
 
-router.post('/', authController.loginPost)
+router.post('/', loginValidator, authController.loginPost)
 router.get('/', authController.loginGet)
 
-//router.get('/logout', loginController.viewLogin)
+router.get("/logout", function (req, res, next) {
+    req.session.destroy();
+    return res.redirect("/");
+});
 
 
 

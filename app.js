@@ -3,10 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-require('dotenv').config()
+require('dotenv').config();
+const { flash } = require('express-flash-message');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
 var authRoutes = require('./routes/authRoutes');
 var adminRouter = require('./routes/admin');
 var pagamentoRouter = require('./routes/pagamento');
@@ -16,7 +17,23 @@ var passeioRouter = require('./routes/passeio');
 var restauranteRouter = require('./routes/restaurante');
 var transladoRouter = require('./routes/translado');
 
-var app = express();
+const app = express();
+
+// express-session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60, // 1 week
+      // secure: true, // becareful set this option, check here: https://www.npmjs.com/package/express-session#cookiesecure. In local, if you set this to true, you won't receive flash as you are using `http` in local, but http is not secure
+    },
+  })
+);
+
+// apply express-flash-message middleware
+app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

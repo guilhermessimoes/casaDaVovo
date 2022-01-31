@@ -1,56 +1,61 @@
+<%- include("./partials/header") %>
 
-<%- include("./partials/header") %>  
-    <div id="preloader">
-        <div class="sk-spinner sk-spinner-wave">
-            <div class="sk-rect1"></div>
-            <div class="sk-rect2"></div>
-            <div class="sk-rect3"></div>
-            <div class="sk-rect4"></div>
-            <div class="sk-rect5"></div>
-        </div>
-    </div>
-    <!-- End Preload -->
-
-    <div class="layer">
-        
-    </div>
-    <!-- Mobile menu overlay mask -->
-	<main>
-    <section id="hero" class="login">
-    	<div class="container">
-        	<div class="row justify-content-center">
-            	<div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-                	<div id="login">
-                    		<div class="text-center"><img src="images/img/logo_sticky.png" alt="Image" data-retina="true" ></div>
-                            <hr>
-                            <form method="POST" action="/login">
-                                <% if (typeof error != 'undefined') { %>
-                                    <div class="materialert error">
-                                        <div class="material-icons"></div>
-                                         <%= error %>
-                                    </div>
-                                <%}%>
-                                <a href="#0" class="social_bt facebook">Entrar com Facebook</a>
-                                <a href="#0" class="social_bt google">Entrar com Google</a>
-                                <div class="divider"><span>Ou</span></div>
-                                <div class="form-group">
-                                    <label>Usuário</label>
-                                    <input type="text" class=" form-control " placeholder="Username" name="email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Senha</label>
-                                    <input type="password" class=" form-control" placeholder="Password" name="senha">
-                                </div>
-                                <p class="small">
-                                    <a href="#">Esqueceu senha?</a>
-                                </p>
-                                <button href="#" class="btn_full">Entrar</button>
-                                <a href="/registrar " class="btn_full_outline">Registrar</a>
-                            </form>
+<style>
+    body{
+        background-image: url(../images/bck.jpg);
+        background-size: cover;
+        color: #fff;
+    } 
+</style>
+<div class="row login">
+    <form action="<%= formAction %>" method="POST">
+        <div class="col s12 l4 offset-l4">
+            <div class="card">
+                <div class="card-content container">
+                    <div class="card-action white-text center">
+                        <h3>Entrar</h3>
+                    </div>
+                    <% if(typeof alert != 'undefined'){ %>
+                        <% alert.forEach(function(error){ %>
+                          <div class="materialert error">
+                            <div class="material-icons">error_outline</div>
+                            <%= error.msg %>
+                          </div>
+                        <% }) %>
+                    <% } %>
+                    <%if (messages.length > 0) { %>
+                        <div class="materialert success">
+                            <div class="material-icons">check</div>
+                            <%= messages %>
                         </div>
+                      <% } %>                      
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input value="" id="Email" type="email" class="validate white-text" name="email">
+                            <label for="Email" class="white-text">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input value="" id="password" type="password" class="validate white-text" name="senha">
+                            <label for="password" class="white-text">Senha</label>
+                        </div>
+                        <div class="input-field col s12 white-text lembrarMe">
+                            <label>
+                                <input type="checkbox" class="white-text white"/>
+                                <span class="white-text ">Lembrar-me</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="center" id="botoes_registrar">
+                        <a href="/" class="red darken-3  btn">Voltar</a>
+                        <button type="submit" class="green btn">Entrar</button>
+                    </div>
+                    <div class="row center ">
+                        <span>Não tem acesso? <a href="/login/signup"> Clica aqui para se registrar</a></span>
+                    </div>                    
                 </div>
             </div>
         </div>
-    </section>    
-	</main><!-- End main -->
+    </form>
+</div>
+
 <%- include("./partials/footer") %>

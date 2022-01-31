@@ -1,167 +1,102 @@
-<%- include("./partials/header") %> 
-<link href="stylesheets/css/admin.css" rel="stylesheet">
-<div id="preloader">
-	<div class="sk-spinner sk-spinner-wave">
-		<div class="sk-rect1"></div>
-		<div class="sk-rect2"></div>
-		<div class="sk-rect3"></div>
-		<div class="sk-rect4"></div>
-		<div class="sk-rect5"></div>
-	</div>
-</div>
-<!-- End Preload -->
-
-<div class="layer"></div>
-<!-- Mobile menu overlay mask -->
-
-<section class="parallax-window" data-parallax="scroll" data-image-src="images/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
-	<div class="parallax-content-1">
-		<div class="animated fadeInDown">
-			<h1>Hello Clara!</h1>
-			<p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
-		</div>
-	</div>
-</section>
-<!-- End section -->
-
-<main style="margin-bottom: 355px; ">
-	<div id="position" class="">
-		<div class="container">
-			<ul>
-				<li><a href="#">Home</a>
-				</li>
-				<li><a href="#">Category</a>
-				</li>
-				<li>Page active</li>
-			</ul>
-		</div>
-	</div>
-	<!-- End Position -->
-
-	<div class="margin_60 container ">
-		<div id="" class="card" style="padding: 50px;"> 	
-			<div class="content">		
-				<section id="section-4" class="content-current">
-					<div class="row">
-						<h3>Cadastrar Translado</h3>
-					</div>
-					<!-- End row -->
-					<% if(typeof alert != 'undefined'){ %>
+<%- include("./partials/header") %>
+<section class="section container" id="detalhe">
+    <div class="row">
+        <div class="col s12 l5">
+            <h2 class="indigo-text text-darken-4">
+                Realiza seu cadastro do translado
+            </h2>
+            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
+            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>  
+        </div>
+        <div class="card col s12 l5 offset-l2">
+            <form class="col s12" method="POST" action="<%= formAction %>" enctype="multipart/form-data">
+                <div class="row">
+                    <% if(typeof alert != 'undefined'){ %>
                         <% alert.forEach(function(error){ %>
                           <div class="materialert error">
-                            <div class="material-icons"></div>
+                            <div class="material-icons">error_outline</div>
                             <%= error.msg %>
                           </div>
                         <% }) %>
                     <% } %>
-					<div class="divider"></div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                    <input value="<%= translado.titulo %>" id="tituloTranslado" type="text" class="validate" name="tituloTranslado">
+                    <label for="tituloTranslado">Título/Nome</label>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input value="<%= translado.preco_original %>" id="precoOriginalTranslado" type="text" class="validate" name="precoOriginalTranslado">
+                        <label for="precoOriginalTranslado">Preço Original</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input value="<%= translado.preco_promocional %>" id="precoPromocionalTranslado" type="text" class="validate" name="precoPromocionalTranslado">
+                        <label for="precoPromocionalTranslado">Preço Promocional</label>
+                    </div>
+                </div>
 
-					<form method="POST" action="<%= formAction %>" enctype="multipart/form-data">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label>Titulo</label>
-									<input id="tituloTranslado" type="text" class="form-control" name="tituloTranslado" value="<%= translado.titulo %>">
-								</div>
-							</div>
-						</div>
-						<!-- End rOw -->
-						<div class="row">						
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>Pode transporta pets?</label>
-									<select id="transportaPet" class="form-control" name="transportaPet">
-										<option value="">Selecione...</option>
-                                        <option <%= (translado.transporta_pet == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
-                                        <option <%= (translado.transporta_pet == "nao")?'selected="selected"':'' %> value="nao">Não</option>
-									</select>
-								</div>
-							</div>
-                            <div class="col-md-6">
-								<div class="form-group">
-									<label>É acessivel para deficientes?</label>
-									<select id="acessivelDeficiente" class="form-control" name="acessivelDeficiente">
-										<option value="">Selecione...</option>
-                                        <option <%= (translado.acessivel_deficiente == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
-                                        <option <%= (translado.acessivel_deficiente == "nao")?'selected="selected"':'' %> value="nao">Não</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<!-- End row -->
-						<div class="row">
-                            <div class="col-md-6">
-								<div class="form-group">
-									<label>Pode levar bagagens?</label>
-									<select id="levarBagagens" class="form-control" name="levarBagagens">
-										<option value="">Selecione...</option>
-                                        <option <%= (translado.levar_bagagens == "pequena")?'selected="selected"':'' %> value="pequena">Pequena</option>
-                                        <option <%= (translado.levar_bagagens == "media")?'selected="selected"':'' %> value="media">Média</option>
-                                        <option <%= (translado.levar_bagagens == "grande")?'selected="selected"':'' %> value="grande">Grande</option>
-                                        <option <%= (translado.levar_bagagens == "nenhuma")?'selected="selected"':'' %> value="nenhuma">Nenhuma</option>
-									</select>
-								</div>
-							</div>  
-                            <div class="col-md-6">
-								<div class="form-group">
-									<label>Recolhe no hotel?</label>
-									<select id="recolheHotel" class="form-control" name="recolheHotel">
-										<option value="">Selecione...</option>
-                                        <option <%= (translado.recolhe_hotel == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
-                                        <option <%= (translado.recolhe_hotel == "nao")?'selected="selected"':'' %> value="nao">Não</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<!-- End row -->
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>Preço Original</label>
-									<input value="<%= translado.preco_original %>" id="precoOriginalTranslado" type="text" class="form-control" name="precoOriginalTranslado">
-								</div>
-							</div>  
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>Preço Promocional</label>
-									<input value="<%= translado.preco_promocional %>" id="precoPromocionalTranslado" type="text" class="form-control" name="precoPromocionalTranslado">
-								</div>
-							</div>
-						</div>
-						<!-- End row -->
-						<hr>
-						<div class="row">
-							<div class="col-md-12">
-								<h4>Descrição</h4>
-							</div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <textarea rows="5" id="descricao" name="descricao" class="form-control" placeholder="Faça aqui a descrição" style="height:200px;"><%= translado.descricao %></textarea>
-                                </div>
-                            </div>				
-						</div>
-						<!-- End row -->
-						<hr>
-						<h4>Carregue a imagem do translado</h4>
-						<div class="form-inline upload_1">
-							<div class="form-group">
-								<input type="file" name="imagemTranslado" id="js-upload-files" multiple="" value="<%= translado.imagem %>">
-							</div>
-						</div>						
-							<!-- End Hidden on mobiles -->
-                        <hr>
-                        <a href="../listagemTranslado" class="btn_1 green"> Voltar</a>
-                        <button type="submit" class="btn_1 blue">Salvar</button>
-                    </form>
-				</section>
-				<!-- End section 4 -->
-
-				</div>
-				<!-- End content -->
-			</div>
-			<!-- End tabs -->
-		</div>
-		<!-- end container -->
-</main>
-
-<%- include("./partials/footer") %> 
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="levarBagagens" name="levarBagagens">
+                            <option value="" disabled selected>Pode levar bagagens?</option>
+                            <option <%= (translado.levar_bagagens == "pequena")?'selected="selected"':'' %> value="pequena">Pequena</option>
+                            <option <%= (translado.levar_bagagens == "media")?'selected="selected"':'' %> value="media">Média</option>
+                            <option <%= (translado.levar_bagagens == "grande")?'selected="selected"':'' %> value="grande">Grande</option>
+                          </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="acessivelDeficiente" name="acessivelDeficiente">
+                            <option value="" disabled selected>É acessível para defícientes?</option>
+                            <option <%= (translado.acessivel_deficiente == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
+                            <option <%= (translado.acessivel_deficiente == "nao")?'selected="selected"':'' %> value="nao">Não</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="recolheHotel" name="recolheHotel">
+                            <option value="" disabled selected>Recolhe no hotel?</option>
+                            <option <%= (translado.recolhe_hotel == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
+                            <option <%= (translado.recolhe_hotel == "nao")?'selected="selected"':'' %> value="nao">Não</option>
+                          </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="transportaPet" name="transportaPet">
+                            <option value="" disabled selected>Pode levar Pets?</option>
+                            <option <%= (translado.transporta_pet == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
+                            <option <%= (translado.transporta_pet == "nao")?'selected="selected"':'' %> value="nao">Não</option>
+                          </select>
+                    </div>
+                </div>
+                 <div class="row">
+                <div class="input-field col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea2" class="materialize-textarea" data-length="400" name="descricao" maxlength="250"><%= translado.descricao %></textarea>
+                            <label for="descricao">Descrição</label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="file-field input-field">
+                    <div class="btn blue">
+                      <span>Imagem</span>
+                      <input type="file" id="imagem" name="imagem">
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input value="" class="file-path validate" type="text" id="imagem" name="imagem">
+                    </div>
+                </div>
+                <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
+                    <a href="/translado/listagemTranslado" class="waves-effect red darken-3  btn">Voltar</a>
+                    <button type="submit" class="waves-effect green btn">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<%- include("./partials/footer") %>

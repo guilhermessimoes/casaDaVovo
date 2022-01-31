@@ -2,17 +2,21 @@ const { validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 const db = require('../models'); 
 const jwt = require('jsonwebtoken');
-const Usuario = require("../models/Usuario");
 //const { response } = require("../app");
 
 
 const loginController = {
-    signupGet: async(req,res)=>{
-        res.render('registrarUsuario', {formAction:"/login/signup", usuario:{}})
+    signupGet: async(_req,res)=>{
+        res.render("registrarUsuario", {formAction:"/login/signup", usuario:{}})
     },
-
-   
     signupPost: async(req,res) =>{
+        let listaDeErros = validationResult(req)
+        if(!listaDeErros.isEmpty()){
+            const alert = listaDeErros.array()
+            res.render("login/signup", {alert: alert, formAction:"/login/signup"})
+            return            
+        }
+
         const nomeUsuario = req.body.nome;
         const emailUsuario = req.body.email;
         const senhaUsuario = req.body.senha;
@@ -22,18 +26,20 @@ const loginController = {
 
        
         if (senhaUsuario !== confirmSenha) {          
-            return res.render("registrarUsuario", { formAction:"/login/signup", error: "Senhas não conferem" });
+            return res.render("registrarUsuario", { formAction:"/login/signup", message: "Senhas não conferem" });
           }        
         if (await db.Usuario.findOne({where: { email: emailUsuario}})) {            
-            return res.render('registrarUsuario',{ formAction:"/login/signup", error: 'Email já existe'})
+            return res.render('registrarUsuario',{ formAction:"/login/signup", message: 'Email já existe'})
         }        
         try {  
           const user = await db.Usuario.create({
               nome: nomeUsuario,
               email: emailUsuario,
               senha: senhaCriptografada
-            })                   
-            res.redirect("/", { formAction:"/login/signup"})     
+          })
+
+          await req.flash('success', "Registro criado com sucesso")
+          res.redirect("/login", { formAction:"/login/signup"})     
 
         } catch (error) {
           res.status(400).send('error, falha na criação do usuario.')
@@ -41,10 +47,19 @@ const loginController = {
     },
 
     loginGet: async(req,res)=>{
-        res.render('login', {formAction:"/login" }) 
+      const messages = await req.consumeFlash('success')
+
+        res.render('login', {formAction:"/login", messages: messages }) 
     },
 
     loginPost: async(req,res)=>{
+        let listaDeErros = validationResult(req)
+        if(!listaDeErros.isEmpty()){
+            const alert = listaDeErros.array()
+            res.render("login", {alert: alert, formAction:"/login"})
+            return            
+        }
+
         const { email, senha } = req.body;
 
         const user = await db.Usuario.findOne({ where: { email: email } })
@@ -55,7 +70,7 @@ const loginController = {
             console.log(err);
             return undefined;
           });
-      
+          
         if (!user) {
           return res.render("login", { error: "Usuário ou senha incorretos" });
         }
@@ -65,19 +80,26 @@ const loginController = {
           return res.render("login", { error: "Usuário ou senha incorretos" });
         }
         
-        // Authenticate User
+
+        /* Adicionar session 
+        request.session.usuario = {
+          user_id: user.id,
+          name: user.nome,
+          email: user.email,
+        };*/
+
+       /* // Authenticate User
         try {
-          const accessToken =  jwt.sign({userId: Usuario.id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 300000})          
+          const accessToken =  jwt.sign({userId: db.Usuario.id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 300000})          
           //res.status(200).json({msg:'Autenticação realizada com sucesso.', accessToken: accessToken});
           //console.log(accessToken)
           res.render("index", {accessToken: accessToken});
         } catch (error) {
           console.log(error);
           res.status(500).json({msg:'problema no servidor'})
-        }
+        }*/
       
-    },    
-  
+    },
 }
 
 module.exports = loginController
