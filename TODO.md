@@ -6,7 +6,7 @@
 
 ## Mid level steps (deadline 25/02/2022)
 1. Converter para typescript
-2. Implementar docker && docker-compose
+2. Implementar docker && docker-compose (OK)
 3. Subir para nuvem (deploy com containerizacao)
 
 ## Advanced level steps (deadline 15/03/2022)
