@@ -8,17 +8,17 @@ const transladoController = {
     },
 
     viewCadastrarTranslado: async(req,res)=>{      
-        res.render('cadastrarTranslado', {formAction:"cadastrarTranslado", translado:{}, })
+        res.render('cadastrarTranslado', {formAction:"cadastrarTranslado", translado:{} })
     },
    
     acaoCadastrarTranslado: async(req,res) =>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const alert = listaDeErros.array()
-            res.render("cadastrarTranslado", {alert: alert, buttonMessage: "Cadastrar", formAction:"/translado/cadastrarTranslado", translado:{}})
+            res.render("cadastrarTranslado", {alert: alert, formAction:"/translado/cadastrarTranslado", translado:{}})
             return            
         }
-
+       
         const transladoPet = req.body.transportaPet
         const transladoDeficiente = req.body.acessivelDeficiente
         const transladoBagagens = req.body.levarBagagens
@@ -41,7 +41,6 @@ const transladoController = {
             titulo: transladoTitulo
         })
 
-        console.log(cadastrarTranslado)
 
         await req.flash('success', "Registro criado com sucesso")
         res.redirect("/translado/listagemTranslado")   

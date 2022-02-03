@@ -13,19 +13,19 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 const {cadastrarTransladoValidator} = require('../middlewares/cadastrarTransladoValidator')
-const {authMidllewareToken} = require('../middlewares/auth')
+const verifyLogin = require('../middlewares/session')
 
 router.get('/detalheTranslado/:id', transladoController.detalheTranslado)
 
 router.get('/listagemTranslado', transladoController.listagemTranslado)
 
-router.get('/cadastrarTranslado', transladoController.viewCadastrarTranslado)
-router.post('/cadastrarTranslado', upload.single('imagemTranslado'), cadastrarTransladoValidator, transladoController.acaoCadastrarTranslado)
+router.get('/cadastrarTranslado',verifyLogin, transladoController.viewCadastrarTranslado)
+router.post('/cadastrarTranslado',verifyLogin, upload.single('imagem'), cadastrarTransladoValidator, transladoController.acaoCadastrarTranslado)
 
-router.get('/alterar/:id', transladoController.editar)
-router.post('/alterar/:id', upload.single('imagem'),cadastrarTransladoValidator, transladoController.acaoEditar)
+router.get('/alterar/:id',verifyLogin, transladoController.editar)
+router.post('/alterar/:id',verifyLogin, upload.single('imagem'),cadastrarTransladoValidator, transladoController.acaoEditar)
 
-router.get('/excluir/:id', transladoController.excluir)
+router.get('/excluir/:id',verifyLogin, transladoController.excluir)
 
 
 module.exports = router;

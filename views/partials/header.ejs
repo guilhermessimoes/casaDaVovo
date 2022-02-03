@@ -15,10 +15,12 @@
 <body class="scrollspy">
     <main>
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="/login" class="blue-text text-darken-2"><i class="small material-icons">login</i>Entrar</a></li>
+            <% if (!locals.session.usuario) { %>
+                <li><a href="/login" class="blue-text text-darken-2"><i class="small material-icons">login</i>Entrar</a></li>               
+           <% } %>
             <li><a href="#!" class="blue-text text-darken-2"><i class="small material-icons"><span class="material-icons">account_circle</span></i>Perfil</a></li>
             <li class="divider"></li>
-            <li><a href="#!" class="blue-text text-darken-2"><i class="small material-icons">logout</i>Sair</a></li>
+            <li><a href="/login/logout" class="blue-text text-darken-2"><i class="small material-icons">logout</i>Sair</a></li>
         </ul>
         <div class="navbar-fixed">
             <nav class="blue">
@@ -28,10 +30,10 @@
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="/">Inicio</a></li>
-                            <li><a href="hotel/listagemHotel">Hoteis</a></li>
-                            <li><a href="passeio/listagemPasseio">Passeio</a></li>
-                            <li><a href="translado/listagemTranslado">Translado</a></li>
-                            <li><a href="restaurante/listagemRestaurante">Restaurante</a></li>
+                            <li><a href="/hotel/listagemHotel">Hoteis</a></li>
+                            <li><a href="/passeio/listagemPasseio">Passeio</a></li>
+                            <li><a href="/translado/listagemTranslado">Translado</a></li>
+                            <li><a href="/restaurante/listagemRestaurante">Restaurante</a></li>
                             <ul class="right hide-on-med-and-down">
                                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Configurações<i class="material-icons right">arrow_drop_down</i></a></li>
                             </ul>
@@ -42,10 +44,10 @@
          </div>
         <ul class="sidenav" id="mobile-demo">
             <li><a href="/">Inicio</a></li>
-            <li><a href="hotel/listagemHotel">Hoteis</a></li>
-            <li><a href="passeio/listagemPasseio">Passeio</a></li>
-            <li><a href="translado/listagemTranslado">Translado</a></li>
-            <li><a href="restaurante/listagemRestaurante">Restaurante</a></li>
-            <li><a href="mobile.html">Entrar</a></li>
-            <li><a href="mobile.html">Sair</a></li>
+            <li><a href="/hotel/listagemHotel">Hoteis</a></li>
+            <li><a href="/passeio/listagemPasseio">Passeio</a></li>
+            <li><a href="/translado/listagemTranslado">Translado</a></li>
+            <li><a href="/restaurante/listagemRestaurante">Restaurante</a></li>
+            <li><a href="/login">Entrar</a></li>
+            <li><a href="/login/logout">Sair</a></li>
         </ul>

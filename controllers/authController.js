@@ -2,7 +2,6 @@ const { validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 const db = require('../models'); 
 const jwt = require('jsonwebtoken');
-//const { response } = require("../app");
 
 
 const loginController = {
@@ -27,7 +26,8 @@ const loginController = {
        
         if (senhaUsuario !== confirmSenha) {          
             return res.render("registrarUsuario", { formAction:"/login/signup", message: "Senhas não conferem" });
-          }        
+        }        
+        
         if (await db.Usuario.findOne({where: { email: emailUsuario}})) {            
             return res.render('registrarUsuario',{ formAction:"/login/signup", message: 'Email já existe'})
         }        
@@ -39,8 +39,8 @@ const loginController = {
           })
 
           await req.flash('success', "Registro criado com sucesso")
-          res.redirect("/login", { formAction:"/login/signup"})     
-
+          res.redirect("/login", { formAction:"/login/signup"}) 
+          
         } catch (error) {
           res.status(400).send('error, falha na criação do usuario.')
         }
@@ -48,7 +48,7 @@ const loginController = {
 
     loginGet: async(req,res)=>{
       const messages = await req.consumeFlash('success')
-
+     
         res.render('login', {formAction:"/login", messages: messages }) 
     },
 
@@ -64,13 +64,15 @@ const loginController = {
 
         const user = await db.Usuario.findOne({ where: { email: email } })
           .then((user) => {
-            return user;
+            return user;            
           })
           .catch((err) => {
             console.log(err);
             return undefined;
           });
           
+        
+         
         if (!user) {
           return res.render("login", { error: "Usuário ou senha incorretos" });
         }
@@ -81,12 +83,14 @@ const loginController = {
         }
         
 
-        /* Adicionar session 
-        request.session.usuario = {
+        //Adicionar session 
+        req.session.usuario = {
           user_id: user.id,
           name: user.nome,
           email: user.email,
-        };*/
+        };
+        
+        res.redirect("/")
 
        /* // Authenticate User
         try {
