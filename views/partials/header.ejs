@@ -17,10 +17,13 @@
         <ul id="dropdown1" class="dropdown-content">
             <% if (!locals.session.usuario) { %>
                 <li><a href="/login" class="blue-text text-darken-2"><i class="small material-icons">login</i>Entrar</a></li>               
-           <% } %>
+           <% } else %>
+           <li class="divider"></li>
+           <% if (locals.session.usuario) { %>
             <li><a href="#!" class="blue-text text-darken-2"><i class="small material-icons"><span class="material-icons">account_circle</span></i>Perfil</a></li>
-            <li class="divider"></li>
-            <li><a href="/login/logout" class="blue-text text-darken-2"><i class="small material-icons">logout</i>Sair</a></li>
+                <li><a href="/login/logout" class="blue-text text-darken-2"><i class="small material-icons">logout</i>Sair</a></li>               
+           <% } else %>
+           
         </ul>
         <div class="navbar-fixed">
             <nav class="blue">

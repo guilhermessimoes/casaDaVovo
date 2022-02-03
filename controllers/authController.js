@@ -39,7 +39,7 @@ const loginController = {
           })
 
           await req.flash('success', "Registro criado com sucesso")
-          res.redirect("/login", { formAction:"/login/signup"}) 
+          res.redirect("/login") 
           
         } catch (error) {
           res.status(400).send('error, falha na criação do usuario.')

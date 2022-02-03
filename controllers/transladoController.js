@@ -29,7 +29,7 @@ const transladoController = {
         const transladoPrecoPromocional = req.body.precoPromocionalTranslado
         const transladoTitulo = req.body.tituloTranslado
 
-        const cadastrarTranslado = await db.Translado.create({
+        await db.Translado.create({
             transporta_pet: transladoPet,
             acessivel_deficiente: transladoDeficiente,
             levar_bagagens: transladoBagagens,
