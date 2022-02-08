@@ -4,26 +4,28 @@ const hotelController = require('../controllers/hotelController')
 const path = require('path')
 const multer  = require('multer')
 const storage = multer.diskStorage({
-    destination: (req, res, cb) =>{
+    destination: (_req, _res, cb) =>{
         cb(null, "./public/data/uploads")
     },
-    filename:  (req, file, cb) => {
+    filename:  (_req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname))
     }
 })
 const upload = multer({ storage: storage })
 const {cadastrarHotelValidator} = require('../middlewares/cadastrarHotelValidator')
+const verifyLogin = require('../middlewares/session')
 
+router.get('/detalheHotel/:id', hotelController.detalheHotel)
 
 router.get('/listagemHotel', hotelController.listagemHotel)
 
-router.get('/cadastrarHotel', hotelController.viewCadastrarHotel)
-router.post('/cadastrarHotel', upload.single('hotel_imagem'),cadastrarHotelValidator, hotelController.acaoCadastrarHotel)
+router.get('/cadastrarHotel',verifyLogin, hotelController.viewCadastrarHotel)
+router.post('/cadastrarHotel',verifyLogin, upload.single('imagem'), cadastrarHotelValidator, hotelController.acaoCadastrarHotel)
 
-router.get('/alterar/:id', hotelController.editar)
-router.post('/alterar/:id', upload.single('hotel_imagem'),cadastrarHotelValidator, hotelController.acaoEditar)
+router.get('/alterar/:id',verifyLogin, hotelController.editar)
+router.post('/alterar/:id',verifyLogin, upload.single('imagem'),cadastrarHotelValidator, hotelController.acaoEditar)
 
-router.get('/excluir/:id', hotelController.excluir)
+router.get('/excluir/:id',verifyLogin, hotelController.excluir)
 
 
 module.exports = router;

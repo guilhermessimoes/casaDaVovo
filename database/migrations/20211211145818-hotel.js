@@ -24,19 +24,7 @@ module.exports = {
       hotel_quantidade_unidades:{
        type: Sequelize.STRING,
        allowNull: false
-      },
-      hotel_categoria_unidades:{
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      hotel_horario_check_in:{
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      hotel_horario_check_out:{
-        type: Sequelize.DATE,
-        allowNull: false
-      },
+      },        
       hotel_imagem:{
         type: Sequelize.STRING,
         allowNull: false
@@ -57,6 +45,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+        hotel_endereco_complemento:{
+          type: Sequelize.STRING,
+          allowNull: false
+      },
       hotel_endereco_bairro:{
         type: Sequelize.STRING,
         allowNull: false
@@ -68,13 +60,20 @@ module.exports = {
       hotel_endereco_cep:{
         type: Sequelize.STRING,
         allowNull: false
-      },
-      
+      },      
       hotel_email:{
         type: Sequelize.STRING,
         allowNull: false
       },      
       hotel_preco:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      hotel_preco_promo:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      hotel_descricao:{
         type: Sequelize.STRING,
         allowNull: false
       },

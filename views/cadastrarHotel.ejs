@@ -1,3 +1,187 @@
 <%- include("./partials/header") %>
+  <section class="section container" id="detalhe">
+    <div class="row">
+      <div class="col s12 l5">
+        <h2 class="indigo-text text-darken-4">
+          Realiza o cadastro da sua hospedagem
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet,
+          consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem
+          ipsum dolor sit amet, consectetur
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet,
+          consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem
+          ipsum dolor sit amet, consectetur
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet,
+          consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem
+          ipsum dolor sit amet, consectetur
+        </p>
+      </div>
 
-<%- include("./partials/footer") %>
+      <div class="card col s12 l5 offset-l2">
+        <form class="col s12" method="POST" action="<%= formAction %>" enctype="multipart/form-data">
+
+          <div class="row">
+            <% if(typeof alert !='undefined' ){ %>
+              <% alert.forEach(function(error){ %>
+                <div class="materialert error">
+                  <div class="material-icons">error_outline</div>
+                  <%= error.msg %>
+                </div>
+
+                <% }) %>
+                  <% } %>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input value="<%= hotel.hotel_nome %>" id="hotelNome" type="text" class="validate" name="hotelNome" />
+              <label for="hotelNome">Nome da hospedagem</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input value="<%= hotel.hotel_tipo %>" id="hotelTipo" type="text" class="validate" name="hotelTipo" />
+              <label for="hotelTipo">Tipo de hospedagem</label>
+            </div>
+            <div class="input-field col s6">
+              <input value="<%= hotel.hotel_quantidade_unidades %>" id="hotelQuantidadeUnidades" type="text"
+                class="validate" name="hotelQuantidadeUnidades" />
+              <label for="hotelQuantidadeUnidades">Quantidade de unidades</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input disabled value="Facilidades:" id="disabled" type="text" class="validate" />
+              <label for="disabled"></label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s4">
+              <label><input <%= (hotel.hotel_facilidades == "wifi") %> type="checkbox" name="wifi" id="facili1" value="wifi" /><span>Wifi</span></label>
+              <label><input type="checkbox" name="ar"   id="facili2" value="arCondicionado" /><span>Ar condi.</span></label>
+              <label><input type="checkbox" name="frigobar" id="facili3" value="frigobar"/><span>Frigobar</span></label>
+              <label><input type="checkbox"  name="tvACabo" id="facili4" value="tvACabo"/><span>Tv a cabo</span></label>
+            </div>
+            <div class="col s4">
+              <label><input type="checkbox"  name="cofre" id="facili5" value="cofre"/><span>Cofre</span></label>
+              <label><input type="checkbox"  name="piscina" id="facili6" value="piscina"/><span>Piscina</span></label>
+              <label><input type="checkbox"  name="restaurante" id="facili7" value="wifi"/><span>Restaurante</span></label>
+              <label><input type="checkbox"  name="roomService" id="facili8" value="roomService"/><span>Room service</span></label>
+            </div>
+
+            <div class="col s4">
+              <label><input type="checkbox"  name="estacionamento" id="facili1" value="estacionamento"/><span>Estacionamento</span></label>
+              <label><input type="checkbox"  name="petFriendly" id="facili1" value="petFriendly"/><span>Pet Friendly</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input disabled value="" id="disabled" type="text" class="validate" />
+              <label for="disabled"></label>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_endereco_cep %>" id="hotelEnderecoCep" type="text" class="validate"
+                name="hotelEnderecoCep" />
+              <label for="hotelEnderecoCep">Cep:</label>
+            </div>
+            <div class="input-field col s8">
+              <input value="<%= hotel.hotel_endereco %>" id="hotelEndereco" type="text" class="validate"
+                name="hotelEndereco" />
+              <label for="hotelEndereco">Logradouro:</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_endereco_numero %>" id="hotelEnderecoNumero" type="text" class="validate"
+                name="hotelEnderecoNumero" />
+              <label for="hotelEnderecoCep">Número:</label>
+            </div>
+
+            <div class="input-field col s8">
+              <input value="<%= hotel.hotel_endereco_complemento %>" id="hotelEnderecoComplemento" type="text"
+                class="validate" name="hotelEnderecoComplemento" />
+              <label for="hotelEnderecoCep">Complemento:</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_endereco_bairro %>" id="hotelEnderecoBairro" type="text" class="validate"
+                name="hotelEnderecoBairro" />
+              <label for="hotelEnderecoBairro">Bairro:</label>
+            </div>
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_endereco_cidade %>" id="hotelEnderecoCidade" type="text" class="validate"
+                name="hotelEnderecoCidade" />
+              <label for="hotelEnderecoCidade">Cidade:</label>
+            </div>
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_endereco_estado %>" id="hotelEnderecoEstado" type="text" class="validate"
+                name="hotelEnderecoEstado" />
+              <label for="hotelEnderecoEstado">Estado:</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_telefone %>" id="hotelTelefone" type="text" class="validate"
+                name="hotelTelefone" />
+              <label for="hotelTelefone">Telefone:</label>
+            </div>
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_email %>" id="hotelEmail" type="email" class="validate" name="hotelEmail" />
+              <label for="hotelEmail">E-mail:</label>
+            </div>
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_preco %>" id="hotelPreco" type="text" class="validate" name="hotelPreco" />
+              <label for="hotelPreco">Preço:</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea2" class="materialize-textarea" data-length="400" name="hotelDescricao"
+                    minlength="50" maxlength="250"><%= hotel.hotelDescricao %></textarea>
+                  <label for="hotelDescricao">Descrição</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="file-field input-field">
+              <div class="btn blue">
+                <span>Imagem</span>
+                <input type="file" id="imagem" name="imagem" />
+              </div>
+              <div class="file-path-wrapper">
+                <input value="" class="file-path validate" type="text" id="imagem" name="imagem" />
+              </div>
+            </div>
+            <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
+              <a href="/hotel/listagemHotel" class="waves-effect red darken-3 btn">Voltar</a>
+              <button type="submit" class="waves-effect green btn">
+                Cadastrar
+              </button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include("./partials/footer") %>
