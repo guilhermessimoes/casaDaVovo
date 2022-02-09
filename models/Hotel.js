@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         hotel_email: DataTypes.STRING(40),
         hotel_preco: DataTypes.STRING(40),
         hotel_preco_promo: DataTypes.STRING(40),
-        hotel_descricao: DataTypes.STRING(100)
+        hotel_descricao: DataTypes.STRING(250)
         }, {
         tableName: "hoteis",
         timestamps: true,
