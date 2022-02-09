@@ -28,7 +28,13 @@
                             <div class="material-icons">check</div>
                             <%= messages %>
                         </div>
-                      <% } %>                      
+                      <% } %>
+                      <%if (verifyUser.length > 0) { %>
+                        <div class="materialert error">
+                            <div class="material-icons">error_outline</div>
+                            <%= verifyUser %>
+                        </div>
+                      <% } %>                   
                     <div class="row">
                         <div class="input-field col s12">
                             <input value="" id="Email" type="email" class="validate white-text" name="email">

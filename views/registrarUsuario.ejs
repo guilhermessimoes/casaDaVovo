@@ -24,7 +24,12 @@
                               </div>
                             <% }) %>
                         <% } %>
-                        
+                        <%if (message.length > 0) { %>
+                            <div class="materialert error">
+                                <div class="material-icons">error_outline</div>
+                                <%= message %>
+                            </div>
+                          <% } %>
                         <div class="input-field col s12">
                             <input value="" id="nome" type="text" class="validate white-text" name="nome">
                             <label for="nome" class="white-text">Nome completo</label>

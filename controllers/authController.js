@@ -6,14 +6,13 @@ const jwt = require('jsonwebtoken');
 
 const loginController = {
     signupGet: async(_req,res)=>{
-        res.render("registrarUsuario", {formAction:"/login/signup", usuario:{}})
+        res.render("registrarUsuario", {formAction:"/login/signup", usuario:{}, message:''})
     },
     signupPost: async(req,res) =>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const alert = listaDeErros.array()
-            res.render("login/signup", {alert: alert, formAction:"/login/signup"})
-            return            
+            return res.render("registrarUsuario", {alert: alert, formAction:"/login/signup", message:''})
         }
 
         const nomeUsuario = req.body.nome;
@@ -49,15 +48,14 @@ const loginController = {
     loginGet: async(req,res)=>{
       const messages = await req.consumeFlash('success')
      
-        res.render('login', {formAction:"/login", messages: messages }) 
+        res.render('login', {formAction:"/login", messages: messages,  verifyUser:'' }) 
     },
 
     loginPost: async(req,res)=>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const alert = listaDeErros.array()
-            res.render("login", {alert: alert, formAction:"/login"})
-            return            
+            return res.render("login", {alert: alert, verifyUser:'', messages: 0, formAction:"/login"})
         }
 
         const { email, senha } = req.body;
@@ -74,12 +72,12 @@ const loginController = {
         
          
         if (!user) {
-          return res.render("login", { error: "Usuário ou senha incorretos" });
+          return res.render("login", { verifyUser: "Usuário ou senha incorretos" , messages: 0, formAction:"/login"});
         }
       
         const comparePassword = bcrypt.compareSync(senha, user.senha);
         if (!comparePassword) {
-          return res.render("login", { error: "Usuário ou senha incorretos" });
+          return res.render("login", { verifyUser: "Usuário ou senha incorretos", messages: 0, formAction:"/login" });
         }
         
 
@@ -91,17 +89,6 @@ const loginController = {
         };
         
         res.redirect("/")
-
-       /* // Authenticate User
-        try {
-          const accessToken =  jwt.sign({userId: db.Usuario.id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: 300000})          
-          //res.status(200).json({msg:'Autenticação realizada com sucesso.', accessToken: accessToken});
-          //console.log(accessToken)
-          res.render("index", {accessToken: accessToken});
-        } catch (error) {
-          console.log(error);
-          res.status(500).json({msg:'problema no servidor'})
-        }*/
       
     },
 }

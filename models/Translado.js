@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         preco_original: DataTypes.INTEGER,
         preco_promocional: DataTypes.INTEGER,
         titulo: DataTypes.STRING(200),
-        descricao: DataTypes.STRING(10),
+        descricao: DataTypes.STRING(250),
         imagem: DataTypes.STRING(10)
     }, {
         tableName: "translados",
