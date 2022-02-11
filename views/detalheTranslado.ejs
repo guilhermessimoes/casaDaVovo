@@ -5,40 +5,38 @@
             <h2 class="indigo-text text-darken-4">
                 Tudo sobre este translado
             </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>  
-        </div>
+            <p> <%= translados.descricao %></p>
+           </div>
         <div class="card col s12 l5 offset-l2"> 
             <h4 class="center indigo-text text-darken-4">Detalhes</h4>          
             <div class="row detailInfo">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
-                  <label for="icon_prefix">Nome do translado: <span> <%= translados.titulo %>></span></label>
+                  <label for="icon_prefix">Nome do translado: <strong> <span> <%= translados.titulo %> </span></strong></label>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">attach_money</i>
-                  <label for="icon_telephone">Preço Original: <span> TGeste</span></label>
+                  <label for="icon_telephone">Preço Original: <strong> <span>R$ <%= translados.preco_original %></span></strong></label>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">savings</i>
-                  <label for="icon_telephone">Preço Promocional: <span> TGeste</span></label>
+                  <label for="icon_telephone">Preço Promocional: <strong> <span>R$ <%= translados.preco_promocional %></span></strong></label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">luggage</i>
-                    <label for="icon_telephone">Pode levar bagagens? <span> TGeste</span></label>
+                    <label for="icon_telephone">Pode levar bagagens: <strong> <span> <%= translados.levar_bagagens %></span></strong></label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix"><span class="Medium material-icons">accessible</span></i>
-                    <label for="icon_telephone">É acessível para deficientes? <span> TGeste</span></label>
+                    <label for="icon_telephone">É acessível para deficientes: <strong><span> <%= translados.acessivel_deficiente %></span></strong></label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix"><span class="material-icons">apartment</span></i>
-                    <label for="icon_telephone">Recolhe no hotel? <span> TGeste</span></label>
+                    <label for="icon_telephone">Recolhe no hotel: <span> <%= translados.recolhe_hotel %></span></label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">pets</i>
-                    <label for="icon_telephone">Pode levar Pets? <span> TGeste</span></label>
+                    <label for="icon_telephone">Pode levar Pets: <span> <%= translados.transporta_pet %></span></label>
                 </div>
             </div>
         </div>
@@ -46,10 +44,10 @@
     </div> 
     <div class="row">
         <div class="col s12 l1">
-          <img src="/images/arraial-do-cabo.jpg" alt="" class="materialboxed" width="600">
+          <img src="/data/uploads/<%= translados.imagem %>" alt="" class="materialboxed" width="600">
         </div>
         <div class="col s12 l6 offset-l5">
-          <h2 class="indigo-text text-darken-4">Praias</h2>
+          <h2 class="indigo-text text-darken-4"><%= translados.titulo %></h2>
           <p>Lorem Ipsum, Lorem, Lorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, Lorem</p>
         </div>
       </div>   

@@ -24,24 +24,24 @@
                 </div>
                 <div class="row">
                 <div class="input-field col s12">
-                    <input value="<%= translado.titulo %>" id="tituloTranslado" type="text" class="validate" name="tituloTranslado">
+                    <input value="<%= translado.titulo %>" id="tituloTranslado" type="text" class="validate" name="tituloTranslado" required>
                     <label for="tituloTranslado">Título/Nome</label>
                 </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input value="<%= translado.preco_original %>" id="precoOriginalTranslado" type="text" class="validate" name="precoOriginalTranslado">
+                        <input value="<%= translado.preco_original %>" id="precoOriginalTranslado" type="text" class="validate" name="precoOriginalTranslado" required>
                         <label for="precoOriginalTranslado">Preço Original</label>
                     </div>
                     <div class="input-field col s6">
-                        <input value="<%= translado.preco_promocional %>" id="precoPromocionalTranslado" type="text" class="validate" name="precoPromocionalTranslado">
+                        <input value="<%= translado.preco_promocional %>" id="precoPromocionalTranslado" type="text" class="validate" name="precoPromocionalTranslado" required>
                         <label for="precoPromocionalTranslado">Preço Promocional</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <select id="levarBagagens" name="levarBagagens">
+                        <select id="levarBagagens" name="levarBagagens" required>
                             <option value="" disabled selected>Pode levar bagagens?</option>
                             <option <%= (translado.levar_bagagens == "pequena")?'selected="selected"':'' %> value="pequena">Pequena</option>
                             <option <%= (translado.levar_bagagens == "media")?'selected="selected"':'' %> value="media">Média</option>
@@ -49,7 +49,7 @@
                           </select>
                     </div>
                     <div class="input-field col s6">
-                        <select id="acessivelDeficiente" name="acessivelDeficiente">
+                        <select id="acessivelDeficiente" name="acessivelDeficiente" required>
                             <option value="" disabled selected>É acessível para defícientes?</option>
                             <option <%= (translado.acessivel_deficiente == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
                             <option <%= (translado.acessivel_deficiente == "nao")?'selected="selected"':'' %> value="nao">Não</option>
@@ -58,14 +58,14 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <select id="recolheHotel" name="recolheHotel">
+                        <select id="recolheHotel" name="recolheHotel" required>
                             <option value="" disabled selected>Recolhe no hotel?</option>
                             <option <%= (translado.recolhe_hotel == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
                             <option <%= (translado.recolhe_hotel == "nao")?'selected="selected"':'' %> value="nao">Não</option>
                           </select>
                     </div>
                     <div class="input-field col s6">
-                        <select id="transportaPet" name="transportaPet">
+                        <select id="transportaPet" name="transportaPet" required>
                             <option value="" disabled selected>Pode levar Pets?</option>
                             <option <%= (translado.transporta_pet == "sim")?'selected="selected"':'' %> value="sim">Sim</option>
                             <option <%= (translado.transporta_pet == "nao")?'selected="selected"':'' %> value="nao">Não</option>
@@ -76,7 +76,7 @@
                 <div class="input-field col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea2" class="materialize-textarea" data-length="400" name="descricao" minlength="50" maxlength="250"><%= translado.descricao %></textarea>
+                            <textarea id="textarea2" class="materialize-textarea" data-length="400" name="descricao" minlength="50" maxlength="250" required><%= translado.descricao %></textarea>
                             <label for="descricao">Descrição</label>
                             <span class="helper-text" data-error="wrong" data-success="right">Carácter mínimo de 50 e máximo de 250.</span>
                         </div>
@@ -87,10 +87,10 @@
                 <div class="file-field input-field">
                     <div class="btn blue">
                       <span>Imagem</span>
-                      <input type="file" id="imagem" name="imagem">
+                      <input type="file" id="imagem" name="imagem" required>
                     </div>
                     <div class="file-path-wrapper">
-                      <input value="" class="file-path validate" type="text" id="imagem" name="imagem">
+                      <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required>
                     </div>
                 </div>
                 <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
