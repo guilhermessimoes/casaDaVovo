@@ -8,7 +8,9 @@ const hotelController = {
     },
 
     viewCadastrarHotel: async(req,res)=>{
-        res.render('cadastrarHotel', {formAction:"cadastrarHotel", hotel:{} })
+        
+        res.render('cadastrarHotel', {formAction:"/hotel/cadastrarHotel", hotel:{hotel_facilidades:[]}})
+        
     },
 
     acaoCadastrarHotel: async(req,res) =>{
@@ -18,13 +20,13 @@ const hotelController = {
             res.render("cadastrarHotel", {alert: alert, formAction:"/hotel/cadastrarHotel", hotel:{}})
             return
         }
-        
+        console.log(req.body)
         const hotelTipo = req.body.hotelTipo
         const hotelNome = req.body.hotelNome
         const hotelTelefone = req.body.hotelTelefone
         const hotelQuantidadeUnidades = req.body.hotelQuantidadeUnidades                
         const hotelImagem = req.file.filename
-        const hotelFacilidades = req.body.hotelFacilidades
+        const facilidades = req.body.facilidades.toString()
         const hotelEndereco = req.body.hotelEndereco
         const hotelEnderecoNumero = req.body.hotelEnderecoNumero
         const hotelEmail = req.body.hotelEmail
@@ -44,7 +46,7 @@ const hotelController = {
             hotel_telefone: hotelTelefone,
             hotel_quantidade_unidades: hotelQuantidadeUnidades,                        
             hotel_imagem: hotelImagem,
-            hotel_facilidades: hotelFacilidades, 
+            hotel_facilidades: facilidades, 
             hotel_endereco: hotelEndereco, 
             hotel_endereco_numero: hotelEnderecoNumero,
             hotel_email: hotelEmail,
@@ -64,12 +66,14 @@ const hotelController = {
     },
 
     editar: async (req, res)=> {
-        const hotelEncontrato = await db.Hotel.findByPk(req.params.id);         
+        const hotelEncontrado = await db.Hotel.findByPk(req.params.id);
+        const facilidades = hotelEncontrado.hotel_facilidades.split(',')
+        hotelEncontrado.hotel_facilidades = facilidades        
 
         res.render("cadastrarHotel", {
             formAction:`/hotel/alterar/${req.params.id}`,
             buttonMessage: "Salvar",
-            hotel: hotelEncontrato
+            hotel: hotelEncontrado
         });
     },
 

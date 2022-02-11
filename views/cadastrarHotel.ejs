@@ -63,8 +63,9 @@
           </div>
 
           <div class="row">
+            
             <div class="col s4">
-              <label><input type="checkbox" name="facilidades[]" id="facili1" value="wifi" /><span>Wifi</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili1" value="wifi" <%= (hotel.hotel_facilidades.includes("wifi"))?'checked':'' %>/><span>Wifi</span></label>
               <label><input type="checkbox" name="facilidades[]"   id="facili2" value="arCondicionado" /><span>Ar condi.</span></label>
               <label><input type="checkbox" name="facilidades[]" id="facili3" value="frigobar"/><span>Frigobar</span></label>
               <label><input type="checkbox"  name="facilidades[]" id="facili4" value="tvACabo"/><span>Tv a cabo</span></label>
@@ -80,6 +81,7 @@
               <label><input type="checkbox"  name="facilidades[]" id="facili1" value="estacionamento"/><span>Estacionamento</span></label>
               <label><input type="checkbox"  name="facilidades[]" id="facili1" value="petFriendly"/><span>Pet Friendly</span></label>
             </div>
+            
           </div>
           <div class="row">
             <div class="input-field col s12">
@@ -122,7 +124,7 @@
             <div class="input-field col s4">
               <input value="<%= hotel.hotel_endereco_bairro %>" id="hotelEnderecoBairro" type="text" class="validate"
                 name="hotelEnderecoBairro" required />
-              <label for="hotelEnderecoBairro">Bairro:</label>
+              <label for="hotelEnderecoBairro" class="active">Bairro:</label>
             </div>
             <div class="input-field col s4">
               <input value="<%= hotel.hotel_endereco_cidade %>" id="hotelEnderecoCidade" type="text" class="validate"

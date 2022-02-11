@@ -12,8 +12,12 @@ const preencherFormulario = (endereco) =>{
     document.getElementById('hotelEndereco').value = endereco.logradouro;
     document.getElementById('hotelEnderecoBairro').value = endereco.bairro;
     document.getElementById('hotelEnderecoCidade').value = endereco.localidade;
-    document.getElementById('hotelEnderecoEstado').value = endereco.uf;
+    document.getElementById('hotelEnderecoEstado').value = endereco.uf;       
+    M.updateTextFields();
+      
 }
+
+
 
 
 const eNumero = (numero) => /^[0-9]+$/.test(numero);

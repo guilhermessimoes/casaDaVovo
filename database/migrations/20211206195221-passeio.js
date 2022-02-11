@@ -15,25 +15,13 @@ module.exports = {
       },
       passeio_descricao:{
        type: Sequelize.STRING,
-       allowNull: false
-      },
-      passeio_lugar:{
-       type: Sequelize.STRING,
-       allowNull: false
-      },
-      passeio_rua:{
-        type: Sequelize.STRING,
-        allowNull: false
+       allowNull: false      
        },
        passeio_cidade:{
         type: Sequelize.STRING,
         allowNull: false
        },
-       passeio_cep:{
-        type: Sequelize.STRING,
-        allowNull: false
-       },
-       passeio_estado:{
+      passeio_estado:{
         type: Sequelize.STRING,
         allowNull: false
        },
@@ -42,7 +30,7 @@ module.exports = {
         allowNull: false
       },
       passeio_horario:{
-        type: Sequelize.DATE,
+        type: Sequelize.TIME,
         allowNull: false
       },
       passeio_valor:{
