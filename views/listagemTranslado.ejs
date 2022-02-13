@@ -18,7 +18,7 @@
                 </div>                          
                
                 <div class="card-content">                    
-                  <span class="card-title"><%= translados[i].titulo %></span>                  
+                  <span class="card-title"><strong><%= translados[i].titulo %></strong></span>                  
                   <p><%= translados[i].descricao %></p>
                   <blockquote class="white">
                       <span>Preço por pessoa *</span>
@@ -29,7 +29,7 @@
                 <div class="card-action">
                     <a class="red-text" href="/translado/excluir/<%= translados[i].id %>">Excluir</a>
                     <a class="red-text" href="/translado/alterar/<%= translados[i].id %>">Editar</a> 
-                    <a class="red-text" href="/translado/detalheTranslado/<%= translados[i].id %>">Comprar</a>                                          
+                    <!--<a class="red-text" href="/translado/detalheTranslado/<%= translados[i].id %>">Comprar</a> -->                                          
                 </div> 
               </div>
             </div>

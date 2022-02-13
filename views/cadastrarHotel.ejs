@@ -65,21 +65,21 @@
           <div class="row">
             
             <div class="col s4">
-              <label><input type="checkbox" name="facilidades[]" id="facili1" value="wifi" <%= (hotel.hotel_facilidades.includes("wifi"))?'checked':'' %>/><span>Wifi</span></label>
-              <label><input type="checkbox" name="facilidades[]"   id="facili2" value="arCondicionado" /><span>Ar condi.</span></label>
-              <label><input type="checkbox" name="facilidades[]" id="facili3" value="frigobar"/><span>Frigobar</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili4" value="tvACabo"/><span>Tv a cabo</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili1" value=" Wifi" <%= (hotel.hotel_facilidades.includes("Wifi"))?'checked':'' %>/><span>Wifi</span></label>
+              <label><input type="checkbox" name="facilidades[]"   id="facili2" value=" Ar condicionado" <%= (hotel.hotel_facilidades.includes("Ar condicionado"))?'checked':'' %>/><span>Ar condi.</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili3" value=" Frigobar"<%= (hotel.hotel_facilidades.includes("Frigobar"))?'checked':'' %>/><span>Frigobar</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili4" value=" Tv a cabo"<%= (hotel.hotel_facilidades.includes("Tv a cabo"))?'checked':'' %>/><span>Tv a cabo</span></label>
             </div>
             <div class="col s4">
-              <label><input type="checkbox"  name="facilidades[]" id="facili5" value="cofre"/><span>Cofre</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili6" value="piscina"/><span>Piscina</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili7" value="wifi"/><span>Restaurante</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili8" value="roomService"/><span>Room service</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili5" value=" Cofre"<%= (hotel.hotel_facilidades.includes("Cofre"))?'checked':'' %>/><span>Cofre</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili6" value=" Piscina"<%= (hotel.hotel_facilidades.includes("Piscina"))?'checked':'' %>/><span>Piscina</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili7" value=" Restaurante"<%= (hotel.hotel_facilidades.includes("Restaurante"))?'checked':'' %>/><span>Restaurante</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili8" value=" Serviço de quarto"<%= (hotel.hotel_facilidades.includes("Serviço de quarto"))?'checked':'' %>/><span>Room service</span></label>
             </div>
 
             <div class="col s4">
-              <label><input type="checkbox"  name="facilidades[]" id="facili1" value="estacionamento"/><span>Estacionamento</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili1" value="petFriendly"/><span>Pet Friendly</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili1" value=" Estacionamento"<%= (hotel.hotel_facilidades.includes("Estacionamento"))?'checked':'' %>/><span>Estacionamento</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili1" value=" Pet Friendly"<%= (hotel.hotel_facilidades.includes("Pet Friendly"))?'checked':'' %>/><span>Pet Friendly</span></label>
             </div>
             
           </div>
@@ -115,7 +115,7 @@
 
             <div class="input-field col s8">
               <input value="<%= hotel.hotel_endereco_complemento %>" id="hotelEnderecoComplemento" type="text"
-                class="validate" name="hotelEnderecoComplemento" />
+                class="validate" name="hotelEnderecoComplemento"/>
               <label for="hotelEnderecoCcomplemento">Complemento:</label>
             </div>
           </div>
@@ -123,34 +123,40 @@
           <div class="row">
             <div class="input-field col s4">
               <input value="<%= hotel.hotel_endereco_bairro %>" id="hotelEnderecoBairro" type="text" class="validate"
-                name="hotelEnderecoBairro" required />
+                name="hotelEnderecoBairro" required/>
               <label for="hotelEnderecoBairro" class="active">Bairro:</label>
             </div>
             <div class="input-field col s4">
               <input value="<%= hotel.hotel_endereco_cidade %>" id="hotelEnderecoCidade" type="text" class="validate"
-                name="hotelEnderecoCidade" required readonly/>
+                name="hotelEnderecoCidade" required/>
               <label for="hotelEnderecoCidade">Cidade:</label>
             </div>
             <div class="input-field col s4">
               <input value="<%= hotel.hotel_endereco_estado %>" id="hotelEnderecoEstado" type="text" class="validate"
-                name="hotelEnderecoEstado" required readonly/>
+                name="hotelEnderecoEstado" required/>
               <label for="hotelEnderecoEstado">Estado:</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s4">
-              <input value="<%= hotel.hotel_telefone %>" id="hotelTelefone" type="text" class="validate"
-                name="hotelTelefone" required/>
+              <input value="<%= hotel.hotel_telefone %>" id="hotelTelefone" type="text" class="validate" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}"
+                name="hotelTelefone" placeholder="(XX)XXXXX-XXXX"required/>
               <label for="hotelTelefone">Telefone:</label>
             </div>
-            <div class="input-field col s4">
+            <div class="input-field col s8">
               <input value="<%= hotel.hotel_email %>" id="hotelEmail" type="email" class="validate" name="hotelEmail" required/>
               <label for="hotelEmail">E-mail:</label>
+            </div>            
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input value="<%= hotel.hotel_preco %>" id="hotelPreco" type="text" class="validate" name="hotelPreco" placeholder="R$" required/>
+              <label for="hotelPreco">Preço:</label>
             </div>
             <div class="input-field col s4">
-              <input value="<%= hotel.hotel_preco %>" id="hotelPreco" type="text" class="validate" name="hotelPreco" required/>
-              <label for="hotelPreco">Preço:</label>
+              <input value="<%= hotel.hotel_preco_promo %>" id="hotelPreco" type="text" class="validate" name="hotelPrecoPromo"  placeholder="R$" required/>
+              <label for="hotelPreco">Preço promocional:</label>
             </div>
           </div>
 

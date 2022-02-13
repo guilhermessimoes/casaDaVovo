@@ -18,7 +18,7 @@
                 </div>                          
                
                 <div class="card-content">                    
-                  <span class="card-title"><%= passeios[i].passeio_titulo %></span>                  
+                  <span class="card-title"><strong><%= passeios[i].passeio_titulo %></strong></span>                  
                   <p><%= passeios[i].passeio_descricao %></p>
                   <blockquote class="white">
                       <span>Preço por pessoa *</span>
@@ -29,7 +29,7 @@
                 <div class="card-action">
                     <a class="red-text" href="/passeio/excluir/<%= passeios[i].id %>">Excluir</a>
                     <a class="red-text" href="/passeio/alterar/<%= passeios[i].id %>">Editar</a> 
-                    <a class="red-text" href="/passeio/detalhePasseio/<%= passeios[i].id %>">Comprar</a>                                          
+                    <!--<a class="red-text" href="/passeio/detalhePasseio/<%= passeios[i].id %>">Comprar</a> -->                                         
                 </div> 
               </div>
             </div>

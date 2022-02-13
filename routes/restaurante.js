@@ -4,24 +4,28 @@ const restauranteController = require('../controllers/restauranteController')
 const path = require('path')
 const multer  = require('multer')
 const storage = multer.diskStorage({
-    destination: (req, res, cb) =>{
+    destination: (_req, _res, cb) =>{
         cb(null, "./public/data/uploads")
     },
-    filename:  (req, file, cb) => {
+    filename:  (_req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname))
     }
 })
 const upload = multer({ storage: storage })
+const {cadastrarRestauranteValidator} = require('../middlewares/cadastrarRestauranteValidator')
+const verifyLogin = require('../middlewares/session')
+
+router.get('/detalheRestaurante/:id', restauranteController.detalheRestaurante)
 
 router.get('/listagemRestaurante', restauranteController.listagemRestaurante)
 
-router.get('/cadastrarRestaurante', restauranteController.viewCadastrarRestaurante)
-router.post('/cadastrarRestaurante', upload.single('restaurante_imagem'), restauranteController.acaoCadastrarRestaurante)
+router.get('/cadastrarRestaurante',verifyLogin, restauranteController.viewCadastrarRestaurante)
+router.post('/cadastrarRestaurante',verifyLogin, upload.single('imagem'), cadastrarRestauranteValidator, restauranteController.acaoCadastrarRestaurante)
 
-router.get('/alterar/:id', restauranteController.editar)
-router.post('/alterar/:id', upload.single('restaurante_imagem'), restauranteController.acaoEditar)
+router.get('/alterar/:id',verifyLogin, restauranteController.editar)
+router.post('/alterar/:id',verifyLogin, upload.single('imagem'),cadastrarRestauranteValidator, restauranteController.acaoEditar)
 
-router.get('/excluir/:id', restauranteController.excluir)
+router.get('/excluir/:id',verifyLogin, restauranteController.excluir)
 
 
 module.exports = router;

@@ -47,12 +47,12 @@ const transladoController = {
     },    
     
     editar: async (req, res)=> {
-        const transladoEncontrato = await db.Translado.findByPk(req.params.id);
+        const transladoEncontrado = await db.Translado.findByPk(req.params.id);
 
         res.render("cadastrarTranslado", {
             formAction:`/translado/alterar/${req.params.id}`,
             buttonMessage: "Salvar",
-            translado: transladoEncontrato
+            translado: transladoEncontrado
         });
 
     },
