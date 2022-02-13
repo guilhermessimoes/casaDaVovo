@@ -1,5 +1,4 @@
 node_modules
-database/config
 .env
 package-lock.json
 public/data/uploads
