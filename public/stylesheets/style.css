@@ -24,7 +24,9 @@ main {
 .redeSociais img{
   margin: 15px;
 }
-
+.slider{
+  background-color: #f5f5f5 ;
+}
 
 .precoPromocional{
   font-size: 22px;
