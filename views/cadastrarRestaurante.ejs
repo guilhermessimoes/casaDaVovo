@@ -5,12 +5,7 @@
             <h2 class="indigo-text text-darken-4">
                 Realize o cadastro do seu restaurante
             </h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur </p>
+            <p>Ter um restaurante cadastrado no TravelBrazil pode aumentar muito o número de vendas do estabelecimento. Aqui o seu restaurante é visto por todos os clientes hospedados por diversos meios de hospedagem da região.</p>
             </div>
             <div class="card col s12 l5 offset-l2">
                 <form class="col s12" method="POST" action="<%= formAction %>" enctype="multipart/form-data">
@@ -36,33 +31,33 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <select id="restauranteTipo" name="restauranteTipo">
-                                <option value="" disabled selected>Qual o tipo de restaurante?</option>
-                                <option <%= (restaurante.restaurante_tipo == "bar" )?'selected="selected"':'' %> value="Bar">Bar</option>
-                                <option <%= (restaurante.restaurante_tipo == "bistro")?' selected="selected"':'' %> value="Bistro">Bistrô</option>
-                                <option <%= (restaurante.restaurante_tipo == "buffet")?' selected="selected"':'' %> value="Buffet">Buffet</option>
-                                <option <%= (restaurante.restaurante_tipo == "cafeteria")?' selected="selected"':'' %> value="Cafeteria">Cafeteria</option>
-                                <option <%= (restaurante.restaurante_tipo == "hamburgueria")?' selected="selected"':'' %> value="Hamburgueria">Hamburgueria</option>
-                                <option <%= (restaurante.restaurante_tipo == "lanchonete")?' selected="selected"':'' %> value="Lanchonete">Lanchonete</option>
-                                <option <%= (restaurante.restaurante_tipo == "pizzaria")?' selected="selected"':'' %> value="Pizzaria">Pizzaria</option>
-                                <option <%= (restaurante.restaurante_tipo == "self_service")?' selected="selected"':'' %> value="Self-Service">Self-Service</option>
-                                <option <%= (restaurante.restaurante_tipo == "outros")?' selected="selected"':'' %> value="Outros">Outros</option>
+                                <option value="" disabled selected>Tipo de restaurante?</option>
+                                <option <%= (restaurante.restaurante_tipo == "Bar" )?'selected="selected"':'' %> value="Bar">Bar</option>
+                                <option <%= (restaurante.restaurante_tipo == "Bistrô")?' selected="selected"':'' %> value="Bistro">Bistrô</option>
+                                <option <%= (restaurante.restaurante_tipo == "Buffet")?' selected="selected"':'' %> value="Buffet">Buffet</option>
+                                <option <%= (restaurante.restaurante_tipo == "Cafeteria")?' selected="selected"':'' %> value="Cafeteria">Cafeteria</option>
+                                <option <%= (restaurante.restaurante_tipo == "Hamburgueria")?' selected="selected"':'' %> value="Hamburgueria">Hamburgueria</option>
+                                <option <%= (restaurante.restaurante_tipo == "Lanchonete")?' selected="selected"':'' %> value="Lanchonete">Lanchonete</option>
+                                <option <%= (restaurante.restaurante_tipo == "Pizzaria")?' selected="selected"':'' %> value="Pizzaria">Pizzaria</option>
+                                <option <%= (restaurante.restaurante_tipo == "Self-Service")?' selected="selected"':'' %> value="Self-Service">Self-Service</option>
+                                <option <%= (restaurante.restaurante_tipo == "Outros")?' selected="selected"':'' %> value="Outros">Outros</option>
                             </select>
                         </div>
                         <div class="input-field col s6">
                             <select id="restauranteCozinha" name="restauranteCozinha">
-                                <option value="" disabled selected>Qual o tipo de cozinha?</option>
-                                <option <%= (restaurante.restaurante_cozinha == "arabe")?' selected="selected"':'' %> value="Árabe">Árabe</option>
-                                <option <%= (restaurante.restaurante_cozinha == "brasileira")?' selected="selected"':'' %> value="Brasileira">Brasileira</option>
-                                <option <%= (restaurante.restaurante_cozinha == "chinesa")?' selected="selected"':'' %> value="Chinesa">Chinesa</option>
-                                <option <%= (restaurante.restaurante_cozinha == "fast_food")?' selected="selected"':'' %> value="Fast Food">Fast Food</option>
-                                <option <%= (restaurante.restaurante_cozinha == "frutos_do_mar")?' selected="selected"':'' %> value="Frutos do mar">Frutos do mar</option>
-                                <option <%= (restaurante.restaurante_cozinha == "italiana")?' selected="selected"':'' %> value="Italiana">Italiana</option>
-                                <option <%= (restaurante.restaurante_cozinha == "japonesa")?' selected="selected"':'' %> value="Japonesa">Japonesa</option>
-                                <option <%= (restaurante.restaurante_cozinha == "massas_pizzas")?' selected="selected"':'' %> value="Massas e Pizzas">Massas e Pizzas</option>
-                                <option <%= (restaurante.restaurante_cozinha == "variada")?' selected="selected"':'' %> value="Variada">Variada</option>
-                                <option <%= (restaurante.restaurante_cozinha == "vegana")?' selected="selected"':'' %> value="Vegana">Vegana</option>
-                                <option <%= (restaurante.restaurante_cozinha == "vegetariana")?' selected="selected"':'' %> value="Vegetariana">Vegetariana</option>
-                                <option <%= (restaurante.restaurante_cozinha == "outras")?' selected="selected"':'' %> value="de outras origens">Outras origens</option>
+                                <option value="" disabled selected>Tipo de cozinha?</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Árabe")?' selected="selected"':'' %> value="Arabe">Árabe</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Brasileira")?' selected="selected"':'' %> value="Brasileira">Brasileira</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Chinesa")?' selected="selected"':'' %> value="Chinesa">Chinesa</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Fast Food")?' selected="selected"':'' %> value="Fast Food">Fast Food</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Frutos do mar")?' selected="selected"':'' %> value="Frutos do mar">Frutos do mar</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Italiana")?' selected="selected"':'' %> value="Italiana">Italiana</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Japonesa")?' selected="selected"':'' %> value="Japonesa">Japonesa</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Massas e Pizzas")?' selected="selected"':'' %> value="Massas e Pizzas">Massas e Pizzas</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Variada")?' selected="selected"':'' %> value="Variada">Variada</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Vegana")?' selected="selected"':'' %> value="Vegana">Vegana</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Vegetariana")?' selected="selected"':'' %> value="Vegetariana">Vegetariana</option>
+                                <option <%= (restaurante.restaurante_cozinha == "Outras origens")?' selected="selected"':'' %> value="de outras origens">Outras origens</option>
                             </select>
                         </div>                        
                     </div>
@@ -124,6 +119,7 @@
                                 <option <%= (restaurante.restaurante_estado == "SE")?'selected="selected"':'' %>value="SE">Sergipe</option>
                                 <option <%= (restaurante.restaurante_estado == "TO")?'selected="selected"':'' %>value="TO">Tocantins</option>
                             </select>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -140,32 +136,30 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="textarea2" class="materialize-textarea" data-length="400" name="restauranteDescricao" minlength="50" maxlength="250"><%= restaurante.restaurante_descricao %></textarea>
-                                <label for="restauranteDescricao">Descrição</label>
-                                <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="textarea2" class="materialize-textarea" data-length="400" name="restauranteDescricao" minlength="50" maxlength="250"><%= restaurante.restaurante_descricao %></textarea>
+                                    <label for="restauranteDescricao">Descrição</label>
+                                    <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
+                                </div>
                             </div>
                         </div>
-                        </div>
                     </div>
-
-                    <div class="row">
-                        <div class="file-field input-field">
+                    <div class="file-field input-field">
                         <div class="btn blue">
-                            <span>Imagem</span>
-                            <input type="file" id="imagem" name="imagem" />
+                          <span>Imagem</span>
+                          <input type="file" id="imagem" name="imagem" required>
                         </div>
-                    <div class="file-path-wrapper">
-                        <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required/>
-                    </div>
+                        <div class="file-path-wrapper">
+                          <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required>
+                        </div>
                     </div>
                     <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
-                <a href="/restaurante/listagemRestaurante" class="waves-effect red darken-3 btn">Voltar</a>
-                <button type="submit" class="waves-effect green btn">
-                    Cadastrar
-                </button>
-                </div>
+                        <a href="/restaurante/listagemRestaurante" class="waves-effect red darken-3  btn">Voltar</a>
+                        <button type="submit" class="waves-effect green btn">Cadastrar</button>
+                    </div>
+
+                   
             </form>
         </div>
     </div>

@@ -3,22 +3,10 @@
     <div class="row">
       <div class="col s12 l5">
         <h2 class="indigo-text text-darken-4">
-          Realiza o cadastro da sua hospedagem
+          Cadastro de hospedagem
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet,
-          consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem
-          ipsum dolor sit amet, consectetur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet,
-          consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem
-          ipsum dolor sit amet, consectetur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet,
-          consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem
-          ipsum dolor sit amet, consectetur
+          Cadastre seu estabelecimento de hospedagem gratuitamente no TravelBrazil e seja visto por milhares de pessoas em todo o país.
         </p>
       </div>
 
@@ -65,21 +53,20 @@
           <div class="row">
             
             <div class="col s4">
-              <label><input type="checkbox" name="facilidades[]" id="facili1" value=" Wifi" <%= (hotel.hotel_facilidades.includes("Wifi"))?'checked':'' %>/><span>Wifi</span></label>
-              <label><input type="checkbox" name="facilidades[]"   id="facili2" value=" Ar condicionado" <%= (hotel.hotel_facilidades.includes("Ar condicionado"))?'checked':'' %>/><span>Ar condi.</span></label>
-              <label><input type="checkbox" name="facilidades[]" id="facili3" value=" Frigobar"<%= (hotel.hotel_facilidades.includes("Frigobar"))?'checked':'' %>/><span>Frigobar</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili4" value=" Tv a cabo"<%= (hotel.hotel_facilidades.includes("Tv a cabo"))?'checked':'' %>/><span>Tv a cabo</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili1" value="Wifi" <%= (hotel.hotel_facilidades.includes("wifi"))?'checked':'' %> /><span>Wifi</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili2" value="Ar condicionado" <%= (hotel.hotel_facilidades.includes("Ar condicionado"))?'checked':'' %> /><span>Ar condi.</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili3" value="Frigobar" <%= (hotel.hotel_facilidades.includes("Frigobar"))?'checked':'' %> /><span>Frigobar</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili4" value="Tv a cabo" <%= (hotel.hotel_facilidades.includes("Tv a cabo"))?'checked':'' %> /><span>Tv a cabo</span></label>
             </div>
             <div class="col s4">
-              <label><input type="checkbox"  name="facilidades[]" id="facili5" value=" Cofre"<%= (hotel.hotel_facilidades.includes("Cofre"))?'checked':'' %>/><span>Cofre</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili6" value=" Piscina"<%= (hotel.hotel_facilidades.includes("Piscina"))?'checked':'' %>/><span>Piscina</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili7" value=" Restaurante"<%= (hotel.hotel_facilidades.includes("Restaurante"))?'checked':'' %>/><span>Restaurante</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili8" value=" Serviço de quarto"<%= (hotel.hotel_facilidades.includes("Serviço de quarto"))?'checked':'' %>/><span>Room service</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili5" value="Cofre" <%= (hotel.hotel_facilidades.includes("Cofre"))?'checked':'' %> /><span>Cofre</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili6" value="Piscina" <%= (hotel.hotel_facilidades.includes("Piscina"))?'checked':'' %> /><span>Piscina</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili7" value="Restaurante" <%= (hotel.hotel_facilidades.includes("Restaurante"))?'checked':'' %> /><span>Restaurante</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili8" value="Serviço de quarto" <%= (hotel.hotel_facilidades.includes("Serviço de quarto"))?'checked':'' %> /><span>Room service</span></label>
             </div>
-
             <div class="col s4">
-              <label><input type="checkbox"  name="facilidades[]" id="facili1" value=" Estacionamento"<%= (hotel.hotel_facilidades.includes("Estacionamento"))?'checked':'' %>/><span>Estacionamento</span></label>
-              <label><input type="checkbox"  name="facilidades[]" id="facili1" value=" Pet Friendly"<%= (hotel.hotel_facilidades.includes("Pet Friendly"))?'checked':'' %>/><span>Pet Friendly</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili9" value="Estacionamento" <%= (hotel.hotel_facilidades.includes("Estacionamento"))?'checked':'' %> /><span>Estacionamento</span></label>
+              <label><input type="checkbox"  name="facilidades[]" id="facili10" value="Pet Friendly" <%= (hotel.hotel_facilidades.includes("Pet Friendly"))?'checked':'' %> /><span>Pet Friendly</span></label>
             </div>
             
           </div>
@@ -159,37 +146,34 @@
               <label for="hotelPreco">Preço promocional:</label>
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="textarea2" class="materialize-textarea" data-length="400" name="hotelDescricao"
-                    minlength="50" maxlength="250"><%= hotel.hotelDescricao %></textarea>
-                  <label for="hotelDescricao">Descrição</label>
-                  <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="400" name="descricao" minlength="50" maxlength="250" required><%= hotel.hotel_descricao %></textarea>
+                        <label for="descricao">Descrição</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-
-          <div class="row">
+            </div>
+            
             <div class="file-field input-field">
-              <div class="btn blue">
-                <span>Imagem</span>
-                <input type="file" id="imagem" name="imagem" />
-              </div>
-              <div class="file-path-wrapper">
-                <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required/>
-              </div>
+                <div class="btn blue">
+                  <span>Imagem</span>
+                  <input type="file" id="imagem" name="imagem" required>
+                </div>
+                <div class="file-path-wrapper">
+                  <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required>
+                </div>
             </div>
             <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
-              <a href="/hotel/listagemHotel" class="waves-effect red darken-3 btn">Voltar</a>
-              <button type="submit" class="waves-effect green btn">
-                Cadastrar
-              </button>
+                <a href="/hotel/listagemHotel" class="waves-effect red darken-3  btn">Voltar</a>
+                <button type="submit" class="waves-effect green btn">Cadastrar</button>
             </div>
+          
         </form>
+        </div>
       </div>
     </div>
   </section>

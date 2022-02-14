@@ -23,9 +23,7 @@
                   
                   <blockquote class="white">
                       
-                    <p>É um restaurante do tipo <%= restaurantes[i].restaurante_tipo %> que trabalha com comida <%= restaurantes[i].restaurante_cozinha %>. </p>
-                    <p>Fica localizado no bairro <%= restaurantes[i].restaurante_bairro %>, em <%= restaurantes[i].restaurante_estado %> </p>
-                    <p>Para mais informações, entre em contato com o telefone: <%= restaurantes[i].restaurante_telefone %> ou no e-mail: <%= restaurantes[i].restaurante_email %>.</p>                   
+                    <p></p>                   
                     
                     
                 </blockquote> 
@@ -33,7 +31,7 @@
                 <div class="card-action">
                     <a class="red-text" href="/restaurante/excluir/<%= restaurantes[i].id %>">Excluir</a>
                     <a class="red-text" href="/restaurante/alterar/<%= restaurantes[i].id %>">Editar</a> 
-                    <!--<a class="red-text" href="/restaurante/detalheRestaurante/<%= restaurantes[i].id %>">Comprar</a> -->                                          
+                    <a class="red-text" href="/restaurante/detalheRestaurante/<%= restaurantes[i].id %>">Ver mais</a>                                        
                 </div> 
               </div>
             </div>

@@ -3,54 +3,49 @@
     <div class="row">
         <div class="col s12 l5">
             <h2 class="indigo-text text-darken-4">
-                Tudo sobre este hotel
+                Tudo sobre este passeio
             </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>  
+            <p> <%= passeios.passeio_descricao %> </p>
+             
         </div>
         <div class="card col s12 l5 offset-l2"> 
             <h4 class="center indigo-text text-darken-4">Detalhes</h4>          
             <div class="row detailInfo">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix">account_circle</i>
-                  <label for="icon_prefix">Nome do hotel: <span><%= hoteis[i].hotel_nome %></span></label>
+                  <i class="material-icons prefix">local_florist</i>
+                  <label for="icon_prefix">Nome do passeio: <span><%= passeios.passeio_titulo  %></span></label>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">attach_money</i>
-                  <label for="icon_telephone">Preço Original: <span> TGeste</span></label>
+                  <label for="icon_telephone">Preço Original: <span> R$ <%= passeios.passeio_valor  %> </span></label>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">savings</i>
-                  <label for="icon_telephone">Preço Promocional: <span> TGeste</span></label>
+                  <label for="icon_telephone">Preço Promocional: <span> R$ <%= passeios.passeio_preco_promocional  %></span></label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">luggage</i>
-                    <label for="icon_telephone">Pode levar bagagens? <span> TGeste</span></label>
+                    <i class="material-icons prefix">location_on</i>
+                    <label for="icon_telephone">Local: <span> <%= passeios.passeio_cidade  %>, <%= passeios.passeio_estado  %></span></label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"><span class="Medium material-icons">accessible</span></i>
-                    <label for="icon_telephone">É acessível para deficientes? <span> TGeste</span></label>
+                    <i class="material-icons prefix"><span class="Medium material-icons">date_range</span></i>
+                    <label for="icon_telephone">Data: <span> <%= passeios.passeio_data%> </span></label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"><span class="material-icons">apartment</span></i>
-                    <label for="icon_telephone">Recolhe no hotel? <span> TGeste</span></label>
-                </div>
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">pets</i>
-                    <label for="icon_telephone">Pode levar Pets? <span> TGeste</span></label>
-                </div>
+                    <i class="material-icons prefix"><span class="material-icons">access_time</span></i>
+                    <label for="icon_telephone">Horário <span> <%= passeios.passeio_horario  %></span></label>
+                </div>                
             </div>
         </div>
        
     </div> 
     <div class="row">
-        <div class="col s12 l1">
-          <img src="/images/arraial-do-cabo.jpg" alt="" class="materialboxed" width="600">
-        </div>
-        <div class="col s12 l6 offset-l5">
-          <h2 class="indigo-text text-darken-4">Praias</h2>
-          <p>Lorem Ipsum, Lorem, Lorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, LoremLorem Ipsum, Lorem</p>
+      <div class="col s6">
+        <img src="/data/uploads/<%= passeios.passeio_imagem %>" alt="" class="materialboxed" width="600">
+      </div>
+        <div class="col s6">
+          <h2 class="indigo-text text-darken-4">Informações</h2>
+          <p>NÃO NOS RESPONSABILIZAMOS PELOS PASSEIOS OFERTADOS NO DESTINO ESCOLHIDO, TAXAS DE DAY USE E COUVERT ARTÍSTICO QUE VENHAM A SER COBRADOS NO MESMO - ESTES NÃO ESTÃO INCLUSOS E PODEM SOFRER ALTERAÇÃO SEM AVISO PRÉVIO</p>
         </div>
       </div>   
 </section>

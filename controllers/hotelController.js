@@ -8,9 +8,7 @@ const hotelController = {
     },
 
     viewCadastrarHotel: async(req,res)=>{
-        
         res.render('cadastrarHotel', {formAction:"/hotel/cadastrarHotel", hotel:{hotel_facilidades:[]}})
-        
     },
 
     acaoCadastrarHotel: async(req,res) =>{
@@ -58,7 +56,6 @@ const hotelController = {
             hotel_endereco_complemento: hotelEnderecoComplemento,
             hotel_preco_promo: hotelPrecoPromo,
             hotel_descricao: hotelDescricao,
-
         })
 
         await req.flash('success', "Registro criado com sucesso")
