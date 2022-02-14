@@ -6,7 +6,9 @@ const moment= require("moment")
 const passeioController = {
     detalhePasseio: async(req,res)=>{
         const cadastroEncontrado = await db.Passeio.findByPk(req.params.id);
-        res.render('detalhePasseio', {passeios: cadastroEncontrado})
+        const dataFormatada = moment(cadastroEncontrado.passeio_data, 'DD/MM/YYYY').utc().format('DD/MM/YYYY');
+        const horaFormatada = moment(cadastroEncontrado.passeio_horario, 'HH:MM:SS').format('HH:MM');
+        res.render('detalhePasseio', {passeios: cadastroEncontrado, dataFormatada, horaFormatada})
 
     },
 
