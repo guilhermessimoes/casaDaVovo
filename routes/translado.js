@@ -25,6 +25,6 @@ router.post('/cadastrarTranslado',verifyLogin, upload.single('imagem'), cadastra
 router.get('/alterar/:id',verifyLogin, transladoController.editar)
 router.post('/alterar/:id',verifyLogin, upload.single('imagem'),cadastrarTransladoValidator, transladoController.acaoEditar)
 
-router.post('/excluir/:id', verifyLogin, transladoController.excluir)
+router.get('/excluir/:id', verifyLogin, transladoController.excluir)
 
 module.exports = router;

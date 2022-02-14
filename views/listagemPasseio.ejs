@@ -27,8 +27,10 @@
                 </blockquote> 
                 </div>
                 <div class="card-action">
+                  <% if (session.usuario) { %>
                     <a class="red-text" href="/passeio/excluir/<%= passeios[i].id %>">Excluir</a>
                     <a class="red-text" href="/passeio/alterar/<%= passeios[i].id %>">Editar</a> 
+                  <% } %>
                     <!--<a class="red-text" href="/passeio/detalhePasseio/<%= passeios[i].id %>">Comprar</a> -->                                         
                 </div> 
               </div>
