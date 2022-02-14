@@ -1,7 +1,7 @@
 <%- include("./partials/header") %>
 <div class="container">    
-    <a class="waves-effect green btn right" href="cadastrarTranslado">Cadastrar Translado</a>
-    <h4 class="indigo-text text-darken-4 ">Listagem de todos os translados</h4>
+    <a class="waves-effect blue darken-3 btn right" href="cadastrarTranslado">Cadastrar Translado</a>
+    <h4 class="corAzulPrimaria">Listagem de todos os translados</h4>
     <%if (messages.length > 0) { %>
       <div class="materialert success">
           <div class="material-icons">check</div>
@@ -20,7 +20,7 @@
                 <div class="card-content">                    
                   <span class="card-title"><strong><%= translados[i].titulo %></strong></span>                  
                   <p><%= translados[i].descricao %></p>
-                  <blockquote class="white">
+                  <blockquote>
                       <span>Preço por pessoa *</span>
                     <s class="black-text">R$ <%= translados[i].preco_original %></s> 
                     <span class="precoPromocional red-text">R$ <%= translados[i].preco_promocional %> </span>
@@ -28,10 +28,10 @@
                 </div>
                 <div class="card-action">
                   <% if (session.usuario) { %>
-                    <a class="red-text" href="/translado/excluir/<%= translados[i].id %>">Excluir</a>
-                    <a class="red-text" href="/translado/alterar/<%= translados[i].id %>">Editar</a>                    
+                    <a class="blue-text text-darken-3" href="/translado/excluir/<%= translados[i].id %>">Excluir</a>
+                    <a class="blue-text text-darken-3" href="/translado/alterar/<%= translados[i].id %>">Editar</a>                    
                   <% } %>
-                   <a class="red-text" href="/translado/detalheTranslado/<%= translados[i].id %>">Ver mais</a>
+                   <a class="blue-text text-darken-3" href="/translado/detalheTranslado/<%= translados[i].id %>">Ver mais</a>
                 </div> 
               </div>
             </div>
