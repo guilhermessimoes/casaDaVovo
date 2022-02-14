@@ -94,8 +94,8 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea value="<%= passeio.passeio_descricao %>" data-length="400" id="passeioDescricao" class="materialize-textarea" minlength="50" maxlength="250" name="passeioDescricao"></textarea>
-                        <label for="textarea1">Descrição</label>
+                        <textarea id="textarea2" class="materialize-textarea" data-length="400" name="passeioDescricao" minlength="50" maxlength="250" required><%= passeio.passeio_descricao %></textarea>
+                        <label for="passeioDescricao">Descrição</label>
                         <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
                     </div>
                 </div>
