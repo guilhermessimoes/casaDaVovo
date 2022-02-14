@@ -3,42 +3,48 @@
     <div class="row">
         <div class="col s12 l5">
             <h2 class="indigo-text text-darken-4">
-                Tudo sobre este hotel
+                Descrição deste meio de hospedagem.
             </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>
-            <p> Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur adip Lorem ipsum dolor sit amet, consectetur</p>  
+            <p><%= hoteis.hotel_descricao %>  </p>
         </div>
         <div class="card col s12 l5 offset-l2"> 
             <h4 class="center indigo-text text-darken-4">Detalhes</h4>          
             <div class="row detailInfo">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix">account_circle</i>
+                  <i class="material-icons prefix">apartment</i>
                   <label for="icon_prefix">Nome do hotel: <span><%= hoteis.hotel_nome %></span></label>
                 </div>
                 <div class="input-field col s12">
+                  <i class="material-icons prefix">night_shelter</i>
+                  <label for="icon_prefix">Tipo de hospedagem: <span><%= hoteis.hotel_tipo %></span></label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">bed</i>
+                  <label for="icon_prefix">Quantidade de unidades: <span><%= hoteis.hotel_quantidade_unidades %></span></label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">checklist</i>
+                  <label for="icon_prefix">Comodidades: <span><%= hoteis.hotel_facilidades %></span></label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">location_on</i>
+                  <label for="icon_prefix">Endereço: <span><%= hoteis.hotel_endereco %>, <%= hoteis.hotel_endereco_numero %> <%= hoteis.hotel_endereco_complemento %>, <%= hoteis.hotel_endereco_bairro %>, <%= hoteis.hotel_endereco_cidade %>, <%= hoteis.hotel_endereco_estado %></span></label>
+                </div>
+                <div class="input-field col s12">
                   <i class="material-icons prefix">attach_money</i>
-                  <label for="icon_telephone">Preço Original: <span><%= hoteis.hotel_nome %></span></label>
+                  <label for="icon_telephone">Preço Original: R$ <span><%= hoteis.hotel_preco %></span></label>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">savings</i>
-                  <label for="icon_telephone">Preço Promocional: <span> TGeste</span></label>
+                  <label for="icon_telephone">Preço Promocional: R$ <span><%= hoteis.hotel_preco_promo %></span></label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">luggage</i>
-                    <label for="icon_telephone">Pode levar bagagens? <span> TGeste</span></label>
+                    <i class="material-icons prefix"><span class="Medium material-icons">phone</span></i>
+                    <label for="icon_telephone">Telefone: <span><%= hoteis.hotel_telefone %></span></label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"><span class="Medium material-icons">accessible</span></i>
-                    <label for="icon_telephone">É acessível para deficientes? <span> TGeste</span></label>
-                </div>
-                <div class="input-field col s12">
-                    <i class="material-icons prefix"><span class="material-icons">apartment</span></i>
-                    <label for="icon_telephone">Recolhe no hotel? <span> TGeste</span></label>
-                </div>
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">pets</i>
-                    <label for="icon_telephone">Pode levar Pets? <span> TGeste</span></label>
+                    <i class="material-icons prefix"><span class="material-icons">mail</span></i>
+                    <label for="icon_telephone">E-mail: <span><%= hoteis.hotel_email %></span></label>
                 </div>
             </div>
         </div>
@@ -46,13 +52,13 @@
     </div> 
     <div class="row">
         <div class="col s12 l1">
-          <img src="/images/arraial-do-cabo.jpg" alt="" class="materialboxed" width="600">
+          <img src="/data/uploads/<%= hoteis.hotel_imagem %>" alt="" class="materialboxed" width="600">
         </div>
         <div class="col s12 l6 offset-l5">
-          <h2 class="indigo-text text-darken-4">Titulo Hotel</h2>
-          <p>– As diárias são contabilizadas pelas noites dormidas a partir da sua chegada no hotel/pousada;
+          <h2 class="indigo-text text-darken-4">Informações adicionais</h2>
+          <p> As diárias são contabilizadas pelas noites dormidas a partir da sua chegada no hotel/pousada;
 
-            – Por ser uma hospedagem promocional, a 123Milhas não realiza personalizações como: redução do número de diárias, troca da cidade de origem ou de destino.</p>
+             Por ser uma hospedagem promocional, a TravelBrazil não realiza personalizações como: redução do número de diárias, troca da cidade de origem ou de destino.</p>
         </div>
       </div>   
 </section>

@@ -6,7 +6,7 @@
           Cadastro de hospedagem
         </h2>
         <p>
-          Cadastre seu estabelecimento de hospedagem gratuitamente no TravelBrazil e seja visto por milhares de pessoas em todo o país.
+          A TravelBrazil é uma vitrine para o seu estabelecimento na internet. É onde as pessoas irão primeiro para saber mais sobre você. É através do nosso site , os visitantes conhecerão melhor seu lugar e poderão fazer contato e reservas com você. Aumente sua lucratividade utilizando os nossos serviços.
         </p>
       </div>
 
@@ -53,7 +53,7 @@
           <div class="row">
             
             <div class="col s4">
-              <label><input type="checkbox" name="facilidades[]" id="facili1" value="Wifi" <%= (hotel.hotel_facilidades.includes("wifi"))?'checked':'' %> /><span>Wifi</span></label>
+              <label><input type="checkbox" name="facilidades[]" id="facili1" value="Wifi" <%= (hotel.hotel_facilidades.includes("Wifi"))?'checked':'' %> /><span>Wifi</span></label>
               <label><input type="checkbox" name="facilidades[]" id="facili2" value="Ar condicionado" <%= (hotel.hotel_facilidades.includes("Ar condicionado"))?'checked':'' %> /><span>Ar condi.</span></label>
               <label><input type="checkbox" name="facilidades[]" id="facili3" value="Frigobar" <%= (hotel.hotel_facilidades.includes("Frigobar"))?'checked':'' %> /><span>Frigobar</span></label>
               <label><input type="checkbox" name="facilidades[]" id="facili4" value="Tv a cabo" <%= (hotel.hotel_facilidades.includes("Tv a cabo"))?'checked':'' %> /><span>Tv a cabo</span></label>
@@ -151,8 +151,8 @@
             <div class="input-field col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea2" class="materialize-textarea" data-length="400" name="descricao" minlength="50" maxlength="250" required> <%= hotel.hotel_descricao %> </textarea>
-                        <label for="descricao">Descrição</label>
+                        <textarea id="textarea2" class="materialize-textarea" data-length="400" name="hotelDescricao" minlength="50" maxlength="250" required> <%= hotel.hotel_descricao %> </textarea>
+                        <label for="hotelDescricao">Descrição</label>
                         <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
                     </div>
                 </div>
