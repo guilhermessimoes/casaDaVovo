@@ -1,0 +1,60 @@
+<%- include("./partials/header") %>
+<section class="section container" id="detalhe">
+    <div class="row">
+        <div class="col s12 l5">
+            <h2 class="indigo-text text-darken-4">
+                Detalhes sobre esse restaurante
+            </h2>
+            <p> <%= restaurantes.restaurante_descricao %></p>
+           </div>
+        <div class="card col s12 l5 offset-l2"> 
+            <h4 class="center indigo-text text-darken-4">Detalhes</h4>          
+            <div class="row detailInfo">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">storefront</i>
+                  <label for="icon_prefix">Nome do restaurante: <strong> <span> <%= restaurantes.restaurante_nome %> </span></strong></label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">local_dining</i>
+                  <label for="icon_telephone">Tipo de Restaurante: <strong> <span><%= restaurantes.restaurante_tipo %></span></strong></label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">dinner_dining</i>
+                  <label for="icon_telephone">Tipo de culinária: <strong> <span><%= restaurantes.restaurante_cozinha %></span></strong></label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix"><span class="material-icons-outlined">
+                        two_wheeler
+                        </span></i>
+                    <label for="icon_telephone">Possui delivery ?: <strong> <span> <%= restaurantes.restaurante_delivery %></span></strong></label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix"><span class="Medium material-icons">location_on</span></i>
+                    <label for="icon_telephone">Localização: <strong><span> <%= restaurantes.restaurante_bairro %>, <%= restaurantes.restaurante_cidade %>, <%= restaurantes.restaurante_estado %></span></strong></label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix"><span class="material-icons">phone</span></i>
+                    <label for="icon_telephone">Telefone: <span> <strong><%= restaurantes.restaurante_telefone %></strong></span></label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail</i>
+                    <label for="icon_telephone">E-mail: <span> <strong><%= restaurantes.restaurante_email %></strong></span></label>
+                </div>
+            </div>
+        </div>
+       
+    </div> 
+    <div class="row">
+        <div class="col s12 l1">
+          <img src="/data/uploads/<%= restaurantes.restaurante_imagem %>" alt="" class="materialboxed" width="600">
+        </div>
+        <div class="col s12 l6 offset-l5">
+          <h2 class="indigo-text text-darken-4"><%= restaurantes.restaurante_nome %></h2>
+          <h5>Protocolos sanitários de segurança em bares e restaurantes: Disponibilização de álcool em gel, Distanciamento social (distância mínima entre uma mesa e outra: 2 metros), Medição de temperatura obrigátorio, Higienização de mesas, cadeiras, balcões, etc., Proteção de alimentos, pratos e talheres, Treinamento das equipes, Uso de máscara obrigatório para clientes e funcionários</h5>
+          <p></p>
+        </div>
+    </div>   
+</section>
+
+
+<%- include("./partials/footer") %>
