@@ -15,7 +15,7 @@ const hotelController = {
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const alert = listaDeErros.array()            
-            res.render("cadastrarHotel", {alert: alert, formAction:"/hotel/cadastrarHotel", hotel:{}})
+            res.render("cadastrarHotel", {alert: alert, formAction:"/hotel/cadastrarHotel", hotel:{hotel_facilidades:[]}})
             return
         }
         console.log(req.body)
