@@ -66,9 +66,11 @@ const passeioController = {
         let listaDeErros = validationResult(req)
         console.log(listaDeErros)
         if(!listaDeErros.isEmpty()){
-            const passeioEncontrado = await db.Passeio.findByPk(req.params.id);          
+            const passeioEncontrado = await db.Passeio.findByPk(req.params.id);
+            const dataFormatada = moment(cadastroEncontrado.passeio_data, 'DD/MM/YYYY').utc().format('DD/MM/YYYY');
+            const horaFormatada = moment(cadastroEncontrado.passeio_horario, 'HH:MM:SS').format('HH:MM');          
             const alert = listaDeErros.array()
-            res.render("cadastrarPasseio", {alert: alert, formAction:`/passeio/alterar/${req.params.id}`, passeio: passeioEncontrado})
+            res.render("cadastrarPasseio", {alert: alert, formAction:`/passeio/alterar/${req.params.id}`, passeio: passeioEncontrado, dataFormatada, horaFormatada})
             return            
         }
 

@@ -1,7 +1,7 @@
 <%- include("./partials/header") %>
 <div class="container">    
-    <a class="waves-effect green btn right" href="cadastrarTranslado">Cadastrar Translado</a>
-    <h4 class="indigo-text text-darken-4 ">Listagem de todos os translados</h4>
+    <a class="waves-effect blue darken-3 btn right" href="cadastrarTranslado">Cadastrar Translado</a>
+    <h4 class="corAzulPrimaria">Listagem de todos os translados</h4>
     <%if (messages.length > 0) { %>
       <div class="materialert success">
           <div class="material-icons">check</div>
@@ -11,20 +11,20 @@
     <div id="todos" class="col s12">       
         <div class="row">
             <% for(let i=0; i < translados.length; i++){ %>
-            <div class="col s12 m4 l4">
-              <div class="card">
+            <div class="col s12 m4">
+              <div class="card large">
                 <div class="card-image">
-                  <img src="/data/uploads/<%= translados[i].imagem %>">                 
-                </div>                          
-               
-                <div class="card-content">                    
+                  <img src="/data/uploads/<%= translados[i].imagem %>">
                   <span class="card-title"><strong><%= translados[i].titulo %></strong></span>                  
-                  <p><%= translados[i].descricao %></p>
-                  <blockquote class="white">
-                      <span>Preço por pessoa *</span>
-                    <s class="black-text">R$ <%= translados[i].preco_original %></s> 
-                    <span class="precoPromocional red-text">R$ <%= translados[i].preco_promocional %> </span>
-                </blockquote> 
+                </div>
+                <blockquote>
+                  <span>Preço por pessoa *</span>
+                  <s class="black-text">R$ <%= translados[i].preco_original %></s> 
+                  <span class="precoPromocional red-text">R$ <%= translados[i].preco_promocional %> </span>
+                </blockquote>                  
+                <div class="card-content"> 
+                  <span><strong>Descrição</strong></span>                    
+                  <p class="ajusteDescricao"><%= translados[i].descricao %></p>                    
                 </div>
                 <div class="card-action">
                   <% if (session.usuario) { %>
@@ -32,7 +32,7 @@
                     <a class="red-text" href="/translado/alterar/<%= translados[i].id %>">Editar</a>                    
                   <% } %>
                    <a class="red-text" href="/translado/detalheTranslado/<%= translados[i].id %>">Ver mais</a>
-                </div> 
+                </div>                 
               </div>
             </div>
             <% } %>

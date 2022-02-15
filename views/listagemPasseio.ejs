@@ -1,7 +1,7 @@
 <%- include("./partials/header") %>
 <div class="container">    
-    <a class="waves-effect green btn right" href="cadastrarPasseio">Cadastrar Passeio</a>
-    <h4 class="indigo-text text-darken-4 ">Listagem de todos os passeios</h4>
+    <a class="waves-effect blue darken-3 btn right" href="cadastrarPasseio">Cadastrar Passeio</a>
+    <h4 class="corAzulPrimaria">Listagem de todos os passeios</h4>
     <%if (messages.length > 0) { %>
       <div class="materialert success">
           <div class="material-icons">check</div>
@@ -12,19 +12,19 @@
         <div class="row">
             <% for(let i=0; i < passeios.length; i++){ %>
             <div class="col s12 m4 l4">
-              <div class="card">
+              <div class="card large">
                 <div class="card-image">
                   <img src="/data/uploads/<%= passeios[i].passeio_imagem %>">                 
-                </div>                          
-               
-                <div class="card-content">                    
                   <span class="card-title"><strong><%= passeios[i].passeio_titulo %></strong></span>                  
-                  <p><%= passeios[i].passeio_descricao %></p>
-                  <blockquote class="white">
-                      <span>Preço por pessoa *</span>
-                    <s class="black-text">R$ <%= passeios[i].passeio_valor %></s> 
-                    <span class="precoPromocional red-text">R$ <%= passeios[i].passeio_preco_promocional %> </span>
+                </div>
+                <blockquote class="white">
+                    <span>Preço por pessoa *</span>
+                  <s class="black-text">R$ <%= passeios[i].passeio_valor %></s> 
+                  <span class="precoPromocional red-text">R$ <%= passeios[i].passeio_preco_promocional %> </span>
                 </blockquote> 
+                <div class="card-content">                    
+                  <span><strong>Descrição</strong></span>
+                  <p><%= passeios[i].passeio_descricao %></p>
                 </div>
                 <div class="card-action">
                   <% if (session.usuario) { %>

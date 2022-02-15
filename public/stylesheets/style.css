@@ -4,11 +4,33 @@ body {
   flex-direction: column;
 }
 
+.navbar-fixed a, .dropdown-menu{
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.corAzulPrimaria{
+  color: #1565c0;
+}
+
+.cardListagem{
+  height: 10px;
+}
 
 main {
   flex: 1 0 auto;
 }
 
+.card-content{
+  margin-top: -20px;
+}
+
+.ajusteDescricao{
+    white-space: inherit;
+    overflow: hidden;
+    text-overflow: clip ellipsis;
+}
 .carousel-slider img{
   height: 400px;
 }
@@ -82,9 +104,6 @@ main {
   padding: 10px;
 }
 
-.card-content p{
-  word-wrap: break-word;  
-}
 
 #detalheOpcao{
   padding-top: 5vw;
@@ -111,9 +130,6 @@ main {
 .login input{
   font-size: 20px;
 }
-
-
-
 
 .materialert{
   position: relative;
