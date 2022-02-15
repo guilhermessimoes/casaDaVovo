@@ -12,21 +12,19 @@
         <div class="row">
             <% for(let i=0; i < hoteis.length; i++){ %>
             <div class="col s12 m4 l4">
-              <div class="card">
+              <div class="card large">
                 <div class="card-image">
                   <img src="/data/uploads/<%= hoteis[i].hotel_imagem %>">                 
-                </div>                          
-               
-                <div class="card-content">                    
                   <span class="card-title"><strong><%= hoteis[i].hotel_nome %></strong></span>
-                  <p><%= hoteis[i].hotel_descricao %></p>
-                  <br>
-                  <!--<span><strong> Essa hospedagem oferece:</strong> <em><%= hoteis[i].hotel_facilidades %></em></span>
-                  <blockquote class="white"> -->
-                    <span>Valor da diária *</span>
+                </div>                          
+                <blockquote class="white"> -->
+                  <span>Valor da diária *</span>
                   <s class="black-text">R$ <%= hoteis[i].hotel_preco %></s> 
                   <span class="precoPromocional red-text">R$ <%= hoteis[i].hotel_preco_promo%> </span>
-              </blockquote>  
+                </blockquote>               
+                <div class="card-content">
+                  <span><strong>Descrição</strong></span>             
+                  <p><%= hoteis[i].hotel_descricao %></p>
                 </div>
                 <div class="card-action">
                   <% if (session.usuario) { %>

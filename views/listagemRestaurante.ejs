@@ -12,21 +12,17 @@
         <div class="row">
             <% for(let i=0; i < restaurantes.length; i++){ %>
             <div class="col s12 m4 l4">
-              <div class="card">
+              <div class="card large">
                 <div class="card-image">
                   <img src="/data/uploads/<%= restaurantes[i].restaurante_imagem %>">                 
-                </div>                          
-               
-                <div class="card-content">                    
                   <span class="card-title"><strong><%= restaurantes[i].restaurante_nome %></strong></span>
-                  <p><%= restaurantes[i].restaurante_descricao %></p>                
-                  
-                  <blockquote class="white">
-                      
-                    <p>Restaurante localizado em <%= restaurantes[i].restaurante_cidade%> , <%= restaurantes[i].restaurante_estado%>.</p>                   
-                    
-                    
+                </div>
+                <blockquote class="white">                      
+                  <p>Restaurante localizado em <%= restaurantes[i].restaurante_cidade%> , <%= restaurantes[i].restaurante_estado%>.</p>
                 </blockquote> 
+                <div class="card-content">
+                  <span><strong>Descrição</strong></span>                 
+                  <p><%= restaurantes[i].restaurante_descricao %></p>                  
                 </div>
                 <div class="card-action">
                   <% if (session.usuario) { %>
