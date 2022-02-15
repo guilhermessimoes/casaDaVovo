@@ -42,7 +42,7 @@ module.exports = {
         allowNull: false
       },
       passeio_preco_promocional:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
         createdAt:{

@@ -69,19 +69,19 @@ const passeioController = {
         console.log(listaDeErros)
         if(!listaDeErros.isEmpty()){
             const passeioEncontrado = await db.Passeio.findByPk(req.params.id);
-            const dataFormatada = moment(cadastroEncontrado.passeio_data, 'DD/MM/YYYY').utc().format('DD/MM/YYYY');
-            const horaFormatada = moment(cadastroEncontrado.passeio_horario, 'HH:MM:SS').format('HH:MM');          
+            const dataFormatada = moment(passeioEncontrado.passeio_data, 'DD/MM/YYYY').utc().format('DD/MM/YYYY');
+            const horaFormatada = moment(passeioEncontrado.passeio_horario, 'HH:MM:SS').format('HH:MM');          
             const alert = listaDeErros.array()
             res.render("cadastrarPasseio", {alert: alert, formAction:`/passeio/alterar/${req.params.id}`, passeio: passeioEncontrado, dataFormatada, horaFormatada})
             return            
         }
-
+        const passeioData = req.body.passeioData
         const passeioObj = { 
             passeio_titulo: req.body.passeioTitulo,
             passeio_descricao: req.body.passeioDescricao,
             passeio_cidade: req.body.passeioCidade,
             passeio_estado: req.body.passeioEstado,
-            passeio_data: req.body.passeioData,
+            passeio_data: moment(passeioData, 'DD/MM/YYYY').format('YYYY-MM-DD'),
             passeio_horario: req.body.passeioHorario,
             passeio_valor: req.body.passeioValor,
             passeio_imagem: req.file.filename,

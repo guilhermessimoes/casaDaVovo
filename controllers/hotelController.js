@@ -89,7 +89,7 @@ const hotelController = {
             hotel_nome: req.body.hotelNome,
             hotel_telefone: req.body.hotelTelefone,
             hotel_quantidade_unidades: req.body.hotelQuantidadeUnidades,                        
-            hotel_imagem: req.body.hotelImagem,
+            hotel_imagem: req.body.filename,
             hotel_facilidades: req.body.hotelFacilidades, 
             hotel_endereco: req.body.hotelEndereco, 
             hotel_endereco_numero: req.body.hotelEnderecoNumero,

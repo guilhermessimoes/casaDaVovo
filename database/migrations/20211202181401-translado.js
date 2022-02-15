@@ -30,11 +30,11 @@ module.exports = {
         allowNull: false
       },
       preco_promocional:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       preco_original:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       titulo:{

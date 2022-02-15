@@ -55,7 +55,7 @@
                             <option <%= (restaurante.restaurante_cozinha == "Variada")?' selected="selected"':'' %> value="Variada">Variada</option>
                             <option <%= (restaurante.restaurante_cozinha == "Vegana")?' selected="selected"':'' %> value="Vegana">Vegana</option>
                             <option <%= (restaurante.restaurante_cozinha == "Vegetariana")?' selected="selected"':'' %> value="Vegetariana">Vegetariana</option>
-                            <option <%= (restaurante.restaurante_cozinha == "Outras origens")?' selected="selected"':'' %> value="de outras origens">Outras origens</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Outras origens")?' selected="selected"':'' %> value="Outras origens">Outras origens</option>
                         </select>
                     </div>                        
                 </div>
@@ -63,9 +63,9 @@
                     <div class="input-field col s6">
                         <select id="restauranteDelivery" name="restauranteDelivery">
                             <option value="" disabled selected>Faz delivery?</option>
-                            <option <%= (restaurante.restaurante_delivery == "Sim")?' selected="selected"':'' %> value="sim">Sim</option>
-                            <option <%= (restaurante.restaurante_delivery == "Não")?' selected="selected"':'' %> value="nao">Não</option>
-                            <option <%= (restaurante.restaurante_delivery == "Somente delivery")?' selected="selected"':'' %> value="somente_delivery">Somente delivery</option>
+                            <option <%= (restaurante.restaurante_delivery == "Sim")?' selected="selected"':'' %> value="Sim">Sim</option>
+                            <option <%= (restaurante.restaurante_delivery == "Não")?' selected="selected"':'' %> value="Não">Não</option>
+                            <option <%= (restaurante.restaurante_delivery == "Somente delivery")?' selected="selected"':'' %> value="Somente delivery">Somente delivery</option>
                         </select>
                     </div>
                 </div>                    
