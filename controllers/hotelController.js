@@ -18,7 +18,6 @@ const hotelController = {
             res.render("cadastrarHotel", {alert: alert, formAction:"/hotel/cadastrarHotel", hotel:{hotel_facilidades:[]}})
             return
         }
-        console.log(req.body)
         const hotelTipo = req.body.hotelTipo
         const hotelNome = req.body.hotelNome
         const hotelTelefone = req.body.hotelTelefone
@@ -89,7 +88,7 @@ const hotelController = {
             hotel_nome: req.body.hotelNome,
             hotel_telefone: req.body.hotelTelefone,
             hotel_quantidade_unidades: req.body.hotelQuantidadeUnidades,                        
-            hotel_imagem: req.body.filename,
+            hotel_imagem: req.file.filename,
             hotel_facilidades: req.body.hotelFacilidades, 
             hotel_endereco: req.body.hotelEndereco, 
             hotel_endereco_numero: req.body.hotelEnderecoNumero,
