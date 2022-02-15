@@ -4,7 +4,21 @@ body {
   flex-direction: column;
 }
 
+.navbar-fixed a, .dropdown-menu{
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
 
+.corAzulPrimaria{
+  color: #1565c0;
+}
+
+.cardListagem{
+  height: 10px;
+}
+
+blue-text text-darken-3
 main {
   flex: 1 0 auto;
 }
@@ -111,9 +125,6 @@ main {
 .login input{
   font-size: 20px;
 }
-
-
-
 
 .materialert{
   position: relative;
