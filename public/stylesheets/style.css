@@ -104,6 +104,9 @@ main {
   padding: 10px;
 }
 
+.slider .indicators .indicator-item.active {
+  background-color: #1565C0;
+}
 
 #detalheOpcao{
   padding-top: 5vw;

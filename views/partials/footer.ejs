@@ -29,15 +29,17 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="/javascripts/utils/cep.js"></script>
-    
+    <script src="https://unpkg.com/imask"></script>
+    <script src="dist/jquery.inputmask.js"></script>    
 
-    <script>
+    <script> 
+         
       //timepicker
-$(document).ready(function(){
-    $('.timepicker').timepicker({
-      twelveHour: false
-    });
-  });
+      $(document).ready(function(){
+          $('.timepicker').timepicker({
+            twelveHour: false
+          });
+        });
 
     //picker 
 $(document).ready(function(){
@@ -114,7 +116,54 @@ $(document).ready(function(){
               "Rio de Janeiro": null,
               "Ilheus": null,
           }
-      })
+      })      
+
+      //MASK
+      var currency = document.getElementById('currency');
+      var currencyOptions = {
+        mask: 'R$ num',
+        blocks: {
+        num: {
+          // nested masks are available!
+          mask: Number,
+          thousandsSeparator: '.',
+          signed: true,
+          padFractionalZeros: true,
+          normalizeZeros: true,
+          radix: ',',
+          mapToRadix: ['.'],
+          scale: 2
+          }
+        }
+      };
+      var mask = IMask(currency, currencyOptions); 
+      
+      var currency1 = document.getElementById('currency1');
+      var currencyOptions = {
+        mask: 'R$ num',
+        blocks: {
+        num: {
+          // nested masks are available!
+          mask: Number,
+          thousandsSeparator: '.',
+          signed: true,
+          padFractionalZeros: true,
+          normalizeZeros: true,
+          radix: ',',
+          mapToRadix: ['.'],
+          scale: 2
+          }
+        }
+      };
+      var mask = IMask(currency1, currencyOptions); 
+
+      var element = document.getElementById('phone');
+      var maskOptions = {
+        mask: '(00)00000-0000',        
+      };
+      var mask = IMask(element, maskOptions);       
+   
+
     </script> 
 </body>
 </html>

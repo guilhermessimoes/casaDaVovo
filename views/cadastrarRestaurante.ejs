@@ -6,160 +6,151 @@
                 Realize o cadastro do seu restaurante
             </h2>
             <p>Ter um restaurante cadastrado no TravelBrazil pode aumentar muito o número de vendas do estabelecimento. Aqui o seu restaurante é visto por todos os clientes hospedados por diversos meios de hospedagem da região.</p>
-            </div>
-            <div class="card col s12 l5 offset-l2">
-                <form class="col s12" method="POST" action="<%= formAction %>" enctype="multipart/form-data">
-
-                    <div class="row">
-                        <% if(typeof alert !='undefined' ){ %>
-                            <% alert.forEach(function(error){ %>
-                                <div class="materialert error">
-                                    <div class="material-icons">error_outline</div>
-                                    <%= error.msg %>
-                                </div>
-                            <% }) %>
-                        <% } %>
+        </div>
+        <div class="card col s12 l5 offset-l2">
+            <form class="col s12" method="POST" action="<%= formAction %>" enctype="multipart/form-data">
+                <div class="row">
+                    <% if(typeof alert !='undefined' ){ %>
+                        <% alert.forEach(function(error){ %>
+                            <div class="materialert error">
+                                <div class="material-icons">error_outline</div>
+                                <%= error.msg %>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="<%= restaurante.restaurante_nome %>" id="restauranteNome" type="text"
+                            class="validate" name="restauranteNome" required />
+                        <label for="restauranteNome">Nome do restaurante</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input value="<%= restaurante.restaurante_nome %>" id="restauranteNome" type="text"
-                                class="validate" name="restauranteNome" required />
-                            <label for="restauranteNome">Nome do restaurante</label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="restauranteTipo" name="restauranteTipo">
+                            <option value="" disabled selected>Tipo de restaurante?</option>
+                            <option <%= (restaurante.restaurante_tipo == "Bar" )?'selected="selected"':'' %> value="Bar">Bar</option>
+                            <option <%= (restaurante.restaurante_tipo == "Bistrô")?' selected="selected"':'' %> value="Bistro">Bistrô</option>
+                            <option <%= (restaurante.restaurante_tipo == "Buffet")?' selected="selected"':'' %> value="Buffet">Buffet</option>
+                            <option <%= (restaurante.restaurante_tipo == "Cafeteria")?' selected="selected"':'' %> value="Cafeteria">Cafeteria</option>
+                            <option <%= (restaurante.restaurante_tipo == "Hamburgueria")?' selected="selected"':'' %> value="Hamburgueria">Hamburgueria</option>
+                            <option <%= (restaurante.restaurante_tipo == "Lanchonete")?' selected="selected"':'' %> value="Lanchonete">Lanchonete</option>
+                            <option <%= (restaurante.restaurante_tipo == "Pizzaria")?' selected="selected"':'' %> value="Pizzaria">Pizzaria</option>
+                            <option <%= (restaurante.restaurante_tipo == "Self-Service")?' selected="selected"':'' %> value="Self-Service">Self-Service</option>
+                            <option <%= (restaurante.restaurante_tipo == "Outros")?' selected="selected"':'' %> value="Outros">Outros</option>
+                        </select>
                     </div>
-
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <select id="restauranteTipo" name="restauranteTipo">
-                                <option value="" disabled selected>Tipo de restaurante?</option>
-                                <option <%= (restaurante.restaurante_tipo == "Bar" )?'selected="selected"':'' %> value="Bar">Bar</option>
-                                <option <%= (restaurante.restaurante_tipo == "Bistrô")?' selected="selected"':'' %> value="Bistro">Bistrô</option>
-                                <option <%= (restaurante.restaurante_tipo == "Buffet")?' selected="selected"':'' %> value="Buffet">Buffet</option>
-                                <option <%= (restaurante.restaurante_tipo == "Cafeteria")?' selected="selected"':'' %> value="Cafeteria">Cafeteria</option>
-                                <option <%= (restaurante.restaurante_tipo == "Hamburgueria")?' selected="selected"':'' %> value="Hamburgueria">Hamburgueria</option>
-                                <option <%= (restaurante.restaurante_tipo == "Lanchonete")?' selected="selected"':'' %> value="Lanchonete">Lanchonete</option>
-                                <option <%= (restaurante.restaurante_tipo == "Pizzaria")?' selected="selected"':'' %> value="Pizzaria">Pizzaria</option>
-                                <option <%= (restaurante.restaurante_tipo == "Self-Service")?' selected="selected"':'' %> value="Self-Service">Self-Service</option>
-                                <option <%= (restaurante.restaurante_tipo == "Outros")?' selected="selected"':'' %> value="Outros">Outros</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s6">
-                            <select id="restauranteCozinha" name="restauranteCozinha">
-                                <option value="" disabled selected>Tipo de cozinha?</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Árabe")?' selected="selected"':'' %> value="Arabe">Árabe</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Brasileira")?' selected="selected"':'' %> value="Brasileira">Brasileira</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Chinesa")?' selected="selected"':'' %> value="Chinesa">Chinesa</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Fast Food")?' selected="selected"':'' %> value="Fast Food">Fast Food</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Frutos do mar")?' selected="selected"':'' %> value="Frutos do mar">Frutos do mar</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Italiana")?' selected="selected"':'' %> value="Italiana">Italiana</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Japonesa")?' selected="selected"':'' %> value="Japonesa">Japonesa</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Massas e Pizzas")?' selected="selected"':'' %> value="Massas e Pizzas">Massas e Pizzas</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Variada")?' selected="selected"':'' %> value="Variada">Variada</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Vegana")?' selected="selected"':'' %> value="Vegana">Vegana</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Vegetariana")?' selected="selected"':'' %> value="Vegetariana">Vegetariana</option>
-                                <option <%= (restaurante.restaurante_cozinha == "Outras origens")?' selected="selected"':'' %> value="de outras origens">Outras origens</option>
-                            </select>
-                        </div>                        
+                    <div class="input-field col s6">
+                        <select id="restauranteCozinha" name="restauranteCozinha">
+                            <option value="" disabled selected>Tipo de cozinha?</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Árabe")?' selected="selected"':'' %> value="Arabe">Árabe</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Brasileira")?' selected="selected"':'' %> value="Brasileira">Brasileira</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Chinesa")?' selected="selected"':'' %> value="Chinesa">Chinesa</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Fast Food")?' selected="selected"':'' %> value="Fast Food">Fast Food</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Frutos do mar")?' selected="selected"':'' %> value="Frutos do mar">Frutos do mar</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Italiana")?' selected="selected"':'' %> value="Italiana">Italiana</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Japonesa")?' selected="selected"':'' %> value="Japonesa">Japonesa</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Massas e Pizzas")?' selected="selected"':'' %> value="Massas e Pizzas">Massas e Pizzas</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Variada")?' selected="selected"':'' %> value="Variada">Variada</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Vegana")?' selected="selected"':'' %> value="Vegana">Vegana</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Vegetariana")?' selected="selected"':'' %> value="Vegetariana">Vegetariana</option>
+                            <option <%= (restaurante.restaurante_cozinha == "Outras origens")?' selected="selected"':'' %> value="de outras origens">Outras origens</option>
+                        </select>
+                    </div>                        
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="restauranteDelivery" name="restauranteDelivery">
+                            <option value="" disabled selected>Faz delivery?</option>
+                            <option <%= (restaurante.restaurante_delivery == "sim")?' selected="selected"':'' %> value="sim">Sim</option>
+                            <option <%= (restaurante.restaurante_delivery == "nao")?' selected="selected"':'' %> value="nao">Não</option>
+                            <option <%= (restaurante.restaurante_delivery == "somente_delivery")?' selected="selected"':'' %> value="somente_delivery">Somente delivery</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <select id="restauranteDelivery" name="restauranteDelivery">
-                                <option value="" disabled selected>Faz delivery?</option>
-                                <option <%= (restaurante.restaurante_delivery == "sim")?' selected="selected"':'' %> value="sim">Sim</option>
-                                <option <%= (restaurante.restaurante_delivery == "nao")?' selected="selected"':'' %> value="nao">Não</option>
-                                <option <%= (restaurante.restaurante_delivery == "somente_delivery")?' selected="selected"':'' %> value="somente_delivery">Somente delivery</option>
-                            </select>
-                        </div>
+                </div>                    
+                <div class="row">
+                    <div class="input-field col s12">
+                    <input disabled value="" id="disabled" type="text" class="validate" />
+                    <label for="disabled"></label>
                     </div>
-                        
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <input disabled value="" id="disabled" type="text" class="validate" />
-                        <label for="disabled"></label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input value="<%= restaurante.restaurante_bairro %>" id="restauranteBairro" type="text" class="validate" name="restauranteBairro" required />
+                        <label for="restauranteBairro" class="active">Bairro:</label>
                     </div>
-
-                    <div class="row">
-                        <div class="input-field col s4">
-                            <input value="<%= restaurante.restaurante_bairro %>" id="restauranteBairro" type="text" class="validate" name="restauranteBairro" required />
-                            <label for="restauranteBairro" class="active">Bairro:</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input value="<%= restaurante.restaurante_cidade %>" id="restauranteCidade" type="text" class="validate" name="restauranteCidade" required />
-                            <label for="restauranteCidade">Cidade:</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <select id="restauranteEstado" name="restauranteEstado">
-                                <option value="" disabled selected>UF</option>
-                                <option <%= (restaurante.restaurante_estado == "AC")?'selected="selected"':'' %>value="AC">Acre</option>
-                                <option <%= (restaurante.restaurante_estado == "AL")?'selected="selected"':'' %>value="AL">Alagoas</option>
-                                <option <%= (restaurante.restaurante_estado == "AP")?'selected="selected"':'' %>value="AP">Amapá</option>
-                                <option <%= (restaurante.restaurante_estado == "AM")?'selected="selected"':'' %>value="AM">Amazonas</option>
-                                <option <%= (restaurante.restaurante_estado == "BA")?'selected="selected"':'' %>value="BA">Bahia</option>
-                                <option <%= (restaurante.restaurante_estado == "CE")?'selected="selected"':'' %>value="CE">Ceará</option>
-                                <option <%= (restaurante.restaurante_estado == "DF")?'selected="selected"':'' %>value="DF">Distrito Federal</option>
-                                <option <%= (restaurante.restaurante_estado == "ES")?'selected="selected"':'' %>value="ES">Espírito Santo</option>
-                                <option <%= (restaurante.restaurante_estado == "GO")?'selected="selected"':'' %>value="GO">Goiás</option>
-                                <option <%= (restaurante.restaurante_estado == "MA")?'selected="selected"':'' %>value="MA">Maranhão</option>
-                                <option <%= (restaurante.restaurante_estado == "MT")?'selected="selected"':'' %>value="MT">Mato Grosso</option>
-                                <option <%= (restaurante.restaurante_estado == "MS")?'selected="selected"':'' %>value="MS">Mato Grosso do Sul</option>
-                                <option <%= (restaurante.restaurante_estado == "MG")?'selected="selected"':'' %>value="MG">Minas Gerais</option>
-                                <option <%= (restaurante.restaurante_estado == "PA")?'selected="selected"':'' %>value="PA">Pará</option>
-                                <option <%= (restaurante.restaurante_estado == "PB")?'selected="selected"':'' %>value="PB">Paraíba</option>
-                                <option <%= (restaurante.restaurante_estado == "PR")?'selected="selected"':'' %>value="PR">Paraná</option>
-                                <option <%= (restaurante.restaurante_estado == "PE")?'selected="selected"':'' %>value="PE">Pernambuco</option>
-                                <option <%= (restaurante.restaurante_estado == "PI")?'selected="selected"':'' %>value="PI">Piauí</option>
-                                <option <%= (restaurante.restaurante_estado == "RJ")?'selected="selected"':'' %>value="RJ">Rio de Janeiro</option>
-                                <option <%= (restaurante.restaurante_estado == "RN")?'selected="selected"':'' %>value="RN">Rio Grande do Norte</option>
-                                <option <%= (restaurante.restaurante_estado == "RS")?'selected="selected"':'' %>value="RS">Rio Grande do Sul</option>
-                                <option <%= (restaurante.restaurante_estado == "RO")?'selected="selected"':'' %>value="RO">Rondônia</option>
-                                <option <%= (restaurante.restaurante_estado == "RR")?'selected="selected"':'' %>value="RR">Roraima</option>
-                                <option <%= (restaurante.restaurante_estado == "SC")?'selected="selected"':'' %>value="SC">Santa Catarina</option>
-                                <option <%= (restaurante.restaurante_estado == "SP")?'selected="selected"':'' %>value="SP">São Paulo</option>
-                                <option <%= (restaurante.restaurante_estado == "SE")?'selected="selected"':'' %>value="SE">Sergipe</option>
-                                <option <%= (restaurante.restaurante_estado == "TO")?'selected="selected"':'' %>value="TO">Tocantins</option>
-                            </select>
-                        </div>
+                    <div class="input-field col s4">
+                        <input value="<%= restaurante.restaurante_cidade %>" id="restauranteCidade" type="text" class="validate" name="restauranteCidade" required />
+                        <label for="restauranteCidade">Cidade:</label>
                     </div>
-
-                    <div class="row">
-                        <div class="input-field col s4">
-                            <input value="<%= restaurante.restaurante_telefone %>" id="restauranteTelefone" type="text" class="validate" name="restauranteTelefone" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}"
-                            name="restauranteTelefone" placeholder="(XX)XXXXX-XXXX" required/>
-                            <label for="restauranteTelefone">Telefone:</label>
-                        </div>
-                        <div class="input-field col s8">
-                            <input value="<%= restaurante.restaurante_email %>" id="restauranteEmail" type="email" class="validate" name="restauranteEmail" required/>
-                            <label for="restauranteEmail">E-mail:</label>
-                        </div>            
+                    <div class="input-field col s4">
+                        <select id="restauranteEstado" name="restauranteEstado">
+                            <option value="" disabled selected>UF</option>
+                            <option <%= (restaurante.restaurante_estado == "AC")?'selected="selected"':'' %>value="AC">Acre</option>
+                            <option <%= (restaurante.restaurante_estado == "AL")?'selected="selected"':'' %>value="AL">Alagoas</option>
+                            <option <%= (restaurante.restaurante_estado == "AP")?'selected="selected"':'' %>value="AP">Amapá</option>
+                            <option <%= (restaurante.restaurante_estado == "AM")?'selected="selected"':'' %>value="AM">Amazonas</option>
+                            <option <%= (restaurante.restaurante_estado == "BA")?'selected="selected"':'' %>value="BA">Bahia</option>
+                            <option <%= (restaurante.restaurante_estado == "CE")?'selected="selected"':'' %>value="CE">Ceará</option>
+                            <option <%= (restaurante.restaurante_estado == "DF")?'selected="selected"':'' %>value="DF">Distrito Federal</option>
+                            <option <%= (restaurante.restaurante_estado == "ES")?'selected="selected"':'' %>value="ES">Espírito Santo</option>
+                            <option <%= (restaurante.restaurante_estado == "GO")?'selected="selected"':'' %>value="GO">Goiás</option>
+                            <option <%= (restaurante.restaurante_estado == "MA")?'selected="selected"':'' %>value="MA">Maranhão</option>
+                            <option <%= (restaurante.restaurante_estado == "MT")?'selected="selected"':'' %>value="MT">Mato Grosso</option>
+                            <option <%= (restaurante.restaurante_estado == "MS")?'selected="selected"':'' %>value="MS">Mato Grosso do Sul</option>
+                            <option <%= (restaurante.restaurante_estado == "MG")?'selected="selected"':'' %>value="MG">Minas Gerais</option>
+                            <option <%= (restaurante.restaurante_estado == "PA")?'selected="selected"':'' %>value="PA">Pará</option>
+                            <option <%= (restaurante.restaurante_estado == "PB")?'selected="selected"':'' %>value="PB">Paraíba</option>
+                            <option <%= (restaurante.restaurante_estado == "PR")?'selected="selected"':'' %>value="PR">Paraná</option>
+                            <option <%= (restaurante.restaurante_estado == "PE")?'selected="selected"':'' %>value="PE">Pernambuco</option>
+                            <option <%= (restaurante.restaurante_estado == "PI")?'selected="selected"':'' %>value="PI">Piauí</option>
+                            <option <%= (restaurante.restaurante_estado == "RJ")?'selected="selected"':'' %>value="RJ">Rio de Janeiro</option>
+                            <option <%= (restaurante.restaurante_estado == "RN")?'selected="selected"':'' %>value="RN">Rio Grande do Norte</option>
+                            <option <%= (restaurante.restaurante_estado == "RS")?'selected="selected"':'' %>value="RS">Rio Grande do Sul</option>
+                            <option <%= (restaurante.restaurante_estado == "RO")?'selected="selected"':'' %>value="RO">Rondônia</option>
+                            <option <%= (restaurante.restaurante_estado == "RR")?'selected="selected"':'' %>value="RR">Roraima</option>
+                            <option <%= (restaurante.restaurante_estado == "SC")?'selected="selected"':'' %>value="SC">Santa Catarina</option>
+                            <option <%= (restaurante.restaurante_estado == "SP")?'selected="selected"':'' %>value="SP">São Paulo</option>
+                            <option <%= (restaurante.restaurante_estado == "SE")?'selected="selected"':'' %>value="SE">Sergipe</option>
+                            <option <%= (restaurante.restaurante_estado == "TO")?'selected="selected"':'' %>value="TO">Tocantins</option>
+                        </select>
                     </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea id="textarea2" class="materialize-textarea" data-length="400" name="restauranteDescricao" minlength="50" maxlength="250"><%= restaurante.restaurante_descricao %></textarea>
-                                    <label for="restauranteDescricao">Descrição</label>
-                                    <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
-                                </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input value="<%= restaurante.restaurante_telefone %>" id="phone" type="text" class="validate" name="restauranteTelefone" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" placeholder="(XX)XXXXX-XXXX" required>
+                        <label for="currency">Telefone</label>
+                    </div>
+                    <div class="input-field col s8">
+                        <input value="<%= restaurante.restaurante_email %>" id="restauranteEmail" type="email" class="validate" name="restauranteEmail" required/>
+                        <label for="restauranteEmail">E-mail:</label>
+                    </div>            
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea2" class="materialize-textarea" data-length="400" name="restauranteDescricao" minlength="50" maxlength="250"><%= restaurante.restaurante_descricao %></textarea>
+                                <label for="restauranteDescricao">Descrição</label>
+                                <span class="helper-text" data-error="wrong" data-success="right">min 50 e max 250 caracteres.</span>
                             </div>
                         </div>
                     </div>
-                    <div class="file-field input-field">
-                        <div class="btn blue">
-                          <span>Imagem</span>
-                          <input type="file" id="imagem" name="imagem" required>
-                        </div>
-                        <div class="file-path-wrapper">
-                          <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required>
-                        </div>
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn blue">
+                    <span>Imagem</span>
+                    <input type="file" id="imagem" name="imagem" required>
                     </div>
-                    <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
-                        <a href="/restaurante/listagemRestaurante" class="waves-effect red darken-3  btn">Voltar</a>
-                        <button type="submit" class="waves-effect green btn">Cadastrar</button>
+                    <div class="file-path-wrapper">
+                    <input value="" class="file-path validate" type="text" id="imagem" name="imagem" required>
                     </div>
-
-                   
+                </div>
+                <div class="col l8 offset-l2 s12 center" id="botoes_registrar">
+                    <a href="/restaurante/listagemRestaurante" class="waves-effect red darken-3  btn">Voltar</a>
+                    <button type="submit" class="waves-effect green btn">Cadastrar</button>
+                </div>
             </form>
         </div>
     </div>

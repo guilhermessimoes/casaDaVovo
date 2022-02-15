@@ -127,9 +127,9 @@
 
           <div class="row">
             <div class="input-field col s4">
-              <input value="<%= hotel.hotel_telefone %>" id="hotelTelefone" type="text" class="validate" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}"
-                name="hotelTelefone" placeholder="(XX)XXXXX-XXXX"required/>
-              <label for="hotelTelefone">Telefone:</label>
+              <input value="<%= hotel.hotel_telefone %>" id="phone" type="text" class="validate" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}"
+                name="hotelTelefone" placeholder="(XX)XXXXX-XXXX" required/>
+              <label for="phone">Telefone:</label>
             </div>
             <div class="input-field col s8">
               <input value="<%= hotel.hotel_email %>" id="hotelEmail" type="email" class="validate" name="hotelEmail" required/>
@@ -138,12 +138,12 @@
           </div>
           <div class="row">
             <div class="input-field col s4">
-              <input value="<%= hotel.hotel_preco %>" id="hotelPreco" type="text" class="validate" name="hotelPreco" placeholder="R$" required/>
-              <label for="hotelPreco">Preço:</label>
+              <input value="<%= hotel.hotel_preco %>" id="currency" type="text" class="validate" name="hotelPreco" placeholder="R$" required/>
+              <label for="currency">Preço:</label>
             </div>
             <div class="input-field col s4">
-              <input value="<%= hotel.hotel_preco_promo %>" id="hotelPreco" type="text" class="validate" name="hotelPrecoPromo"  placeholder="R$" required/>
-              <label for="hotelPreco">Preço promocional:</label>
+              <input value="<%= hotel.hotel_preco_promo %>" id="currency1" type="text" class="validate" name="hotelPrecoPromo"  placeholder="R$" required/>
+              <label for="currency1">Preço promocional:</label>
             </div>
           </div>
 
