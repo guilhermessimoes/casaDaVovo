@@ -13,14 +13,14 @@ const passeioController = {
     },
 
     viewCadastrarPasseio: async(req,res)=>{
-        res.render('cadastrarPasseio', {formAction:"cadastrarPasseio", passeio:{}})
+        res.render('cadastrarPasseio', {formAction:"cadastrarPasseio", passeio:{}, dataFormatada:''})
     },
 
     acaoCadastrarPasseio: async(req,res) =>{
         let listaDeErros = validationResult(req)
         if(!listaDeErros.isEmpty()){
             const alert = listaDeErros.array()
-            res.render("cadastrarPasseio", {alert: alert, formAction:"/passeio/cadastrarPasseio", passeio:{}})
+            res.render("cadastrarPasseio", {alert: alert, formAction:"/passeio/cadastrarPasseio", passeio:{}, dataFormatada:''})
             return            
         }
         const passeioTitulo = req.body.passeioTitulo
@@ -51,13 +51,15 @@ const passeioController = {
         res.redirect("/passeio/listagemPasseio")   
     },
 
-    editar: async (req, res)=> {
+    editar: async (req, res)=> {        
         const passeioEncontrato = await db.Passeio.findByPk(req.params.id);
+        const dataFormatada = moment(passeioEncontrato.passeio_data, 'DD/MM/YYYY').utc().format('DD/MM/YYYY');
 
         res.render("cadastrarPasseio", {
             formAction:`/passeio/alterar/${req.params.id}`,
             buttonMessage: "Salvar",
-            passeio: passeioEncontrato
+            passeio: passeioEncontrato,
+            dataFormatada
         });
 
     },
