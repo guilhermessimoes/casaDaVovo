@@ -1,0 +1,31 @@
+
+        
+        <div class="row">
+            <% for(let i=0; i < translados.length; i++){ %>
+            <div class="col s12 m12">
+              <div class="card horizontal">
+                <div class="card-image">
+                  <img src="/data/uploads/<%= translados[i].imagem %>">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <span class="card-title"><strong><%= translados[i].titulo %></strong></span>                  
+                      <p><%= translados[i].descricao %></p>
+                      <blockquote>
+                          <span>Preço por pessoa *</span>
+                        <s class="black-text">R$ <%= translados[i].preco_original %></s> 
+                        <span class="precoPromocional red-text">R$ <%= translados[i].preco_promocional %> </span>
+                    </blockquote> 
+                  </div>
+                  <div class="card-action">
+                    <% if (session.usuario) { %>
+                      <a class="red-text" href="/translado/excluir/<%= translados[i].id %>">Excluir</a>
+                      <a class="red-text" href="/translado/alterar/<%= translados[i].id %>">Editar</a>                    
+                    <% } %>
+                     <a class="red-text" href="/translado/detalheTranslado/<%= translados[i].id %>">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
