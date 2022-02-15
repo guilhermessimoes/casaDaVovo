@@ -1,7 +1,9 @@
 <%- include("./partials/header") %>
-<div class="container">    
-    <a class="waves-effect blue darken-3 btn right" href="cadastrarHotel">Cadastrar Hotel</a>
-    <h4 class="corAzulPrimaria">Listagem de todos os hoteis</h4>
+<div class="container">
+    <% if (session.usuario) { %>  
+      <a class="waves-effect blue darken-3 btn right" href="cadastrarHotel">Cadastrar Hotel</a>
+    <% } %>
+    <h4 class="blue-text text-darken-3">Listagem de todos os hoteis</h4>
     <%if (messages.length > 0) { %>
       <div class="materialert success">
           <div class="material-icons">check</div>

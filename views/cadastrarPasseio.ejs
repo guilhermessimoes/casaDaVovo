@@ -2,7 +2,7 @@
 <section class="section container" id="detalhe">
     <div class="row">
         <div class="col s12 l5">
-            <h2 class="indigo-text text-darken-4">
+            <h2 class="blue-text text-darken-3">
                 Cadastro de passeio
             </h2>
             <p>Nosso objetivo é oferecer as melhores experiências e soluções em passeios aos nossos visitantes, atuando sempre com profissionalismo, respeito e amor na prestação dos serviços.</p>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="row">
                 <div class="input-field col s12">
-                    <input value="<%= passeio.passeio_titulo %>" id="passeioTitulo" type="text" class="validate" name="passeioTitulo">
+                    <input value="<%= passeio.passeio_titulo %>" id="passeioTitulo" type="text" class="validate" name="passeioTitulo" required>
                     <label for="passeioTitulo">Título/Nome</label>
                 </div>
                 </div>
@@ -69,7 +69,7 @@
                 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input value="<%= passeio.passeio_data %>" id="passeioData" type="text" class="datepicker" name="passeioData">
+                        <input value="<%= dataFormatada %>" id="passeioData" type="text" class="datepicker" name="passeioData">
                         <label for="passeioData">Data do passeio</label>
                     </div>
                     <div class="input-field col s6">
@@ -80,12 +80,12 @@
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input value="<%= passeio.passeio_valor %>" id="passeioValor" type="text" class="validate" name="passeioValor">
-                        <label for="passeioValor">Preço</label>
+                        <input value="<%= passeio.passeio_valor %>" id="currency" type="text" class="validate" name="passeioValor">
+                        <label for="currency">Preço</label>
                     </div>
                     <div class="input-field col s6">
-                        <input value="<%= passeio.passeio_preco_promocional %>" id="passeioPrecoPromocional" type="text" class="validate" name="passeioPrecoPromocional">
-                        <label for="passeioPrecoPromocional">Preço promocional</label>
+                        <input value="<%= passeio.passeio_preco_promocional %>" id="currency1" type="text" class="validate" name="passeioPrecoPromocional">
+                        <label for="currency1">Preço promocional</label>
                     </div>
 
                 </div>
