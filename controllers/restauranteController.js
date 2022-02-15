@@ -82,7 +82,7 @@ const restauranteController = {
             restaurante_telefone: req.body.restauranteTelefone,
             restaurante_email: req.body.restauranteEmail,
             restaurante_descricao: req.body.restauranteDescricao,
-            imagem: req.file.filename
+            restaurante_imagem: req.file.filename
         }
 
         const updateRestaurante= await db.Restaurante.update(restauranteObj, {where: {id: req.params.id}})
